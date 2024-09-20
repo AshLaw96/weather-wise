@@ -15,61 +15,27 @@ https://ui.dev/amiresponsive?url=https://weather-wise-project-e6ccd7a6b753.herok
 
 ![screenshot](documentation/mockup.png)
 
----
-
-GitHub now supports CALLOUTS in Markdown files.
-There are some callouts already embedded in this application for you.
-However, if you feel that you want to add more, there are certain ones you can use.
-
-NOTE: the preview for callouts isn't yet supported in Gitpod/Codeanywhere/VSCode/etc.
-You'll have to commit/push the changes to GitHub to see it in action.
-
-> [!NOTE]  
-> BLUE: Highlights information that users should take into account, even when skimming.
-
-> [!TIP]  
-> GREEN: Optional information to help a user be more successful.
-
-> [!IMPORTANT]  
-> PURPLE: Crucial information necessary for users to succeed.
-
-> [!WARNING]  
-> YELLOW: Critical content demanding immediate user attention due to potential risks.
-
-> [!CAUTION]  
-> RED: Negative potential consequences of an action.
-
-Source: https://github.com/orgs/community/discussions/16925
-
-🛑🛑🛑🛑🛑🛑🛑🛑🛑🛑-END OF NOTES (to be deleted)
-
-![screenshot](documentation/mockup.png)
-
 source: [amiresponsive](https://ui.dev/amiresponsive?url=https://weather-wise-project-e6ccd7a6b753.herokuapp.com)
+
+---
 
 ## User Stories
 
-🛑🛑🛑🛑🛑🛑🛑🛑🛑🛑 START OF NOTES (to be deleted)
-
-In this section, list all of your user stories for the project.
-
-🛑🛑🛑🛑🛑🛑🛑🛑🛑🛑-END OF NOTES (to be deleted)
-
 ### New Site Users
 
-- As a new site user, I would like to ____________, so that I can ____________.
-- As a new site user, I would like to ____________, so that I can ____________.
-- As a new site user, I would like to ____________, so that I can ____________.
-- As a new site user, I would like to ____________, so that I can ____________.
-- As a new site user, I would like to ____________, so that I can ____________.
+- As a new site user, I would like to enter any location I want, so that I can quickly find what the weather will be like in that location.
+- As a new site user, I would like to know what my current locations weather is going to be, so that I can decide what I need to wear.
+- As a new site user, I would like to know if it's going to rain, so that I can decide what I'm going to do.
+- As a new site user, I would like to know what the temperature is going to be, so that I can decide whether or not to go for a run.
+- As a new site user, I would like to know if it's going to be sunny at the seaside, so that I can find out if I can take my family to the beach.
 
 ### Returning Site Users
 
-- As a returning site user, I would like to ____________, so that I can ____________.
-- As a returning site user, I would like to ____________, so that I can ____________.
-- As a returning site user, I would like to ____________, so that I can ____________.
-- As a returning site user, I would like to ____________, so that I can ____________.
-- As a returning site user, I would like to ____________, so that I can ____________.
+- As a returning site user, I would like to quickly find out what the weather will be like in different places, so that I can decide where I would prefer to go.
+- As a returning site user, I would like to be able to search what the weather is going to be like in 2 different locations, so that I can compare each place.
+- As a returning site user, I would like to have clear instructions on how to use the app, so that I can easily understand what to do with the app.
+- As a returning site user, I would like to know when the sun set and rises, so that I can be on time to view it.
+- As a returning site user, I would like to see weather condition icons, so that I can better visualise what the weather will be like.
 
 ## Features
 
