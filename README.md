@@ -53,62 +53,149 @@ To follow best practice, a flowchart was developed to show the plan of the app a
 
 ![screenshot](documentation/features)
 
-- **Asks user question**
+- **Menu options**
 
-  - The app will first ask the user if they would like to input a location or if they would like to use there current location.
-
-![screenshot](documentation/features)
-
-- **Find users current location or ask user to input a location**
-
-  - Depending on the users previous answer the app will either ask the user to input a location or try to locate where the user is based.
+  - The app will then show three options 1. Play quiz 2. How to play 3. Quit. The user will then be asked to either input 1, 2 or 3 depending on what they would like to do.
 
 ![screenshot](documentation/features)
 
-- **Check users input is correct**
+- **Incorrect input for menu**
 
-  - The app will make sure the user has inputted a valid location, if not an error will appear letting the user know that there input is incorrect and will have to try again. However if the user is correct the app will then request a library to send an API call to a external weather website and pull data from this. 
+  - If the user inputted an incorrect value the app will show that there value was not correct and the need to input either 1, 2 or 3.
+
+![screenshot](documentation/features)
+
+- **Option 1**
+
+  - The app will then ask the user what difficulty level they would like. 1. Easy 2. Medium 3. Hard. The user will then be asked to input either 1, 2 or 3. 
 
 <details>
-<summary> Click here to view the input checks </summary>
+<summary> Click here to view the difficulties </summary>
 
-Correct input
+Easy input
 
 ![screenshot](documentation/features)
 
-Incorrect input
+Medium input
+
+![screenshot](documentation/features)
+
+Hard input
 
 ![screenshot](documentation/features)
 
 </details>
 
-- **Users location**
+- **Incorrect option 1 choice**
 
-  - If the user chose to allow the app to access the users current location the app will then process this and if successful will use it to access data from an external weather website by requesting a library to send an API call to this site. However if the app cannot find the users location, it will show an error message informing the user of this and will then ask if they would like to try again or input there own location.
-
-<details>
-<summary> Click here to view the location checks </summary>
-
-Correct input
+  - If the user choose an option that wasn't there they will be informed that there value was incorrect and that they would need to type either 1, 2 or 3.
 
 ![screenshot](documentation/features)
 
-Incorrect input
+- **Option 1 part 2**
+
+  - Once the user has chosen there difficulty they will then be asked how many questions they will like to be asked, 1. 10 2. 25 3. 50
+
+![screenshot](documentation/features)
+
+- **Incorrect option 1 part 2**
+
+  - If the user choose an option that wasn't there they will be informed that there value was incorrect and that they would need to type either 1, 2 or 3.
+
+![screenshot](documentation/features)
+
+- **Option 2**
+
+  - The app will show the user instructions on how to play the game and once they have read the rules ask them if they have finished reading if they have it will take them back to the menu if not it will just ask the question again.
+
+![screenshot](documentation/features)
+
+- **Incorrect option 2 choice**
+
+  - If the user typed an incorrect value they will be informed that there value was incorrect and that they would need to type either Y/y or N/n.
+
+![screenshot](documentation/features)
+
+- **Option 3**
+
+  - The app will ask the user if they are sure they want to quit, if they do it will show a message saying thankyou for playing, goodbye, if not it will return them to the menu.
+
+<details>
+<summary> Click here to view the quit options </summary>
+
+Y/y input
+
+![screenshot](documentation/features)
+
+N/n input
 
 ![screenshot](documentation/features)
 
 </details>
 
-- **Show dictionary of key value pairs**
+- **Incorrect option 3 choice**
 
-  - The app will then show the user a variety of weather information, informing the user of the weather of there chosen location.
+  - If the user typed an incorrect value they will be informed that there value was incorrect and that they would need to type either Y/y or N/n.
 
 ![screenshot](documentation/features)
+
+- **The quiz**
+
+  - When the player has chosen there difficulty level and how many questions they would like to answer, the app will then access the questions library and choose data from the chosen level and pick random question from it and start asking the user until there chosen amount has been completed.
+
+![screenshot](documentation/features)
+
+- **Incorrect value for quiz**
+
+  - If the user inputs an incorrect value they will be shown that there input is incorrect and they must type either A/a, B/b, C/c or D/d.
+
+![screenshot](documentation/features)
+
+- **Score**
+
+  - When the user has finished the quiz there score will be toted up and then printed to the screen showing them what they have achieved.
+
+![screenshot](documentation/features)
+
+- **Finished**
+
+  - Once the user has received there score they will then be asked if they would like to 1. play again or 2. quit, if they chose option 1 it will take the back to the menu if they chose option 2 it will then ask again if they are sure they would like to quit and if not it will take them to the menu but if they do it will show them the message thankyou for playing, goodbye.
+
+<details>
+<summary> Click here to view the finished game options </summary>
+
+option 1
+
+![screenshot](documentation/features)
+
+option 2
+
+![screenshot](documentation/features)
+
+</details>
+
+- **Incorrect value at finish**
+
+  - If the user inputs an incorrect value they will be shown that there input is incorrect and they must type either 1 or 2 if they chose option 2 and then input an incorrect value for this it will show another error message saying this is an incorrect value you must type either Y/y or N/n.
+
+<details>
+<summary> Click here to view the finish error options </summary>
+
+Error 1
+
+![screenshot](documentation/features)
+
+Error 2
+
+![screenshot](documentation/features)
+
+</details>
 
 ### Future Features
 
-1. Allow user to input 2 locations at the same time so they can compare the weather easily.
-2. Add icons of different weather conditions for a more visually pleasing weather app.
+1. Allow users to play split-screen or multiplayer.
+2. Add a leaderboard to save users high score.
+3. Add links to other quizzes or cool facts about weather. 
 
 ## Tools & Technologies Used
 
