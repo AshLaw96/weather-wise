@@ -37,50 +37,73 @@ source: [amiresponsive](https://ui.dev/amiresponsive?url=https://weather-wise-pr
 - As a returning site user, I would like to know when the sun set and rises, so that I can be on time to view it.
 - As a returning site user, I would like to see weather condition icons, so that I can better visualise what the weather will be like.
 
+## Flowchart
+
+To follow best practice, a flowchart was developed to show the plan of the app and how it should work. I used [Draw.io](https://app.diagrams.net/) to design my apps flowchart.
+
+![screenshot](documentation/flowchart.png)
+
 ## Features
-
-🛑🛑🛑🛑🛑🛑🛑🛑🛑🛑 START OF NOTES (to be deleted)
-
-In this section, you should go over the different parts of your project,
-and describe each in a sentence or so.
-
-You will need to explain what value each of the features provides for the user,
-focusing on who this website is for, what it is that they want to achieve,
-and how your project is the best way to help them achieve these things.
-
-For some/all of your features, you may choose to reference the specific project files that implement them.
-
-IMPORTANT: Remember to always include a screenshot of each individual feature!
-
-🛑🛑🛑🛑🛑🛑🛑🛑🛑🛑-END OF NOTES (to be deleted)
 
 ### Existing Features
 
-- **YOUR-TITLE-FOR-FEATURE-#1**
+- **Header section**
 
-    - Details about this particular feature, including the value to the site, and benefit for the user. Be as detailed as possible!
+    - This will show the user what the app is called and a brief explanation of what it actually does.  
 
-![screenshot](documentation/features/feature01.png)
+![screenshot](documentation/features)
 
-- **YOUR-TITLE-FOR-FEATURE-#2**
+- **Asks user question**
 
-    - Details about this particular feature, including the value to the site, and benefit for the user. Be as detailed as possible!
+    - The app will first ask the user if they would like to input a location or if they would like to use there current location.
 
-![screenshot](documentation/features/feature02.png)
+![screenshot](documentation/features)
 
-- **YOUR-TITLE-FOR-FEATURE-#3**
+- **Find users current location or ask user to input a location**
 
-    - Details about this particular feature, including the value to the site, and benefit for the user. Be as detailed as possible!
+    - Depending on the users previous answer the app will either ask the user to input a location or try to locate where the user is based.
 
-![screenshot](documentation/features/feature03.png)
+![screenshot](documentation/features)
 
-🛑🛑🛑🛑🛑🛑🛑🛑🛑🛑 START OF NOTES (to be deleted)
+- **Check users input is correct**
 
-Repeat as necessary for as many features as your site contains.
+    - The app will make sure the user has inputted a valid location, if not an error will appear letting the user know that there input is incorrect and will have to try again. However if the user is correct the app will then request a library to send an API call to a external weather website and pull data from this. 
 
-Hint: the more, the merrier!
+<details>
+<summary> Click here to view the input checks </summary>
 
-🛑🛑🛑🛑🛑🛑🛑🛑🛑🛑-END OF NOTES (to be deleted)
+Correct input
+
+![screenshot](documentation/features)
+
+Incorrect input
+
+![screenshot](documentation/features)
+
+</details>
+
+- **Users location**
+
+    - If the user chose to allow the app to access the users current location the app will then process this and if successful will use it to access data from an external weather website by requesting a library to send an API call to this site. However if the app cannot find the users location, it will show an error message informing the user of this and will then ask if they would like to try again or input there own location.
+
+<details>
+<summary> Click here to view the location checks </summary>
+
+Correct input
+
+![screenshot](documentation/features)
+
+Incorrect input
+
+![screenshot](documentation/features)
+
+</details>
+
+- **Show dictionary of key value pairs**
+
+    - The app will then show the user a variety of weather information, informing the user of the weather of there chosen location.
+
+![screenshot](documentation/features)
 
 ### Future Features
 
