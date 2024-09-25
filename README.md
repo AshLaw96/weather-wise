@@ -6,9 +6,9 @@
 
 ---
 
-Weather Wise is a weather quiz that users can play to help improve there knowledge about weather and is a fun game for all ages.
+Weather Wise is a multiple choice weather quiz that users can play to help improve there knowledge about weather and is a fun game for all ages, so everyone can play.
 
-When a user first opens the quiz it will show a menu with a title and a brief overview of what it actually is. Below this it will then show a list of options with what the user would like to do next. Depending on there choice it will either start the game, show the instructions on how to play the game or quit the game. If the user inputs an incorrect value they will then be informed that whatever they have just inputted was incorrect and they need to write either 1, 2 or 3 depending on there choice. With the first option been chosen, it will then ask the user what level of difficulty the user would like for example easy, medium or hard. Again if the user inputs an incorrect value it will tell them that they have done so and need to write either 1, 2 or 3. Following there choice it will then ask how many questions they would like to answer for example 10, 25 or 50. Once more if the user didn't type a correct value it will tell them so and that they need to type either 1, 2 or 3. After this the app will then access data from the questions library and start asking randomly chosen multiple choice questions up until the user has answered there desired amount, for example what is rain? a. god peeing b. condensation from clouds c. water squirting from plains d. water that falls from clouds in the sky, that happens when tiny water droplets in the clouds join together and become too heavy to stay in the air. Once again if the user doesn't input a, b, c or d for any question they will be told to write a correct value from the options given. When the quiz has been finished there score will be toted up and then shown to the user, then the user will be asked if they would like to play again or quit the game. If the user doesn't input a correct value again they will be informed of this and asked to input a correct value. Providing they have chosen a correct value it will either take them to the menu or show message saying thank you for playing, goodbye. However at the menu screen if the user inputted the second option the app will then show the user how to play the quiz and once they have read this it will ask if they want to play again. Finally if the user chose the last option it will then double check they want to quit and if they do show the thank you for playing, goodbye message. 
+When a user first opens the quiz it will show a menu with a title and a brief overview of what it actually is. Below this it will then show a list of options with what the user would like to do next. Depending on there choice it will either start the game, show the instructions on how to play the game or quit the game. If the user inputs an incorrect value they will then be informed that whatever they have just inputted was incorrect and they need to write either 1, 2 or 3 depending on there choice. With the first option been chosen, it will then ask the user what level of difficulty the user would like for example easy, medium or hard. Again if the user inputs an incorrect value it will tell them that they have done so and need to write either 1, 2 or 3. Following there choice it will then ask how many questions they would like to answer for example 10, 25 or 50. Once more if the user didn't type a correct value it will tell them so and that they need to type either 1, 2 or 3. After this the app will then access data from the questions library and start asking randomly chosen multiple choice questions up until the user has answered there desired amount, for example what is rain? a. god peeing b. condensation from clouds c. water squirting from plains d. water that falls from clouds in the sky, that happens when tiny water droplets in the clouds join together and become too heavy to stay in the air. Once again if the user doesn't input a, b, c or d for any question they will be told to write a correct value from the options given. When the quiz has been finished there score will be toted up and then shown to the user, then the user will be asked if they would like to play again or quit the game. If the user doesn't input a correct value again they will be informed of this and asked to input a correct value. Providing they have chosen a correct value it will either take them to the menu or show message saying thank you for playing, goodbye. However at the menu screen if the user inputted the second option the app will then show the user how to play the quiz and once they have read this it will ask if they want to play again. Finally if the user chose the last option it will then double check they want to quit and if they do show the thank you for playing, goodbye. 
 
 Deployed site:
 https://ui.dev/amiresponsive?url=https://weather-wise-project-e6ccd7a6b753.herokuapp.com
@@ -23,19 +23,19 @@ source: [amiresponsive](https://ui.dev/amiresponsive?url=https://weather-wise-pr
 
 ### New Site Users
 
-- As a new site user, I would like to enter any location I want, so that I can quickly find what the weather will be like in that location.
-- As a new site user, I would like to know what my current locations weather is going to be, so that I can decide what I need to wear.
-- As a new site user, I would like to know if it's going to rain, so that I can decide what I'm going to do.
-- As a new site user, I would like to know what the temperature is going to be, so that I can decide whether or not to go for a run.
-- As a new site user, I would like to know if it's going to be sunny at the seaside, so that I can find out if I can take my family to the beach.
+- As a new site user, I would like to be able to know what the app is, so that I can quickly decide if I want to continue.
+- As a new site user, I would like to know how to play the quiz, so that I can easily understand what I need to do and start playing.
+- As a new site user, I would like to choose how hard the quiz is, so that I can challenge myself with harder questions.
+- As a new site user, I would like to choose the amount of questions I get asked, so that I don't get bored.
+- As a new site user, I would like to keep playing the game as many times as I want, so that I can keep learning interesting facts about the weather.
 
 ### Returning Site Users
 
-- As a returning site user, I would like to quickly find out what the weather will be like in different places, so that I can decide where I would prefer to go.
-- As a returning site user, I would like to be able to search what the weather is going to be like in 2 different locations, so that I can compare each place.
-- As a returning site user, I would like to have clear instructions on how to use the app, so that I can easily understand what to do with the app.
-- As a returning site user, I would like to know when the sun set and rises, so that I can be on time to view it.
-- As a returning site user, I would like to see weather condition icons, so that I can better visualise what the weather will be like.
+- As a returning site user, I would like to be able to try answering the question again if I didn't input one of the given options, so that my score isn't effected because of this.
+- As a returning site user, I would like to be able to see my high score, so that I can try and beat it and improve my knowledge.
+- As a returning site user, I would like to have different questions, so that I'm not repeating the same questions every time so I don't get bored.
+- As a returning site user, I would like to see different icons or images, so that I can be visually pleased whilst learning cool facts at the same time.
+- As a returning site user, I would like to see other peoples high score, so that I can try and get on the top of the leaderboard.
 
 ## Flowchart
 
