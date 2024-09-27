@@ -1,5 +1,5 @@
 # Imported from my own created files
-from helpers import header, remove
+from helpers import header, remove, rules, checker
 from questions import EASY_QUESTIONS, MED_QUESTIONS, HARD_QUESTIONS
 
 def menu():
