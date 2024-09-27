@@ -1,6 +1,7 @@
 import random
 import time
 import os
+import sys
 # Allows colour to be added to python code
 import colorama
 from colorama import Fore, Back, Style
@@ -182,9 +183,9 @@ def checker(user_selects, selections):
             raise ValueError
     except ValueError:
         remove()
-        print(print(f'{RED_FOREGROUND}{RED_BG}{BRIGHT_STYLING}{THIN_LINE_STYLE}'))
+        print(print(f'{RED_BG}{BRIGHT_STYLING}{THIN_LINE_STYLE}'))
         print(f'{RED_FOREGROUND}{CENTER(f'Error: {user_selects} is not valid! Please select {selections}')}.')
-        print(print(f'{RED_FOREGROUND}{RED_BG}{BRIGHT_STYLING}{THIN_LINE_STYLE}'))
+        print(print(f'{RED_BG}{BRIGHT_STYLING}{THIN_LINE_STYLE}'))
         time.sleep(0.05)
         print('')
 

@@ -23,10 +23,10 @@ def menu():
         print(f'3. exit program')
         time.sleep(0.10)
     
-    user_selects = input(f'\n\t Which option would you like to select? [1-3]\n').strip()
-    selections = ['1', '2', '3']
+        user_selects = input(f'\nWhich option would you like to select? [1-3]\n\n').strip()
+        selections = ['1', '2', '3']
 
-    if checker(user_selects, selections):
+        if checker(user_selects, selections):
 
             remove()
             # Shows rules of game
