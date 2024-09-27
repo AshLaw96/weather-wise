@@ -159,3 +159,44 @@ def rules(title):
             rules('rules')
 
 
+def checker(user_selects, selections):
+    """
+    Tests whether the user inputted a correct selection, if not shows an error.
+    """
+    try:
+        if user_selects not in selections:
+            raise ValueError
+    except ValueError:
+        remove()
+        print(print(f'{RED_FOREGROUND}{RED_BG}{BRIGHT_STYLING}{THIN_LINE_STYLE}'))
+        print(f'{RED_FOREGROUND}{CENTER(f'Error: {user_selects} is not valid! Please select {selections}')}.')
+        print(print(f'{RED_FOREGROUND}{RED_BG}{BRIGHT_STYLING}{THIN_LINE_STYLE}'))
+        time.sleep(0.05)
+        print('')
+
+        input(f'{CENTER("Click ENTER to continue")}\n')
+        remove()
+        return False
+
+    return True
+
+
+def rules_checker(user_rules_selects, rules_selections):
+    """
+    Tests whether the user inputted a correct selection, if not shows an error.
+    """
+    try:
+        if user_rules_selects not in rules_selections:
+            raise ValueError
+    except ValueError:
+        remove()
+        print(print(f'{RED_FOREGROUND}{RED_BG}{BRIGHT_STYLING}{THIN_LINE_STYLE}'))
+        print(f'{RED_FOREGROUND}{CENTER(f'Error: {user_rules_selects} is not valid! Please select {rules_selections}')}.')
+        print(print(f'{RED_FOREGROUND}{RED_BG}{BRIGHT_STYLING}{THIN_LINE_STYLE}'))
+        time.sleep(0.05)
+        print('')
+
+        input(f'{CENTER("Click ENTER to continue")}\n')
+        return False
+
+    return True
