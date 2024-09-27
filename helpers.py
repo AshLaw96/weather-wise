@@ -44,16 +44,17 @@ NORM_STYLING = Style.NORMAL
 BRIGHT_STYLING = Style.BRIGHT
 
 
-def header(title, text):
+def header(title):
     """
     Makes the header section and styles it.
     """
     print(f'{BLUE_FOREGROUND}{BRIGHT_STYLING}{THICK_LINE_STYLE}')
     print(f'{BLUE_FOREGROUND}{CENTER(title).upper()}')
     print(f'{BLUE_FOREGROUND}{BRIGHT_STYLING}{THICK_LINE_STYLE}')
-    time.sleep(0.05)
-    print(f'{BLUE_FOREGROUND}{CENTER(text)}')
+    time.sleep(0.10)
+    print(CENTER('Welcome to an engaging quiz game that tests your knowledge about various weather phenomena, including types of storms, climate patterns, and weather forecasting!'))
     print(f'{BLUE_FOREGROUND}{BRIGHT_STYLING}{THIN_LINE_STYLE}')
+    time.sleep(0.30)
 
 
 def remove():
