@@ -1,16 +1,13 @@
-import random
-import time
-import clear
-from helpers import RED_FOREGROUND, RED_BG, GREEN_FOREGROUND, GREEN_BG, YELLOW_FOREGROUND, YELLOW_BG, BLUE_FOREGROUND, BLUE_BG, MAGENTA_FOREGROUND, MAGENTA_BG, CYAN_FOREGROUND, CYAN_BG, WHITE_FOREGROUND, WHITE_BG, BLACK_FOREGROUND, BLACK_BG, DIM_STYLING, NORM_STYLING, BRIGHT_STYLING, CENTER, LINE_STYLE
+# Imported from my own created files
+from helpers import header, remove
 from questions import EASY_QUESTIONS, MED_QUESTIONS, HARD_QUESTIONS
 
 def menu():
     """
-    Shows the main menu of the program
+    Shows the main menu of the program.
     """
-    print(f'{BLUE_FOREGROUND}{BRIGHT_STYLING}{LINE_STYLE}')
-    print(f'{BLUE_FOREGROUND}{CENTER} Weather wise')
-    print(f'{BLUE_FOREGROUND}{BRIGHT_STYLING}{LINE_STYLE}')
+    remove()
+    header('weather wise', 'Welcome to an engaging quiz game that tests your knowledge about various weather phenomena, including types of storms, climate patterns, and weather forecasting!')
 
 tests = menu()
 

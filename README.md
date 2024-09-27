@@ -257,10 +257,10 @@ I've used the following Python packages and/or external imported packages.
 - `gspread`: used with the Google Sheets API
 - `google.oauth2.service_account`: used for the Google Sheets API credentials
 - `time`: used for adding time delays
-- `os`: used for adding a `clear()` function
+- `os`: used for adding a `remove()` function
 - `colorama`: used for including color in the terminal
 - `random`: used to get a random choice from a list
-- `question`: used to pull all the questions from my own made file 
+- `questions`: used to pull all the questions from my own made file 
 
 ## Testing
 
@@ -374,7 +374,9 @@ No differences were found between the local version and the live deployed versio
 | --- | --- | --- |
 | [Markdown Builder](https://tim.2bn.dev/markdown-builder) | README and TESTING | tool to help generate the Markdown files |
 | [YouTube](https://www.youtube.com/watch?v=u51Zjlnui4Y) | PP3 terminal | tutorial for adding color to the Python terminal |
-| [Chatgpt](https://chatgpt.com/c/66f43ff0-2720-8004-b795-ec70470e8df6) | question.py | used to generate randomly made multiple choice questions | 
+| [Chatgpt](https://chatgpt.com/c/66f43ff0-2720-8004-b795-ec70470e8df6) | question.py | used to generate randomly made multiple choice questions |
+| [geeksforgeeks](https://www.geeksforgeeks.org/clear-screen-python/) | helpers.py | used for looking how to clear the terminal using the `os` library |
+| [W3schools](https://www.w3schools.com/python/ref_string_format.asp) | helpers.py | used `format()` method to be able to center text |
 
 ### Media
 

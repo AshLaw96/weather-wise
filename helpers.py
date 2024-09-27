@@ -1,13 +1,17 @@
+import random
+import time
+import os
 # Allows colour to be added to python code
 import colorama
 from colorama import Fore, Back, Style
 # Resets colour after every use
 colorama.init(autoreset = True)
 
-# Creates 80 character length line
-LINE_STYLE = '━' * 80
+# Creates 80 character length lines
+THICK_LINE_STYLE = '━' * 80
+THIN_LINE_STYLE = '_' * 80
 
-# Horizontally centers at 80 characters
+# Horizontally centers 80 characters wide 
 CENTER = '{:^80}'.format
 
 # All colours in Colorama library
@@ -38,3 +42,22 @@ BLACK_BG = Back.BLACK
 DIM_STYLING = Style.DIM
 NORM_STYLING = Style.NORMAL
 BRIGHT_STYLING = Style.BRIGHT
+
+
+def header(title, text):
+    """
+    Makes the header section and styles it.
+    """
+    print(f'{BLUE_FOREGROUND}{BRIGHT_STYLING}{THICK_LINE_STYLE}')
+    print(f'{BLUE_FOREGROUND}{CENTER(title).upper()}')
+    print(f'{BLUE_FOREGROUND}{BRIGHT_STYLING}{THICK_LINE_STYLE}')
+    time.sleep(0.05)
+    print(f'{BLUE_FOREGROUND}{CENTER(text)}')
+    print(f'{BLUE_FOREGROUND}{BRIGHT_STYLING}{THIN_LINE_STYLE}')
+
+
+def remove():
+    """
+    Remove content from the terminal for easier reading.
+    """
+    os.system('cls' if os.name == 'nt' else 'clear')
