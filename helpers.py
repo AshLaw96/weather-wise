@@ -137,27 +137,40 @@ def rules(title):
     print(CENTER("or type n in uppercase or lowercase if you don't"))
     time.sleep(0.05)
     print('')
+    input(f'{CENTER("Click ENTER to return to menu")}\n')
+    print('')
     print(f'{MAGENTA_FOREGROUND}{BRIGHT_STYLING}{THIN_LINE_STYLE}')
 
-    print("\t Here's what you can do:\n")
+
+def exit():
+    """
+    Closes the program if the user wants to
+    """
     time.sleep(0.10)
-    print(f'{MAGENTA_FOREGROUND}1. {remove}')
+    print(f'{BLACK_FOREGROUND}{BRIGHT_STYLING}{THIN_LINE_STYLE}')
+    print(f'\n{CENTER("are you sure you want to leave?")}\n')
     time.sleep(0.05)
-    print(f'{MAGENTA_FOREGROUND}2. {rules}')
-    time.sleep(0.10)
 
-    user_rules_selects = input(f'\n\tWhich option would you like to select? ')
-    rules_selections = ['1', '2']
+    exit_selects = input(f"{CENTER('type y if you want to leave or type n to stay\n\n')}")
+    exit_selections = ['y', 'n']
 
-    if rules_checker(user_rules_selects, rules_selections):
+    if exit_checker(exit_selects, exit_selections):
 
         remove()
-        # Removes the rules (TODO: need to go back to menu section)
-        if user_rules_selects == '1':
-            remove()
-        # Re-shows rules section
-        elif user_rules_selects == '2':
-            rules('rules')
+        # Closes the program
+        if exit_selects == 'y':
+            time.sleep(0.10)
+            print(f"{CENTER('Thankyou for playing, goodbye')}")
+            print(f'{BLACK_FOREGROUND}{BRIGHT_STYLING}{THIN_LINE_STYLE}')
+            time.sleep(1)
+            sys.exit()
+        # Returns to menu
+        elif exit_selects == 'n':
+            time.sleep(0.10)
+            print('')
+            print(f'{BLACK_FOREGROUND}{BRIGHT_STYLING}{THIN_LINE_STYLE}')
+            print('')
+            input(f'{CENTER("Click ENTER to return to menu")}\n')
 
 
 def checker(user_selects, selections):
@@ -182,22 +195,23 @@ def checker(user_selects, selections):
     return True
 
 
-def rules_checker(user_rules_selects, rules_selections):
+def exit_checker(exit_selects, exit_selections):
     """
     Tests whether the user inputted a correct selection, if not shows an error.
     """
     try:
-        if user_rules_selects not in rules_selections:
+        if exit_selects not in exit_selections:
             raise ValueError
     except ValueError:
         remove()
-        print(print(f'{RED_FOREGROUND}{RED_BG}{BRIGHT_STYLING}{THIN_LINE_STYLE}'))
-        print(f'{RED_FOREGROUND}{CENTER(f'Error: {user_rules_selects} is not valid! Please select {rules_selections}')}.')
-        print(print(f'{RED_FOREGROUND}{RED_BG}{BRIGHT_STYLING}{THIN_LINE_STYLE}'))
+        print(print(f'{RED_BG}{BRIGHT_STYLING}{THIN_LINE_STYLE}'))
+        print(f'{RED_FOREGROUND}{CENTER(f'Error: {exit_selects} is not valid! Please select {exit_selections}')}.')
+        print(print(f'{RED_BG}{BRIGHT_STYLING}{THIN_LINE_STYLE}'))
         time.sleep(0.05)
         print('')
 
         input(f'{CENTER("Click ENTER to continue")}\n')
+        remove()
         return False
 
     return True
