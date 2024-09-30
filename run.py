@@ -7,14 +7,14 @@ def menu():
     """
     Shows the main menu of the program.
     """
-
     while True:
         remove()
         header('weather wise')
 
-        print('')
+        print()
         print("Here's what you can do:\n")
         time.sleep(0.10)
+        print()
         print('1. show rules')
         time.sleep(0.05)
         print('2. play game')

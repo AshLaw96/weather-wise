@@ -2,6 +2,7 @@ import random
 import time
 import os
 import sys
+from string import ascii_lowercase
 # Imported from my own created files
 from questions import EASY_QUESTIONS, MED_QUESTIONS, HARD_QUESTIONS
 # Allows colour to be added to python code
@@ -69,11 +70,9 @@ def checker(user_selects, selections):
             raise ValueError
     except ValueError:
         remove()
-        print(f'{RED_BG}{RED_FOREGROUND}{BRIGHT_STYLING}{THICK_LINE_STYLE}')
-        print(f'{RED_FOREGROUND}{CENTER(f'Error: {user_selects} is not valid! Please select {selections}.')}')
-        print(f'{RED_BG}{RED_FOREGROUND}{BRIGHT_STYLING}{THICK_LINE_STYLE}')
+        print(f'{RED_BG}{WHITE_FOREGROUND}{BRIGHT_STYLING}{CENTER(f'Error: {user_selects} is not valid! Please select {selections}.')}')
         time.sleep(0.05)
-        print('')
+        print()
 
         input(f'{CENTER("Click ENTER to continue")}\n')
         remove()
@@ -96,7 +95,7 @@ def rules(title):
     print(f'{MAGENTA_FOREGROUND}{CENTER(title).upper()}')
     print(f'{MAGENTA_FOREGROUND}{BRIGHT_STYLING}{THIN_LINE_STYLE}')
     time.sleep(0.20)
-    print('')
+    print()
     print(CENTER('When on the main menu screen, when asked what to do you can either choose to'))
     time.sleep(0.05)
     print(CENTER('type 1 which brings you to these rules, '))
@@ -105,7 +104,7 @@ def rules(title):
     time.sleep(0.05)
     print(CENTER('or type 3 which will allow you to quit the game.'))
     time.sleep(0.05)
-    print('')
+    print()
     input(f'{CENTER("Click ENTER to continue")}\n')
 
     print(CENTER('When typing 2 into the terminal it will then ask, '))
@@ -118,7 +117,7 @@ def rules(title):
     time.sleep(0.05)
     print(CENTER('or type 3 for hard.'))
     time.sleep(0.05)
-    print('')
+    print()
     input(f'{CENTER("Click ENTER to continue")}\n')
 
     print(CENTER('Once you have chosen your difficulty, you will then be asked the amount of questions you would like.'))
@@ -129,7 +128,7 @@ def rules(title):
     time.sleep(0.05)
     print(CENTER('or type 3 for 30 questions.'))
     time.sleep(0.05)
-    print('')
+    print()
     input(f'{CENTER("Click ENTER to continue")}\n')
 
     print(CENTER('When you have chosen the amount of questions, '))
@@ -140,7 +139,7 @@ def rules(title):
     time.sleep(0.05)
     print(CENTER('a, b, c or d, either in lowercase or uppercase.'))
     time.sleep(0.05)
-    print('')
+    print()
     input(f'{CENTER("Click ENTER to continue")}\n')
 
     print(CENTER('Once you have answered all your questions, '))
@@ -161,7 +160,7 @@ def rules(title):
     time.sleep(0.05)
     print(CENTER("or type n in uppercase or lowercase if you don't"))
     time.sleep(0.05)
-    print('')
+    print()
     input(f'{CENTER("Click ENTER to return to menu.")}\n')
 
 
@@ -190,9 +189,10 @@ def exit():
         # Returns to menu
         elif exit_selects == 'n':
             time.sleep(0.10)
-            print('')
+            print()
             print(f'{BLACK_FOREGROUND}{BRIGHT_STYLING}{THIN_LINE_STYLE}')
-            print('')
+            print()
+
             input(f'{CENTER("Click ENTER to return to menu.")}\n')
 
 
@@ -205,11 +205,9 @@ def exit_checker(exit_selects, exit_selections):
             raise ValueError
     except ValueError:
         remove()
-        print(f'{RED_BG}{RED_FOREGROUND}{BRIGHT_STYLING}{THICK_LINE_STYLE}')
-        print(f'{RED_FOREGROUND}{CENTER(f'Error: {exit_selects} is not valid! Please select {exit_selections}.')}')
-        print(f'{RED_BG}{RED_FOREGROUND}{BRIGHT_STYLING}{THICK_LINE_STYLE}')
+        print(f'{WHITE_FOREGROUND}{RED_BG}{BRIGHT_STYLING}{CENTER(f'Error: {exit_selects} is not valid! Please select {exit_selections}.')}')
         time.sleep(0.05)
-        print('')
+        print()
 
         input(f'{CENTER("Click ENTER to continue.")}\n')
         remove()
@@ -220,35 +218,37 @@ def exit_checker(exit_selects, exit_selections):
 
 def level_selector():
     """
-    Let's user choose what difficulty of questions that will be asked.
+    Lets user choose what difficulty of questions that will be asked.
     """
-    print(f'{GREEN_FOREGROUND}{BRIGHT_STYLING}{THIN_LINE_STYLE}')
-    print('')
-    print("What level of difficulty would you like?")
-    print('')
-    time.sleep(0.10)
-    print('1. Easy')
-    time.sleep(0.05)
-    print('2. Medium')
-    time.sleep(0.05)
-    print('3. Hard')
-    time.sleep(0.10)
-
-    level_selects = input(f'\nWhich option would you like to select? {GREEN_FOREGROUND}[1-3]\n\n').strip()
-    level_selections = ['1', '2', '3']
-
-    if level_checker(level_selects, level_selections):
-
+    while True:
         remove()
-        # Choses the easy questions
-        if level_selects == '1':
-            print('Easy')
-        # Choses the medium questions
-        elif level_selects == '2':
-            print('Medium')
-        # Choses the hard questions
-        elif level_selects == '3':
-            print('Hard')
+        print(f'{GREEN_FOREGROUND}{BRIGHT_STYLING}{THIN_LINE_STYLE}')
+        print()
+        print("What level of difficulty would you like?")
+        print()
+        time.sleep(0.10)
+        print('1. Easy')
+        time.sleep(0.05)
+        print('2. Medium')
+        time.sleep(0.05)
+        print('3. Hard')
+        time.sleep(0.10)
+
+        level_selects = input(f'\nWhich option would you like to select? {GREEN_FOREGROUND}[1-3]\n\n').strip()
+        level_selections = ['1', '2', '3']
+
+        if level_checker(level_selects, level_selections):
+
+            remove()
+            # Choses the easy questions
+            if level_selects == '1':
+                questions_amount()
+            # Choses the medium questions
+            elif level_selects == '2':
+                questions_amount()
+            # Choses the hard questions
+            elif level_selects == '3':
+                questions_amount()
 
 
 def level_checker(level_selects, level_selections):
@@ -260,14 +260,165 @@ def level_checker(level_selects, level_selections):
             raise ValueError
     except ValueError:
         remove()
-        print(f'{RED_BG}{BRIGHT_STYLING}{THICK_LINE_STYLE}')
-        print(f'{RED_FOREGROUND}{CENTER(f'Error: {level_selects} is not valid! Please select {level_selections}.')}')
-        print(f'{RED_BG}{BRIGHT_STYLING}{THICK_LINE_STYLE}')
+        print(f'{WHITE_FOREGROUND}{RED_BG}{BRIGHT_STYLING}{CENTER(f'Error: {level_selects} is not valid! Please select {level_selections}.')}')
         time.sleep(0.05)
-        print('')
+        print()
 
         input(f'{CENTER("Click ENTER to continue.")}\n')
         remove()
         return False
 
     return True
+
+
+def questions_amount():
+    """
+    Lets user choose the amount of questions they will like.
+    """
+    while True:
+        remove()
+        print(f'{GREEN_FOREGROUND}{BRIGHT_STYLING}{THIN_LINE_STYLE}')
+
+        print()
+        print("How many questions would you like to answer?:\n")
+        time.sleep(0.10)
+        print()
+        print('1. 10')
+        time.sleep(0.05)
+        print('2. 20')
+        time.sleep(0.05)
+        print('3. 30')
+        time.sleep(0.10)
+    
+        amount_selects = input(f'\nWhich option would you like to select? {GREEN_FOREGROUND}[1-3]\n\n').strip()
+        amount_selections = ['1', '2', '3']
+
+        if amount_checker(amount_selects, amount_selections):
+
+            remove()
+            # Starts easy questions with users chosen amount
+            if amount_selects == '1':
+                easy_random_questions()
+            # Starts the process of the game
+            elif amount_selects == '2':
+                print('med')
+            # Starts the process of exiting the game
+            elif amount_selects == '3':
+                print('hard')
+
+
+def amount_checker(amount_selects, amount_selections):
+    """
+    Tests whether the user inputted a correct selection, if not shows an error.
+    """
+    try:
+        if amount_selects not in amount_selections:
+            raise ValueError
+    except ValueError:
+        remove()
+        print(f'{WHITE_FOREGROUND}{RED_BG}{BRIGHT_STYLING}{CENTER(f'Error: {amount_selects} is not valid! Please select {amount_selections}.')}')
+        time.sleep(0.05)
+        print()
+
+        input(f'{CENTER("Click ENTER to continue.")}\n')
+        remove()
+        return False
+
+    return True
+
+
+def easy_random_questions():
+    """
+    shuffles randomly chosen questions from the easy questions list.
+    """
+    print(f"{GREEN_FOREGROUND}{BRIGHT_STYLING}{CENTER('Loading.....')}")
+    time.sleep(3)
+    remove()
+    total = 0
+
+    for num, qst_data in enumerate(EASY_QUESTIONS):
+        question = qst_data['question']
+        choices = qst_data['choices']
+        answers = qst_data['answer']
+
+        print(f'{GREEN_FOREGROUND}{BRIGHT_STYLING}{THIN_LINE_STYLE}')
+        print()
+        print(f'Q{num + 1}: ')
+
+        total += next_easy_qst(question, choices, answers)
+        time.sleep(0.5)
+
+        input(f'{CENTER("Click Enter to continue")}\n')
+        remove()
+
+    # print(f"{GREEN_BG}{WHITE_FOREGROUND}{CENTER('Well done! You scored: {score}')}")
+    # time.sleep(0.10)
+
+    print()
+    easy_selects = input(f"{CENTER('type y if you want to play again or type n to quit.\n\n')}")
+    easy_selections = ['y', 'n']
+
+    if easy_checker(easy_selects, easy_selections):
+        remove()
+        # Shows rules of game
+        if easy_selects == 'y':
+            level_selector()
+        # Starts the process of the game
+        elif easy_selects == 'n':
+            exit()
+
+
+def easy_checker(easy_selects, easy_selections):
+    """
+    Tests whether the user inputted a correct selection, if not shows an error.
+    """
+    try:
+        if easy_selects not in easy_selections:
+            raise ValueError
+    except ValueError:
+        remove()
+        print(f'{WHITE_FOREGROUND}{RED_BG}{BRIGHT_STYLING}{CENTER(f'Error: {easy_selects} is not valid! Please select {easy_selections}.')}')
+        time.sleep(0.05)
+        print()
+
+        input(f'{CENTER("Click ENTER to continue.")}\n')
+        remove()
+        return False
+
+    return True
+
+
+def next_easy_qst(qst, choice, right_choice):
+    """
+    Brings up the next question and checks if the user is correct or incorrect.
+    """
+    sort_choice = random.sample(choice, len(choice))
+
+    answer = user_answered_select(qst, sort_choice)
+    if answer == right_choice:
+        print(f"\n{CENTER('Correct!')}")
+        time.sleep(0.05)
+        print()
+        return 1
+    else:
+        print(f"\n{CENTER('Incorrect!')}")
+        time.sleep(0.05)
+        print()
+        return 0
+
+
+def user_answered_select(qst, choice):
+    """
+    Shows the question and choices, and gets the user's input 
+    """
+    print(f"{qst}")
+    tag_choice = dict(zip(ascii_lowercase, choice))
+
+    for tag, choice_data in tag_choice.items():
+        print(f"  {tag}) {choice_data}")
+    # Handles user errors
+    while (
+         answer_tag := input(f"{CENTER('Answer?')} ").lower()) not in tag_choice:
+        print(f"Please answer one of {', '.join(tag_choice.keys())}")
+
+    return tag_choice[answer_tag]
