@@ -1,7 +1,6 @@
 import time
 # Imported from my own created files
-from helpers import header, remove, rules, checker, exit
-from questions import EASY_QUESTIONS, MED_QUESTIONS, HARD_QUESTIONS
+from helpers import header, remove, rules, checker, exit, BLUE_FOREGROUND, level_selector
 
 
 def menu():
@@ -16,14 +15,14 @@ def menu():
         print('')
         print("Here's what you can do:\n")
         time.sleep(0.10)
-        print(f'1. show rules')
+        print('1. show rules')
         time.sleep(0.05)
-        print(f'2. play game')
+        print('2. play game')
         time.sleep(0.05)
-        print(f'3. exit program')
+        print('3. exit program')
         time.sleep(0.10)
     
-        user_selects = input(f'\nWhich option would you like to select? [1-3]\n\n').strip()
+        user_selects = input(f'\nWhich option would you like to select? {BLUE_FOREGROUND}[1-3]\n\n').strip()
         selections = ['1', '2', '3']
 
         if checker(user_selects, selections):
@@ -34,10 +33,11 @@ def menu():
                 rules('rules')
             # Starts the process of the game
             elif user_selects == '2':
-                print('play game')
+                level_selector()
             # Starts the process of exiting the game
             elif user_selects == '3':
                 exit()
+
 
 tests = menu()
 

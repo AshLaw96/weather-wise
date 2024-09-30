@@ -2,6 +2,8 @@ import random
 import time
 import os
 import sys
+# Imported from my own created files
+from questions import EASY_QUESTIONS, MED_QUESTIONS, HARD_QUESTIONS
 # Allows colour to be added to python code
 import colorama
 from colorama import Fore, Back, Style
@@ -56,6 +58,28 @@ def header(title):
     print(CENTER('Welcome to an engaging quiz game that tests your knowledge about various weather phenomena, including types of storms, climate patterns, and weather forecasting!'))
     print(f'{BLUE_FOREGROUND}{BRIGHT_STYLING}{THIN_LINE_STYLE}')
     time.sleep(0.30)
+
+
+def checker(user_selects, selections):
+    """
+    Tests whether the user inputted a correct selection, if not shows an error.
+    """
+    try:
+        if user_selects not in selections:
+            raise ValueError
+    except ValueError:
+        remove()
+        print(f'{RED_BG}{RED_FOREGROUND}{BRIGHT_STYLING}{THICK_LINE_STYLE}')
+        print(f'{RED_FOREGROUND}{CENTER(f'Error: {user_selects} is not valid! Please select {selections}.')}')
+        print(f'{RED_BG}{RED_FOREGROUND}{BRIGHT_STYLING}{THICK_LINE_STYLE}')
+        time.sleep(0.05)
+        print('')
+
+        input(f'{CENTER("Click ENTER to continue")}\n')
+        remove()
+        return False
+
+    return True
 
 
 def remove():
@@ -138,9 +162,7 @@ def rules(title):
     print(CENTER("or type n in uppercase or lowercase if you don't"))
     time.sleep(0.05)
     print('')
-    input(f'{CENTER("Click ENTER to return to menu")}\n')
-    print('')
-    print(f'{MAGENTA_FOREGROUND}{BRIGHT_STYLING}{THIN_LINE_STYLE}')
+    input(f'{CENTER("Click ENTER to return to menu.")}\n')
 
 
 def exit():
@@ -152,7 +174,7 @@ def exit():
     print(f'\n{CENTER("are you sure you want to leave?")}\n')
     time.sleep(0.05)
 
-    exit_selects = input(f"{CENTER('type y if you want to leave or type n to stay\n\n')}")
+    exit_selects = input(f"{CENTER('type y if you want to leave or type n to stay.\n\n')}")
     exit_selections = ['y', 'n']
 
     if exit_checker(exit_selects, exit_selections):
@@ -161,7 +183,7 @@ def exit():
         # Closes the program
         if exit_selects == 'y':
             time.sleep(0.10)
-            print(f"{CENTER('Thankyou for playing, goodbye')}")
+            print(f"{CENTER('Thankyou for playing, goodbye.')}")
             print(f'{BLACK_FOREGROUND}{BRIGHT_STYLING}{THIN_LINE_STYLE}')
             time.sleep(1)
             sys.exit()
@@ -171,29 +193,7 @@ def exit():
             print('')
             print(f'{BLACK_FOREGROUND}{BRIGHT_STYLING}{THIN_LINE_STYLE}')
             print('')
-            input(f'{CENTER("Click ENTER to return to menu")}\n')
-
-
-def checker(user_selects, selections):
-    """
-    Tests whether the user inputted a correct selection, if not shows an error.
-    """
-    try:
-        if user_selects not in selections:
-            raise ValueError
-    except ValueError:
-        remove()
-        print(print(f'{RED_BG}{BRIGHT_STYLING}{THIN_LINE_STYLE}'))
-        print(f'{RED_FOREGROUND}{CENTER(f'Error: {user_selects} is not valid! Please select {selections}')}.')
-        print(print(f'{RED_BG}{BRIGHT_STYLING}{THIN_LINE_STYLE}'))
-        time.sleep(0.05)
-        print('')
-
-        input(f'{CENTER("Click ENTER to continue")}\n')
-        remove()
-        return False
-
-    return True
+            input(f'{CENTER("Click ENTER to return to menu.")}\n')
 
 
 def exit_checker(exit_selects, exit_selections):
@@ -205,13 +205,68 @@ def exit_checker(exit_selects, exit_selections):
             raise ValueError
     except ValueError:
         remove()
-        print(print(f'{RED_BG}{BRIGHT_STYLING}{THIN_LINE_STYLE}'))
-        print(f'{RED_FOREGROUND}{CENTER(f'Error: {exit_selects} is not valid! Please select {exit_selections}')}.')
-        print(print(f'{RED_BG}{BRIGHT_STYLING}{THIN_LINE_STYLE}'))
+        print(f'{RED_BG}{RED_FOREGROUND}{BRIGHT_STYLING}{THICK_LINE_STYLE}')
+        print(f'{RED_FOREGROUND}{CENTER(f'Error: {exit_selects} is not valid! Please select {exit_selections}.')}')
+        print(f'{RED_BG}{RED_FOREGROUND}{BRIGHT_STYLING}{THICK_LINE_STYLE}')
         time.sleep(0.05)
         print('')
 
-        input(f'{CENTER("Click ENTER to continue")}\n')
+        input(f'{CENTER("Click ENTER to continue.")}\n')
+        remove()
+        return False
+
+    return True
+
+
+def level_selector():
+    """
+    Let's user choose what difficulty of questions that will be asked.
+    """
+    print(f'{GREEN_FOREGROUND}{BRIGHT_STYLING}{THIN_LINE_STYLE}')
+    print('')
+    print("What level of difficulty would you like?")
+    print('')
+    time.sleep(0.10)
+    print('1. Easy')
+    time.sleep(0.05)
+    print('2. Medium')
+    time.sleep(0.05)
+    print('3. Hard')
+    time.sleep(0.10)
+
+    level_selects = input(f'\nWhich option would you like to select? {GREEN_FOREGROUND}[1-3]\n\n').strip()
+    level_selections = ['1', '2', '3']
+
+    if level_checker(level_selects, level_selections):
+
+        remove()
+        # Choses the easy questions
+        if level_selects == '1':
+            print('Easy')
+        # Choses the medium questions
+        elif level_selects == '2':
+            print('Medium')
+        # Choses the hard questions
+        elif level_selects == '3':
+            print('Hard')
+
+
+def level_checker(level_selects, level_selections):
+    """
+    Tests whether the user inputted a correct selection, if not shows an error.
+    """
+    try:
+        if level_selects not in level_selections:
+            raise ValueError
+    except ValueError:
+        remove()
+        print(f'{RED_BG}{BRIGHT_STYLING}{THICK_LINE_STYLE}')
+        print(f'{RED_FOREGROUND}{CENTER(f'Error: {level_selects} is not valid! Please select {level_selections}.')}')
+        print(f'{RED_BG}{BRIGHT_STYLING}{THICK_LINE_STYLE}')
+        time.sleep(0.05)
+        print('')
+
+        input(f'{CENTER("Click ENTER to continue.")}\n')
         remove()
         return False
 
