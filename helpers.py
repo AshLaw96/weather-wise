@@ -3,6 +3,9 @@ import time
 import os
 import sys
 from string import ascii_lowercase
+import gspread
+from google.oauth2.service_account import Credentials
+import datetime
 # Imported from my own created files
 from questions import EASY_QUESTIONS, MED_QUESTIONS, HARD_QUESTIONS
 # Allows colour to be added to python code
@@ -353,6 +356,11 @@ def random_questions(question_list, num_questions):
     print(f"{GREEN_BG}{WHITE_FOREGROUND}{CENTER(f'🎉 Well done! You scored: {total}/{num_questions} 🎉')}")
     time.sleep(0.10)
 
+    user_name = input(f'{CENTER("Please enter your name: ")}')
+    # Adds users name and points to leaderboard
+    update_leaderboard(user_name, total)
+    print(f'{CENTER("Your score has been saved to the leaderboard")}')
+
     # Option to play again or quit
     print()
     qst_selects = input(f"{CENTER('Type Y if you want to play again or type N to quit.\n\n')}").strip().lower()
@@ -422,3 +430,37 @@ def user_answered_select(qst, choice):
         print(f"Please answer one of {', '.join(tag_choice.keys())}")
 
     return tag_choice[answer_tag]
+
+
+def auth_g_sheets():
+    """
+    Sets up the Google Sheets API
+    """
+    SCOPE = [
+    "https://www.googleapis.com/auth/spreadsheets",
+    "https://www.googleapis.com/auth/drive.file",
+    "https://www.googleapis.com/auth/drive"
+    ]
+
+    # Authenticates using the creds.json file
+    CREDS = Credentials.from_service_account_file('creds.json')
+    SCOPED_CREDS = CREDS.with_scopes(SCOPE)
+    GSPREAD_CLIENT = gspread.authorize(SCOPED_CREDS)
+    # Opens the Google Sheets document
+    SHEET = GSPREAD_CLIENT.open('Weather-Wise-Leaderboard')
+    scores = SHEET.worksheet('Scores')
+
+    return scores
+
+
+def update_leaderboard(name, score):
+    """
+    Updates the leaderboard in Google Sheets with the user's name and score.
+    """
+    scores_sheet = auth_g_sheets()
+
+    # Access the current time
+    timestamp = datetime.datetime.now().strftime("%Y-%m-%d %H:%M:%S")
+
+    # Add the new row of data
+    scores_sheet.append_row([name, score, timestamp])
