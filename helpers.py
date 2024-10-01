@@ -294,17 +294,12 @@ def questions_amount():
         amount_selections = ['1', '2', '3']
 
         if amount_checker(amount_selects, amount_selections):
-
             remove()
-            # Starts easy questions with users chosen amount
-            if amount_selects == '1':
-                easy_random_questions()
-            # Starts the process of the game
-            elif amount_selects == '2':
-                print('med')
-            # Starts the process of exiting the game
-            elif amount_selects == '3':
-                print('hard')
+            # Maps the users choice to the amount of questions
+            question_count = {'1': 10, '2': 20, '3': 30}
+            # Calls the function with the selected number of questions
+            easy_random_questions(question_count[amount_selects])
+            break
 
 
 def amount_checker(amount_selects, amount_selections):
@@ -327,7 +322,7 @@ def amount_checker(amount_selects, amount_selections):
     return True
 
 
-def easy_random_questions():
+def easy_random_questions(num_questions):
     """
     shuffles randomly chosen questions from the easy questions list.
     """
@@ -336,7 +331,11 @@ def easy_random_questions():
     remove()
     total = 0
 
-    for num, qst_data in enumerate(EASY_QUESTIONS):
+    # Selects the number of questions requested by the user
+    selected_questions = random.sample(EASY_QUESTIONS, num_questions)
+
+    # Loops the selected questions
+    for num, qst_data in enumerate(selected_questions):
         question = qst_data['question']
         choices = qst_data['choices']
         answers = qst_data['answer']
@@ -351,19 +350,20 @@ def easy_random_questions():
         input(f'{CENTER("Click Enter to continue")}\n')
         remove()
 
-    # print(f"{GREEN_BG}{WHITE_FOREGROUND}{CENTER('Well done! You scored: {score}')}")
-    # time.sleep(0.10)
+    print(f"{GREEN_BG}{CENTER(f'{WHITE_FOREGROUND}Well done! You scored: {total}/{num_questions}')}")
+    time.sleep(0.10)
 
+    # Option to play again or quit
     print()
     easy_selects = input(f"{CENTER('type y if you want to play again or type n to quit.\n\n')}")
     easy_selections = ['y', 'n']
 
     if easy_checker(easy_selects, easy_selections):
         remove()
-        # Shows rules of game
+        # Goes back to difficulty section
         if easy_selects == 'y':
             level_selector()
-        # Starts the process of the game
+        # Starts the process of exiting the game
         elif easy_selects == 'n':
             exit()
 
@@ -396,12 +396,12 @@ def next_easy_qst(qst, choice, right_choice):
 
     answer = user_answered_select(qst, sort_choice)
     if answer == right_choice:
-        print(f"\n{CENTER('Correct!')}")
+        print(f"{CENTER('Correct!')}")
         time.sleep(0.05)
         print()
         return 1
     else:
-        print(f"\n{CENTER('Incorrect!')}")
+        print(f"{CENTER('Incorrect!')}")
         time.sleep(0.05)
         print()
         return 0
@@ -415,7 +415,7 @@ def user_answered_select(qst, choice):
     tag_choice = dict(zip(ascii_lowercase, choice))
 
     for tag, choice_data in tag_choice.items():
-        print(f"  {tag}) {choice_data}")
+        print(f" {tag}) {choice_data}")
     # Handles user errors
     while (
          answer_tag := input(f"{CENTER('Answer?')} ").lower()) not in tag_choice:

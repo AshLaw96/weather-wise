@@ -379,6 +379,7 @@ No differences were found between the local version and the live deployed versio
 | [W3schools](https://www.w3schools.com/python/ref_string_format.asp) | helpers.py | used `format()` method to be able to center text |
 | [geeksforkeeks](https://www.geeksforgeeks.org/sleep-in-python/) | helper.py | used to understand how to use the `sleep()` method with the imported `time` library |
 | [Python Docs](https://docs.python.org/3/library/sys.html) | helpers.py | used to understand how to use the `quit()` method with the imported `sys` library |
+| [W3Schools](https://www.w3schools.com/python/ref_random_sample.asp) | helpers.py | used to understand how to use `sample()` method from the `random` library |
 
 ### Media
 
