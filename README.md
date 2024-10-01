@@ -387,6 +387,7 @@ No differences were found between the local version and the live deployed versio
 | --- | --- | --- | --- |
 | [Audio Micro](https://www.audiomicro.com/free-sound-effects) | game page | audio | free audio files to generate the game sounds |
 | [TinyPNG](https://tinypng.com) | entire site | image | tool for image compression |
+| [GetEmoji](https://getemoji.com/#symbols) | helpers.py | used to add emoji's to the program |
 
 ### Acknowledgements
 

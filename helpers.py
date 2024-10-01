@@ -53,7 +53,7 @@ def header(title):
     Makes the header section and styles it.
     """
     print(f'{BLUE_FOREGROUND}{BRIGHT_STYLING}{THICK_LINE_STYLE}')
-    print(f'{BLUE_FOREGROUND}{CENTER(title).upper()}')
+    print(f'{BLUE_FOREGROUND}{CENTER("⛅ " + title + " 🌧️").upper()}')
     print(f'{BLUE_FOREGROUND}{BRIGHT_STYLING}{THICK_LINE_STYLE}')
     time.sleep(0.10)
     print(CENTER('Welcome to an engaging quiz game that tests your knowledge about various weather phenomena, including types of storms, climate patterns, and weather forecasting!'))
@@ -70,7 +70,7 @@ def checker(user_selects, selections):
             raise ValueError
     except ValueError:
         remove()
-        print(f'{RED_BG}{WHITE_FOREGROUND}{BRIGHT_STYLING}{CENTER(f'Error: {user_selects} is not valid! Please select {selections}.')}')
+        print(f'{RED_BG}{WHITE_FOREGROUND}{BRIGHT_STYLING}{CENTER(f'⛔️Error: {user_selects} is not valid! Please select {selections}.⛔️')}')
         time.sleep(0.05)
         print()
 
@@ -92,7 +92,7 @@ def rules(title):
     """
     Prints instructions on how to play the game.
     """
-    print(f'{MAGENTA_FOREGROUND}{CENTER(title).upper()}')
+    print(f'{MAGENTA_FOREGROUND}{CENTER(title + " 📃").upper()}')
     print(f'{MAGENTA_FOREGROUND}{BRIGHT_STYLING}{THIN_LINE_STYLE}')
     time.sleep(0.20)
     print()
@@ -205,7 +205,7 @@ def exit_checker(exit_selects, exit_selections):
             raise ValueError
     except ValueError:
         remove()
-        print(f'{WHITE_FOREGROUND}{RED_BG}{BRIGHT_STYLING}{CENTER(f'Error: {exit_selects} is not valid! Please select {exit_selections}.')}')
+        print(f'{WHITE_FOREGROUND}{RED_BG}{BRIGHT_STYLING}{CENTER(f'⛔️Error: {exit_selects} is not valid! Please select {exit_selections}.⛔️')}')
         time.sleep(0.05)
         print()
 
@@ -260,7 +260,7 @@ def level_checker(level_selects, level_selections):
             raise ValueError
     except ValueError:
         remove()
-        print(f'{WHITE_FOREGROUND}{RED_BG}{BRIGHT_STYLING}{CENTER(f'Error: {level_selects} is not valid! Please select {level_selections}.')}')
+        print(f'{WHITE_FOREGROUND}{RED_BG}{BRIGHT_STYLING}{CENTER(f'⛔️Error: {level_selects} is not valid! Please select {level_selections}.⛔️')}')
         time.sleep(0.05)
         print()
 
@@ -311,7 +311,7 @@ def amount_checker(amount_selects, amount_selections):
             raise ValueError
     except ValueError:
         remove()
-        print(f'{WHITE_FOREGROUND}{RED_BG}{BRIGHT_STYLING}{CENTER(f'Error: {amount_selects} is not valid! Please select {amount_selections}.')}')
+        print(f'{WHITE_FOREGROUND}{RED_BG}{BRIGHT_STYLING}{CENTER(f'⛔️Error: {amount_selects} is not valid! Please select {amount_selections}.⛔️')}')
         time.sleep(0.05)
         print()
 
@@ -350,7 +350,7 @@ def easy_random_questions(num_questions):
         input(f'{CENTER("Click Enter to continue")}\n')
         remove()
 
-    print(f"{GREEN_BG}{CENTER(f'{WHITE_FOREGROUND}Well done! You scored: {total}/{num_questions}')}")
+    print(f"{GREEN_BG}{WHITE_FOREGROUND}{CENTER(f'🎉 Well done! You scored: {total}/{num_questions} 🎉')}")
     time.sleep(0.10)
 
     # Option to play again or quit
@@ -377,7 +377,7 @@ def easy_checker(easy_selects, easy_selections):
             raise ValueError
     except ValueError:
         remove()
-        print(f'{WHITE_FOREGROUND}{RED_BG}{BRIGHT_STYLING}{CENTER(f'Error: {easy_selects} is not valid! Please select {easy_selections}.')}')
+        print(f'{WHITE_FOREGROUND}{RED_BG}{BRIGHT_STYLING}{CENTER(f'⛔️Error: {qst_selects} is not valid! Please select {qst_selections}.⛔️')}')
         time.sleep(0.05)
         print()
 
@@ -396,12 +396,12 @@ def next_easy_qst(qst, choice, right_choice):
 
     answer = user_answered_select(qst, sort_choice)
     if answer == right_choice:
-        print(f"{CENTER('Correct!')}")
+        print(f"{CENTER('✅Correct!✅')}")
         time.sleep(0.05)
         print()
         return 1
     else:
-        print(f"{CENTER('Incorrect!')}")
+        print(f"{CENTER('❌Incorrect!❌')}")
         time.sleep(0.05)
         print()
         return 0
