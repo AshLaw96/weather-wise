@@ -96,17 +96,6 @@ def rules(title):
     print(f'{MAGENTA_FOREGROUND}{BRIGHT_STYLING}{THIN_LINE_STYLE}')
     time.sleep(0.20)
     print()
-    print(CENTER('When on the main menu screen, when asked what to do you can either choose to'))
-    time.sleep(0.05)
-    print(CENTER('type 1 which brings you to these rules, '))
-    time.sleep(0.05)
-    print(CENTER('type 2 which will let you play the game'))
-    time.sleep(0.05)
-    print(CENTER('or type 3 which will allow you to quit the game.'))
-    time.sleep(0.05)
-    print()
-    input(f'{CENTER("Click ENTER to continue")}\n')
-
     print(CENTER('When typing 2 into the terminal it will then ask, '))
     time.sleep(0.05)
     print(CENTER('what difficulty level would you like'))
@@ -120,7 +109,9 @@ def rules(title):
     print()
     input(f'{CENTER("Click ENTER to continue")}\n')
 
-    print(CENTER('Once you have chosen your difficulty, you will then be asked the amount of questions you would like.'))
+    print(CENTER('Once you have chosen your difficulty, '))
+    time.sleep(0.05)
+    print(CENTER('you will then be asked the amount of questions you would like.'))
     time.sleep(0.05)
     print(CENTER('You can type 1 for 10 questions, '))
     time.sleep(0.05)
@@ -148,17 +139,22 @@ def rules(title):
     time.sleep(0.05)
     print(CENTER('You will then be asked if you would like to play again or quit.'))
     time.sleep(0.05)
-    print(CENTER('You will have to type 1 to play again'))
+    print(CENTER('You will have to type y to play again'))
     time.sleep(0.05)
-    print(CENTER('or type 2 to quit.'))
+    print(CENTER('or type n to quit.'))
     time.sleep(0.05)
-    print(CENTER('If you type 1 you will be taken back to the main menu, '))
+    print(CENTER('If you type y you will be taken back to the difficulty section, '))
     time.sleep(0.05)
-    print(CENTER('but if you type 2 you will be asked again if your sure you want to quit'))
+    print(CENTER('but if you type n you will go through the quitting process.'))
     time.sleep(0.05)
-    print(CENTER('and you can either type y in uppercase or lowercase if you do, '))
+    print()
+    input(f'{CENTER("Click ENTER to continue.")}\n')
+
+    print(CENTER('If you choose 3 in the main menu you will then be asked if you are sure you want to quit.'))
     time.sleep(0.05)
-    print(CENTER("or type n in uppercase or lowercase if you don't"))
+    print(CENTER('You can either type y in uppercase or lowercase to quit the game'))
+    time.sleep(0.05)
+    print(CENTER('or type n in uppercase or lowercase for no, which will take you back to the main menu.'))
     time.sleep(0.05)
     print()
     input(f'{CENTER("Click ENTER to return to menu.")}\n')
@@ -170,10 +166,10 @@ def exit():
     """
     time.sleep(0.10)
     print(f'{BLACK_FOREGROUND}{BRIGHT_STYLING}{THIN_LINE_STYLE}')
-    print(f'\n{CENTER("are you sure you want to leave?")}\n')
+    print(f'\n{CENTER("Are you sure you want to leave?")}\n')
     time.sleep(0.05)
 
-    exit_selects = input(f"{CENTER('type y if you want to leave or type n to stay.\n\n')}")
+    exit_selects = input(f"{CENTER('Type Y if you want to leave or type N to stay.\n\n')}").strip().lower()
     exit_selections = ['y', 'n']
 
     if exit_checker(exit_selects, exit_selections):
@@ -182,7 +178,7 @@ def exit():
         # Closes the program
         if exit_selects == 'y':
             time.sleep(0.10)
-            print(f"{CENTER('Thankyou for playing, goodbye.')}")
+            print(f"{CENTER('Thank you for playing, goodbye.')}")
             print(f'{BLACK_FOREGROUND}{BRIGHT_STYLING}{THIN_LINE_STYLE}')
             time.sleep(1)
             sys.exit()
@@ -242,13 +238,14 @@ def level_selector():
             remove()
             # Choses the easy questions
             if level_selects == '1':
-                questions_amount()
+                questions_amount(EASY_QUESTIONS)
             # Choses the medium questions
             elif level_selects == '2':
-                questions_amount()
+                questions_amount(MED_QUESTIONS)
             # Choses the hard questions
             elif level_selects == '3':
-                questions_amount()
+                questions_amount(HARD_QUESTIONS)
+            break
 
 
 def level_checker(level_selects, level_selections):
@@ -271,7 +268,7 @@ def level_checker(level_selects, level_selections):
     return True
 
 
-def questions_amount():
+def questions_amount(level):
     """
     Lets user choose the amount of questions they will like.
     """
@@ -298,7 +295,7 @@ def questions_amount():
             # Maps the users choice to the amount of questions
             question_count = {'1': 10, '2': 20, '3': 30}
             # Calls the function with the selected number of questions
-            easy_random_questions(question_count[amount_selects])
+            random_questions(level, question_count[amount_selects])
             break
 
 
@@ -322,19 +319,18 @@ def amount_checker(amount_selects, amount_selections):
     return True
 
 
-def easy_random_questions(num_questions):
+def random_questions(question_list, num_questions):
     """
-    shuffles randomly chosen questions from the easy questions list.
+    Selects and asks the specified number of random questions from the given question list.
     """
-    print(f"{GREEN_FOREGROUND}{BRIGHT_STYLING}{CENTER('Loading.....')}")
-    time.sleep(3)
+    print(f"{GREEN_FOREGROUND}{BRIGHT_STYLING}{CENTER('Loading...')}")
+    time.sleep(2)
     remove()
     total = 0
 
     # Selects the number of questions requested by the user
-    selected_questions = random.sample(EASY_QUESTIONS, num_questions)
-
-    # Loops the selected questions
+    selected_questions = random.sample(question_list, num_questions)
+    # Loop through the selected questions
     for num, qst_data in enumerate(selected_questions):
         question = qst_data['question']
         choices = qst_data['choices']
@@ -342,10 +338,14 @@ def easy_random_questions(num_questions):
 
         print(f'{GREEN_FOREGROUND}{BRIGHT_STYLING}{THIN_LINE_STYLE}')
         print()
+        print(f"{GREEN_FOREGROUND}{CENTER('Quiz')}")
+        print(f'{GREEN_FOREGROUND}{BRIGHT_STYLING}{THIN_LINE_STYLE}')
+        print()
         print(f'Q{num + 1}: ')
 
-        total += next_easy_qst(question, choices, answers)
+        total += next_qst(question, choices, answers)
         time.sleep(0.5)
+        print()
 
         input(f'{CENTER("Click Enter to continue")}\n')
         remove()
@@ -355,25 +355,25 @@ def easy_random_questions(num_questions):
 
     # Option to play again or quit
     print()
-    easy_selects = input(f"{CENTER('type y if you want to play again or type n to quit.\n\n')}")
-    easy_selections = ['y', 'n']
+    qst_selects = input(f"{CENTER('Type Y if you want to play again or type N to quit.\n\n')}").strip().lower()
+    qst_selections = ['y', 'n']
 
-    if easy_checker(easy_selects, easy_selections):
+    if qst_checker(qst_selects, qst_selections):
         remove()
         # Goes back to difficulty section
-        if easy_selects == 'y':
+        if qst_selects == 'y':
             level_selector()
         # Starts the process of exiting the game
-        elif easy_selects == 'n':
+        elif qst_selects == 'n':
             exit()
 
 
-def easy_checker(easy_selects, easy_selections):
+def qst_checker(qst_selects, qst_selections):
     """
     Tests whether the user inputted a correct selection, if not shows an error.
     """
     try:
-        if easy_selects not in easy_selections:
+        if qst_selects not in qst_selections:
             raise ValueError
     except ValueError:
         remove()
@@ -388,7 +388,7 @@ def easy_checker(easy_selects, easy_selections):
     return True
 
 
-def next_easy_qst(qst, choice, right_choice):
+def next_qst(qst, choice, right_choice):
     """
     Brings up the next question and checks if the user is correct or incorrect.
     """
@@ -415,10 +415,10 @@ def user_answered_select(qst, choice):
     tag_choice = dict(zip(ascii_lowercase, choice))
 
     for tag, choice_data in tag_choice.items():
-        print(f" {tag}) {choice_data}")
+        print(f"{tag}) {choice_data}")
     # Handles user errors
     while (
-         answer_tag := input(f"{CENTER('Answer?')} ").lower()) not in tag_choice:
+         answer_tag := input(f"{CENTER('Answer?')}").lower()) not in tag_choice:
         print(f"Please answer one of {', '.join(tag_choice.keys())}")
 
     return tag_choice[answer_tag]

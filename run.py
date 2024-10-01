@@ -26,7 +26,6 @@ def menu():
         selections = ['1', '2', '3']
 
         if checker(user_selects, selections):
-
             remove()
             # Shows rules of game
             if user_selects == '1':

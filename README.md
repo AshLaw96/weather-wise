@@ -380,6 +380,8 @@ No differences were found between the local version and the live deployed versio
 | [geeksforkeeks](https://www.geeksforgeeks.org/sleep-in-python/) | helper.py | used to understand how to use the `sleep()` method with the imported `time` library |
 | [Python Docs](https://docs.python.org/3/library/sys.html) | helpers.py | used to understand how to use the `quit()` method with the imported `sys` library |
 | [W3Schools](https://www.w3schools.com/python/ref_random_sample.asp) | helpers.py | used to understand how to use `sample()` method from the `random` library |
+| [Python Docs](https://docs.python.org/3/library/string.html) | helper.py | used to understand how to use `ascii_lowercase` method from the `string` library |
+| [Python Docs](https://docs.python.org/3/whatsnew/3.8.html) | helpers.py | used to understand how to use the walrus operator `:=` |
 
 ### Media
 
