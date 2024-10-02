@@ -358,7 +358,7 @@ def random_questions(question_list, num_questions, difficulty):
 
     user_name = input(f'{CENTER("Please enter your name: ")}')
     # Adds users name and points to leaderboard
-    update_leaderboard(user_name, total, difficulty)
+    update_leaderboard(user_name, total, difficulty, num_questions)
     print(f'{CENTER("Your score has been saved to the leaderboard")}')
 
     # Option to play again or quit
@@ -458,7 +458,7 @@ def auth_g_sheets(difficulty):
         return SHEET.worksheet('Hard')
 
 
-def update_leaderboard(name, score, difficulty):
+def update_leaderboard(name, score, difficulty, num_questions):
     """
     Updates the leaderboard in Google Sheets with the user's name and score.
     """
@@ -468,4 +468,4 @@ def update_leaderboard(name, score, difficulty):
     timestamp = datetime.datetime.now().strftime("%Y-%m-%d %H:%M:%S")
 
     # Add the new row of data
-    scores_sheet.append_row([name, score, timestamp])
+    scores_sheet.append_row([name, score, num_questions, timestamp])
