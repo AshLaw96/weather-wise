@@ -241,13 +241,13 @@ def level_selector():
             remove()
             # Choses the easy questions
             if level_selects == '1':
-                questions_amount(EASY_QUESTIONS)
+                questions_amount(EASY_QUESTIONS, 'easy')
             # Choses the medium questions
             elif level_selects == '2':
-                questions_amount(MED_QUESTIONS)
+                questions_amount(MED_QUESTIONS, 'medium')
             # Choses the hard questions
             elif level_selects == '3':
-                questions_amount(HARD_QUESTIONS)
+                questions_amount(HARD_QUESTIONS, 'hard')
             break
 
 
@@ -271,7 +271,7 @@ def level_checker(level_selects, level_selections):
     return True
 
 
-def questions_amount(level):
+def questions_amount(level, difficulty):
     """
     Lets user choose the amount of questions they will like.
     """
@@ -298,7 +298,7 @@ def questions_amount(level):
             # Maps the users choice to the amount of questions
             question_count = {'1': 10, '2': 20, '3': 30}
             # Calls the function with the selected number of questions
-            random_questions(level, question_count[amount_selects])
+            random_questions(level, question_count[amount_selects], difficulty)
             break
 
 
@@ -322,7 +322,7 @@ def amount_checker(amount_selects, amount_selections):
     return True
 
 
-def random_questions(question_list, num_questions):
+def random_questions(question_list, num_questions, difficulty):
     """
     Selects and asks the specified number of random questions from the given question list.
     """
@@ -358,7 +358,7 @@ def random_questions(question_list, num_questions):
 
     user_name = input(f'{CENTER("Please enter your name: ")}')
     # Adds users name and points to leaderboard
-    update_leaderboard(user_name, total)
+    update_leaderboard(user_name, total, difficulty)
     print(f'{CENTER("Your score has been saved to the leaderboard")}')
 
     # Option to play again or quit
@@ -432,9 +432,9 @@ def user_answered_select(qst, choice):
     return tag_choice[answer_tag]
 
 
-def auth_g_sheets():
+def auth_g_sheets(difficulty):
     """
-    Sets up the Google Sheets API
+    Sets up the Google Sheets API and returns the correct worksheet based on the difficulty level
     """
     SCOPE = [
     "https://www.googleapis.com/auth/spreadsheets",
@@ -448,18 +448,23 @@ def auth_g_sheets():
     GSPREAD_CLIENT = gspread.authorize(SCOPED_CREDS)
     # Opens the Google Sheets document
     SHEET = GSPREAD_CLIENT.open('Weather-Wise-Leaderboard')
-    scores = SHEET.worksheet('Scores')
 
-    return scores
+    # Selects the worksheet based on difficulty level
+    if difficulty == 'easy':
+        return SHEET.worksheet('Easy')
+    elif difficulty == 'medium':
+        return SHEET.worksheet('Medium')
+    elif difficulty == 'hard':
+        return SHEET.worksheet('Hard')
 
 
-def update_leaderboard(name, score):
+def update_leaderboard(name, score, difficulty):
     """
     Updates the leaderboard in Google Sheets with the user's name and score.
     """
-    scores_sheet = auth_g_sheets()
+    scores_sheet = auth_g_sheets(difficulty)
 
-    # Access the current time
+    # Access the current time {%Y: 2024, %m: 01-12, %d: 01-31, %H: 00-23, %M: 00-59, %S: 00-59}
     timestamp = datetime.datetime.now().strftime("%Y-%m-%d %H:%M:%S")
 
     # Add the new row of data
