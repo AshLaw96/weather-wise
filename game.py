@@ -133,7 +133,6 @@ def random_questions(question_list, num_questions, difficulty):
         choices = qst_data['choices']
         answers = qst_data['answer']
 
-        print(f'{GREEN_FOREGROUND}{BRIGHT_STYLING}{THIN_LINE_STYLE}')
         print()
         print(f"{GREEN_FOREGROUND}{CENTER('Quiz')}")
         print(f'{GREEN_FOREGROUND}{BRIGHT_STYLING}{THIN_LINE_STYLE}')

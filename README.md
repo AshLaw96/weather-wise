@@ -230,25 +230,46 @@ class Person:
         self.health = health
         self.inventory = inventory
 ```
+🛑🛑🛑🛑🛑🛑🛑🛑🛑🛑-END OF NOTES (to be deleted)
 
 The primary functions used on this application are:
 
-- `get_sales_data()`
-    - Get sales figures input from the user.
-- `validate_data()`
-    - Converts all string values into integers.
-- `update_worksheet()`
-    - Update the relevant worksheet with the data provided.
-- `calculate_surplus_data()`
-    - Compare sales with stock and calculate the surplus for each item type.
-- `get_last_5_entries_sales()`
-    - Collects columns of data from sales worksheet.
-- `calculate_stock_data()`
-    -  Calculate the average stock for each item type, adding 10%.
+- `menu()`
+  - Shows the first screen the user sees allowing them to choose what they want to do first.
+- `header()`
+  - Shows the title and all of its styles and content.
+- `checker()`
+  - Adds code validation for the menu section if a user inputs incorrect values.
+- `remove()`
+  - Clears the content allowing user to see what's running next.
+- `rules()`
+  - Shows how to play the game and adds all of it's styling for this section.
+- `exit()`
+  - Allows the user to end the game and all the styling for this section.
+- `exit_checker()`
+  - Adds code validation for the exit section if a user inputs incorrect values.
+- `level_selector()`
+  - Let's the user choose what level of difficulty they would like the questions to be and adds styling for this section.
+- `level_checker()`
+  - Adds code validation for the level section if a user inputs incorrect values.
+- `questions_amount()`
+  - Let's the user choose how many questions they would like to answer and adds styling for this section.
+- `amount_checker()`
+  - Adds code validation for the amount section if a user inputs incorrect values.
+- `random_questions()`
+  - Selects the chosen amount and difficulty of questions the user asked for and randomly picks from the specified category and adds the styling.
+-  `qst_checker()`
+  - Adds code validation for the question section if a user inputs incorrect values.
+- `next_qst()`
+  - Brings up the next question and checks if the user is correct or not.
+- `user_answered_select()`
+  - Shows the questions and choices and makes sure the user inputted correctly and if not informs them.
+- `auth_g_sheets()`
+  - Sets up Google Sheets API and returns the correct worksheet based on difficulty.
+- `update_leaderboard()`
+  - Updates the Google Sheets leaderboard with the user's name, score, amount of questions answered and the time/date.
 - `main()`
     - Run all program functions.
-
-🛑🛑🛑🛑🛑🛑🛑🛑🛑🛑-END OF NOTES (to be deleted)
 
 ### Imports
 
