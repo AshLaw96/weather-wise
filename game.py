@@ -28,7 +28,7 @@ def level_selector():
         print('3. Hard')
         time.sleep(0.10)
 
-        level_selects = input(f'\nWhich option would you like to select? {GREEN_FOREGROUND}[1-3]\n\n').strip()
+        level_selects = input(f'\nWhich option would you like to select? {GREEN_FOREGROUND}{BRIGHT_STYLING}[1-3]\n\n').strip()
         level_selections = ['1', '2', '3']
 
         if level_checker(level_selects, level_selections):
@@ -65,7 +65,7 @@ def questions_amount(level, difficulty):
         print('3. 30')
         time.sleep(0.10)
     
-        amount_selects = input(f'\nWhich option would you like to select? {GREEN_FOREGROUND}[1-3]\n\n').strip()
+        amount_selects = input(f'\nWhich option would you like to select? {GREEN_FOREGROUND}{BRIGHT_STYLING}[1-3]\n\n').strip()
         amount_selections = ['1', '2', '3']
 
         if amount_checker(amount_selects, amount_selections):
@@ -95,6 +95,8 @@ def random_questions(question_list, num_questions, difficulty):
         answers = qst_data['answer']
 
         print()
+        print(f'{GREEN_FOREGROUND}{BRIGHT_STYLING}{THIN_LINE_STYLE}')
+        print()
         print(f"{GREEN_FOREGROUND}{CENTER('Quiz')}")
         print(f'{GREEN_FOREGROUND}{BRIGHT_STYLING}{THIN_LINE_STYLE}')
         print()
@@ -107,11 +109,25 @@ def random_questions(question_list, num_questions, difficulty):
         input(f'{CENTER("Click Enter to continue")}\n')
         remove()
 
-    print(f"{GREEN_BG}{WHITE_FOREGROUND}{CENTER(f'🎉 Well done! You scored: {total}/{num_questions} 🎉')}")
+    score_percentage = (total / num_questions) * 100
+    # Display message based on user's score
+    if score_percentage <= 25:
+        score_message = f'{CENTER("Try harder! You can do it!")}'
+    elif score_percentage <= 50:
+        score_message = f'{CENTER("Nice try! Keep improving!")}'
+    elif score_percentage <= 75:
+        score_message = f'{CENTER("Well done! You are getting there!")}'
+    else:
+        score_message = f'{CENTER("Outstanding! Excellent performance!")}'
+
+    print()
+    print(f"{GREEN_BG}{WHITE_FOREGROUND}{BRIGHT_STYLING}{CENTER(f'🎉 {score_message}{total}/{num_questions} 🎉')}")
     time.sleep(0.10)
 
     user_name = input(f'{CENTER("Please enter your name: ")}')
+    remove()
     # Adds users name and points to leaderboard
+    print('Please wait...')
     update_leaderboard(user_name, total, difficulty, num_questions)
     print(f'{CENTER("Your score has been saved to the leaderboard")}')
 
@@ -138,12 +154,12 @@ def next_qst(qst, choice, right_choice):
 
     answer = user_answered_select(qst, sort_choice)
     if answer == right_choice:
-        print(f"{CENTER('✅Correct!✅')}")
+        print(f"{CENTER('✅ Correct! ✅')}")
         time.sleep(0.05)
         print()
         return 1
     else:
-        print(f"{CENTER('❌Incorrect!❌')}")
+        print(f"{CENTER('❌ Incorrect! ❌')}")
         time.sleep(0.05)
         print()
         return 0
@@ -154,6 +170,7 @@ def user_answered_select(qst, choice):
     Shows the question and choices, and gets the user's input 
     """
     print(f"{qst}")
+    print()
     tag_choice = dict(zip(ascii_lowercase, choice))
 
     for tag, choice_data in tag_choice.items():

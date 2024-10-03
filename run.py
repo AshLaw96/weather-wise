@@ -23,7 +23,7 @@ def menu():
         print('3. exit program')
         time.sleep(0.10)
     
-        user_selects = input(f'\nWhich option would you like to select? {BLUE_FOREGROUND}[1-3]\n\n').strip()
+        user_selects = input(f'\nWhich option would you like to select? {BLUE_FOREGROUND}{BRIGHT_STYLING}[1-3]\n\n').strip()
         selections = ['1', '2', '3']
 
         if checker(user_selects, selections):
@@ -44,7 +44,7 @@ def header(title):
     Makes the header section and styles it.
     """
     print(f'{BLUE_FOREGROUND}{BRIGHT_STYLING}{THICK_LINE_STYLE}')
-    print(f'{BLUE_FOREGROUND}{CENTER("⛅ " + title + " 🌧️").upper()}')
+    print(f'{BLUE_FOREGROUND}{BRIGHT_STYLING}{CENTER("⛅ " + title + " 🌧️").upper()}')
     print(f'{BLUE_FOREGROUND}{BRIGHT_STYLING}{THICK_LINE_STYLE}')
     time.sleep(0.10)
     print(CENTER('Welcome to an engaging quiz game that tests your knowledge about various weather phenomena, including types of storms, climate patterns, and weather forecasting!'))
@@ -56,7 +56,9 @@ def rules(title):
     """
     Prints instructions on how to play the game.
     """
-    print(f'{MAGENTA_FOREGROUND}{CENTER(title + " 📃").upper()}')
+    print(f'{MAGENTA_FOREGROUND}{BRIGHT_STYLING}{THIN_LINE_STYLE}')
+    print()
+    print(f'{MAGENTA_FOREGROUND}{BRIGHT_STYLING}{CENTER(title + " 📃").upper()}')
     print(f'{MAGENTA_FOREGROUND}{BRIGHT_STYLING}{THIN_LINE_STYLE}')
     time.sleep(0.20)
     print()
@@ -74,8 +76,11 @@ def rules(title):
     input(f'{CENTER("Click ENTER to continue")}\n')
 
     remove()
-    print(f'{MAGENTA_FOREGROUND}{CENTER(title + " 📃").upper()}')
     print(f'{MAGENTA_FOREGROUND}{BRIGHT_STYLING}{THIN_LINE_STYLE}')
+    print()
+    print(f'{MAGENTA_FOREGROUND}{BRIGHT_STYLING}{CENTER(title + " 📃").upper()}')
+    print(f'{MAGENTA_FOREGROUND}{BRIGHT_STYLING}{THIN_LINE_STYLE}')
+    print()
     print(CENTER('Once you have chosen your difficulty, '))
     time.sleep(0.05)
     print(CENTER('you will then be asked the amount of questions you would like.'))
@@ -90,8 +95,11 @@ def rules(title):
     input(f'{CENTER("Click ENTER to continue")}\n')
 
     remove()
-    print(f'{MAGENTA_FOREGROUND}{CENTER(title + " 📃").upper()}')
     print(f'{MAGENTA_FOREGROUND}{BRIGHT_STYLING}{THIN_LINE_STYLE}')
+    print()
+    print(f'{MAGENTA_FOREGROUND}{BRIGHT_STYLING}{CENTER(title + " 📃").upper()}')
+    print(f'{MAGENTA_FOREGROUND}{BRIGHT_STYLING}{THIN_LINE_STYLE}')
+    print()
     print(CENTER('When you have chosen the amount of questions, '))
     time.sleep(0.05)
     print(CENTER('you will then start the quiz.'))
@@ -104,12 +112,30 @@ def rules(title):
     input(f'{CENTER("Click ENTER to continue")}\n')
 
     remove()
-    print(f'{MAGENTA_FOREGROUND}{CENTER(title + " 📃").upper()}')
     print(f'{MAGENTA_FOREGROUND}{BRIGHT_STYLING}{THIN_LINE_STYLE}')
+    print()
+    print(f'{MAGENTA_FOREGROUND}{BRIGHT_STYLING}{CENTER(title + " 📃").upper()}')
+    print(f'{MAGENTA_FOREGROUND}{BRIGHT_STYLING}{THIN_LINE_STYLE}')
+    print()
     print(CENTER('Once you have answered all your questions, '))
     time.sleep(0.05)
     print(CENTER('your score will be added and shown to you.'))
     time.sleep(0.05)
+    print(CENTER('You will then be asked to input your name and once inputted, '))
+    time.sleep(0.05)
+    print(CENTER('Your score, name, difficulty level, amount of questions and'))
+    time.sleep(0.05)
+    print(CENTER('the time/date you achieved this will be added to a leaderboard.'))
+    time.sleep(0.05)
+    print()
+    input(f'{CENTER("Click ENTER to continue.")}\n')
+
+    remove()
+    print(f'{MAGENTA_FOREGROUND}{BRIGHT_STYLING}{THIN_LINE_STYLE}')
+    print()
+    print(f'{MAGENTA_FOREGROUND}{BRIGHT_STYLING}{CENTER(title + " 📃").upper()}')
+    print(f'{MAGENTA_FOREGROUND}{BRIGHT_STYLING}{THIN_LINE_STYLE}')
+    print()
     print(CENTER('You will then be asked if you would like to play again or quit.'))
     time.sleep(0.05)
     print(CENTER('You will have to type y to play again'))
@@ -124,8 +150,11 @@ def rules(title):
     input(f'{CENTER("Click ENTER to continue.")}\n')
 
     remove()
-    print(f'{MAGENTA_FOREGROUND}{CENTER(title + " 📃").upper()}')
     print(f'{MAGENTA_FOREGROUND}{BRIGHT_STYLING}{THIN_LINE_STYLE}')
+    print()
+    print(f'{MAGENTA_FOREGROUND}{BRIGHT_STYLING}{CENTER(title + " 📃").upper()}')
+    print(f'{MAGENTA_FOREGROUND}{BRIGHT_STYLING}{THIN_LINE_STYLE}')
+    print()
     print(CENTER('If you choose 3 in the main menu you will then be asked if you are sure you want to quit.'))
     time.sleep(0.05)
     print(CENTER('You can either type y in uppercase or lowercase to quit the game'))

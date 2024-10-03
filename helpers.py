@@ -70,6 +70,7 @@ def exit():
         # Closes the program
         if exit_selects == 'y':
             time.sleep(0.10)
+            print()
             print(f"{CENTER('Thank you for playing, goodbye.')}")
             print(f'{BLACK_FOREGROUND}{BRIGHT_STYLING}{THIN_LINE_STYLE}')
             time.sleep(1)

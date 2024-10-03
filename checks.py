@@ -12,7 +12,8 @@ def checker(user_selects, selections):
             raise ValueError
     except ValueError:
         remove()
-        print(f'{RED_BG}{WHITE_FOREGROUND}{BRIGHT_STYLING}{CENTER(f'⛔️Error: {user_selects} is not valid! Please select {selections}.⛔️')}')
+        print()
+        print(f'{RED_BG}{WHITE_FOREGROUND}{BRIGHT_STYLING}{CENTER(f'⛔️ Error: {user_selects} is not valid! Please select {selections}. ⛔️')}')
         time.sleep(0.05)
         print()
 
@@ -36,7 +37,8 @@ def exit_checker(exit_selects, exit_selections):
             raise ValueError
     except ValueError:
         remove()
-        print(f'{WHITE_FOREGROUND}{RED_BG}{BRIGHT_STYLING}{CENTER(f'⛔️Error: {exit_selects} is not valid! Please select {exit_selections}.⛔️')}')
+        print()
+        print(f'{WHITE_FOREGROUND}{RED_BG}{BRIGHT_STYLING}{CENTER(f'⛔️ Error: {exit_selects} is not valid! Please select {exit_selections}. ⛔️')}')
         time.sleep(0.05)
         print()
 
@@ -60,7 +62,8 @@ def level_checker(level_selects, level_selections):
             raise ValueError
     except ValueError:
         remove()
-        print(f'{WHITE_FOREGROUND}{RED_BG}{BRIGHT_STYLING}{CENTER(f'⛔️Error: {level_selects} is not valid! Please select {level_selections}.⛔️')}')
+        print()
+        print(f'{WHITE_FOREGROUND}{RED_BG}{BRIGHT_STYLING}{CENTER(f'⛔️ Error: {level_selects} is not valid! Please select {level_selections}. ⛔️')}')
         time.sleep(0.05)
         print()
 
@@ -84,7 +87,8 @@ def amount_checker(amount_selects, amount_selections):
             raise ValueError
     except ValueError:
         remove()
-        print(f'{WHITE_FOREGROUND}{RED_BG}{BRIGHT_STYLING}{CENTER(f'⛔️Error: {amount_selects} is not valid! Please select {amount_selections}.⛔️')}')
+        print()
+        print(f'{WHITE_FOREGROUND}{RED_BG}{BRIGHT_STYLING}{CENTER(f'⛔️ Error: {amount_selects} is not valid! Please select {amount_selections}. ⛔️')}')
         time.sleep(0.05)
         print()
 
@@ -108,7 +112,8 @@ def qst_checker(qst_selects, qst_selections):
             raise ValueError
     except ValueError:
         remove()
-        print(f'{WHITE_FOREGROUND}{RED_BG}{BRIGHT_STYLING}{CENTER(f'⛔️Error: {qst_selects} is not valid! Please select {qst_selections}.⛔️')}')
+        print()
+        print(f'{WHITE_FOREGROUND}{RED_BG}{BRIGHT_STYLING}{CENTER(f'⛔️ Error: {qst_selects} is not valid! Please select {qst_selections}. ⛔️')}')
         time.sleep(0.05)
         print()
 
