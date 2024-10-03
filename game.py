@@ -6,7 +6,7 @@ from google.oauth2.service_account import Credentials
 import datetime
 # Imported from my own created files
 from questions import EASY_QUESTIONS, MED_QUESTIONS, HARD_QUESTIONS
-from helpers import remove, exit, THIN_LINE_STYLE, GREEN_BG, GREEN_FOREGROUND, CENTER, RED_BG, RED_FOREGROUND, WHITE_FOREGROUND, BRIGHT_STYLING
+from checks import qst_checker, amount_checker, level_checker
 
 
 def level_selector():
@@ -45,26 +45,6 @@ def level_selector():
             break
 
 
-def level_checker(level_selects, level_selections):
-    """
-    Tests whether the user inputted a correct selection, if not shows an error.
-    """
-    try:
-        if level_selects not in level_selections:
-            raise ValueError
-    except ValueError:
-        remove()
-        print(f'{WHITE_FOREGROUND}{RED_BG}{BRIGHT_STYLING}{CENTER(f'⛔️Error: {level_selects} is not valid! Please select {level_selections}.⛔️')}')
-        time.sleep(0.05)
-        print()
-
-        input(f'{CENTER("Click ENTER to continue.")}\n')
-        remove()
-        return False
-
-    return True
-
-
 def questions_amount(level, difficulty):
     """
     Lets user choose the amount of questions they will like.
@@ -94,26 +74,6 @@ def questions_amount(level, difficulty):
             # Calls the function with the selected number of questions
             random_questions(level, question_count[amount_selects], difficulty)
             break
-
-
-def amount_checker(amount_selects, amount_selections):
-    """
-    Tests whether the user inputted a correct selection, if not shows an error.
-    """
-    try:
-        if amount_selects not in amount_selections:
-            raise ValueError
-    except ValueError:
-        remove()
-        print(f'{WHITE_FOREGROUND}{RED_BG}{BRIGHT_STYLING}{CENTER(f'⛔️Error: {amount_selects} is not valid! Please select {amount_selections}.⛔️')}')
-        time.sleep(0.05)
-        print()
-
-        input(f'{CENTER("Click ENTER to continue.")}\n')
-        remove()
-        return False
-
-    return True
 
 
 def random_questions(question_list, num_questions, difficulty):
@@ -167,26 +127,6 @@ def random_questions(question_list, num_questions, difficulty):
         # Starts the process of exiting the game
         elif qst_selects == 'n':
             exit()
-
-
-def qst_checker(qst_selects, qst_selections):
-    """
-    Tests whether the user inputted a correct selection, if not shows an error.
-    """
-    try:
-        if qst_selects not in qst_selections:
-            raise ValueError
-    except ValueError:
-        remove()
-        print(f'{WHITE_FOREGROUND}{RED_BG}{BRIGHT_STYLING}{CENTER(f'⛔️Error: {qst_selects} is not valid! Please select {qst_selections}.⛔️')}')
-        time.sleep(0.05)
-        print()
-
-        input(f'{CENTER("Click ENTER to continue.")}\n')
-        remove()
-        return False
-
-    return True
 
 
 def next_qst(qst, choice, right_choice):

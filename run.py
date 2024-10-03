@@ -1,8 +1,7 @@
 import time
 # Imported from my own created files
-from helpers import header, remove, rules, checker, exit, BLUE_FOREGROUND
 from game import level_selector
-
+from checks import checker
 
 def menu():
     """

@@ -1,6 +1,7 @@
 import time
-import os
 import sys
+# Imports from own created file
+from checks import exit_checker
 # Allows colour to be added to python code
 import colorama
 from colorama import Fore, Back, Style
