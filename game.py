@@ -6,6 +6,7 @@ from google.oauth2.service_account import Credentials
 import datetime
 # Imported from my own created files
 from questions import EASY_QUESTIONS, MED_QUESTIONS, HARD_QUESTIONS
+from helpers import remove, exit, THIN_LINE_STYLE, GREEN_BG, GREEN_FOREGROUND, CENTER, WHITE_FOREGROUND, BRIGHT_STYLING
 from checks import qst_checker, amount_checker, level_checker
 
 
