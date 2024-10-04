@@ -6,7 +6,10 @@ from google.oauth2.service_account import Credentials
 import datetime
 # Imported from my own created files
 from questions import EASY_QUESTIONS, MED_QUESTIONS, HARD_QUESTIONS
-from helpers import remove, exit, THIN_LINE_STYLE, GREEN_BG, GREEN_FOREGROUND, CENTER, WHITE_FOREGROUND, BRIGHT_STYLING
+from helpers import (
+    remove, exit, THIN_LINE_STYLE, GREEN_BG, GREEN_FOREGROUND, CENTER,
+    WHITE_FOREGROUND, BRIGHT_STYLING, loading_message, RED_BG
+)
 from checks import qst_checker, amount_checker, level_checker
 
 
@@ -28,7 +31,11 @@ def level_selector():
         print('3. Hard')
         time.sleep(0.10)
 
-        level_selects = input(f'\nWhich option would you like to select? {GREEN_FOREGROUND}{BRIGHT_STYLING}[1-3]\n\n').strip()
+        level_selects = input(
+            f'\nWhich option would you like to select? '
+            f'{GREEN_FOREGROUND}{BRIGHT_STYLING}[1-3]\n\n'
+        ).strip()
+
         level_selections = ['1', '2', '3']
 
         if level_checker(level_selects, level_selections):
@@ -64,8 +71,12 @@ def questions_amount(level, difficulty):
         time.sleep(0.05)
         print('3. 30')
         time.sleep(0.10)
-    
-        amount_selects = input(f'\nWhich option would you like to select? {GREEN_FOREGROUND}{BRIGHT_STYLING}[1-3]\n\n').strip()
+
+        amount_selects = input(
+            f'\nWhich option would you like to select? '
+            f'{GREEN_FOREGROUND}{BRIGHT_STYLING}[1-3]\n\n'
+        ).strip()
+
         amount_selections = ['1', '2', '3']
 
         if amount_checker(amount_selects, amount_selections):
@@ -79,9 +90,10 @@ def questions_amount(level, difficulty):
 
 def random_questions(question_list, num_questions, difficulty):
     """
-    Selects and asks the specified number of random questions from the given question list.
+    Selects and asks the specified number of random questions
+    from the given question list.
     """
-    print(f"{GREEN_FOREGROUND}{BRIGHT_STYLING}{CENTER('Loading...')}")
+    loading_message()
     time.sleep(2)
     remove()
     total = 0
@@ -121,19 +133,29 @@ def random_questions(question_list, num_questions, difficulty):
         score_message = f'{CENTER("Outstanding! Excellent performance!")}'
 
     print()
-    print(f"{GREEN_BG}{WHITE_FOREGROUND}{BRIGHT_STYLING}{CENTER(f'🎉 {score_message}{total}/{num_questions} 🎉')}")
+    print(
+        f"{GREEN_BG}{WHITE_FOREGROUND}{BRIGHT_STYLING}"
+        f"{CENTER(f'🎉 {score_message}{total}/{num_questions} 🎉')}"
+    )
     time.sleep(0.10)
 
     user_name = input(f'{CENTER("Please enter your name: ")}')
     remove()
+
+    loading_message()
+
     # Adds users name and points to leaderboard
-    print('Please wait...')
+    time.sleep(0.30)
+    remove()
     update_leaderboard(user_name, total, difficulty, num_questions)
     print(f'{CENTER("Your score has been saved to the leaderboard")}')
 
     # Option to play again or quit
     print()
-    qst_selects = input(f"{CENTER('Type Y if you want to play again or type N to quit.\n\n')}").strip().lower()
+    qst_selects = input(
+        f"{CENTER('Type Y if you want to play again or type N to quit.\n\n')}"
+    ).strip().lower()
+
     qst_selections = ['y', 'n']
 
     if qst_checker(qst_selects, qst_selections):
@@ -167,7 +189,7 @@ def next_qst(qst, choice, right_choice):
 
 def user_answered_select(qst, choice):
     """
-    Shows the question and choices, and gets the user's input 
+    Shows the question and choices, and gets the user's input.
     """
     print(f"{qst}")
     print()
@@ -176,21 +198,31 @@ def user_answered_select(qst, choice):
     for tag, choice_data in tag_choice.items():
         print(f"{tag}) {choice_data}")
     # Handles user errors
-    while (
-         answer_tag := input(f"{CENTER('Answer?')}").lower()) not in tag_choice:
-        print(f"Please answer one of {', '.join(tag_choice.keys())}")
+    while True:
+        print()
+        answer_tag = input(f"{CENTER('Answer?')}").lower()
+        if answer_tag in tag_choice:
+            break
+        else:
+            print()
+            print(
+                f"{RED_BG}{WHITE_FOREGROUND}{BRIGHT_STYLING}"
+                f"⛔️ Error: {answer_tag} is not valid. Please answer one of"
+                f" {', '.join(tag_choice.keys())} ⛔️"
+            )
 
     return tag_choice[answer_tag]
 
 
 def auth_g_sheets(difficulty):
     """
-    Sets up the Google Sheets API and returns the correct worksheet based on the difficulty level
+    Sets up the Google Sheets API and returns the correct worksheet
+    based on the difficulty level
     """
     SCOPE = [
-    "https://www.googleapis.com/auth/spreadsheets",
-    "https://www.googleapis.com/auth/drive.file",
-    "https://www.googleapis.com/auth/drive"
+        "https://www.googleapis.com/auth/spreadsheets",
+        "https://www.googleapis.com/auth/drive.file",
+        "https://www.googleapis.com/auth/drive"
     ]
 
     # Authenticates using the creds.json file
@@ -215,7 +247,8 @@ def update_leaderboard(name, score, difficulty, num_questions):
     """
     scores_sheet = auth_g_sheets(difficulty)
 
-    # Access the current time {%Y: 2024, %m: 01-12, %d: 01-31, %H: 00-23, %M: 00-59, %S: 00-59}
+    # Access the current time
+    # {%Y: 2024, %m: 01-12, %d: 01-31, %H: 00-23, %M: 00-59, %S: 00-59}
     timestamp = datetime.datetime.now().strftime("%Y-%m-%d %H:%M:%S")
 
     # Add the new row of data

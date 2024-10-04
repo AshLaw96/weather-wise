@@ -6,13 +6,13 @@ from checks import exit_checker
 import colorama
 from colorama import Fore, Back, Style
 # Resets colour after every use
-colorama.init(autoreset = True)
+colorama.init(autoreset=True)
 
 # Creates 80 character length lines
 THICK_LINE_STYLE = '━' * 80
 THIN_LINE_STYLE = '_' * 80
 
-# Horizontally centers 80 characters wide 
+# Horizontally centers 80 characters wide
 CENTER = '{:^80}'.format
 
 # All colours in Colorama library
@@ -44,6 +44,7 @@ DIM_STYLING = Style.DIM
 NORM_STYLING = Style.NORMAL
 BRIGHT_STYLING = Style.BRIGHT
 
+
 def remove():
     """
     Remove content from the terminal for easier reading.
@@ -61,7 +62,10 @@ def exit():
     print(f'\n{CENTER("Are you sure you want to leave?")}\n')
     time.sleep(0.05)
 
-    exit_selects = input(f"{CENTER('Type Y if you want to leave or type N to stay.\n\n')}").strip().lower()
+    exit_selects = input(
+        f"{CENTER('Type Y if you want to leave or type N to stay.\n\n')}"
+    ).strip().lower()
+
     exit_selections = ['y', 'n']
 
     if exit_checker(exit_selects, exit_selections):
@@ -71,7 +75,7 @@ def exit():
         if exit_selects == 'y':
             time.sleep(0.10)
             print()
-            print(f"{CENTER('Thank you for playing, goodbye.')}")
+            print(f"{CENTER('Thank you for playing, goodbye. 👋')}")
             print(f'{BLACK_FOREGROUND}{BRIGHT_STYLING}{THIN_LINE_STYLE}')
             time.sleep(1)
             sys.exit()
