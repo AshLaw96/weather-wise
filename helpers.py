@@ -83,3 +83,25 @@ def exit():
             print()
 
             input(f'{CENTER("Click ENTER to return to menu.")}\n')
+
+
+def loading_message():
+    """
+    Displays a 'Loading, please wait...' message with dots
+    appearing one by one.
+    """
+    message = f'{GREEN_FOREGROUND}{BRIGHT_STYLING}Loading, please wait'
+    dots = '...'
+
+    # prints the text first
+    sys.stdout.write(message)
+    # Ensures immediate display
+    sys.stdout.flush()
+
+    for dot in dots:
+        time.sleep(0.10)
+        # Makes dot stay on same line
+        sys.stdout.write(f'{GREEN_FOREGROUND}{BRIGHT_STYLING}{dot}')
+        sys.stdout.flush()
+
+    print()

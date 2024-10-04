@@ -164,6 +164,12 @@ def rules(title):
     print()
     input(f'{CENTER("Click ENTER to return to menu.")}\n')
 
-tests = menu()
 
-print(tests)
+def main():
+    """
+    Runs all program.
+    """
+    menu()
+
+
+main()
