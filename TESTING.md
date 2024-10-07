@@ -122,21 +122,32 @@ Defensive programming was manually tested with the below user acceptance testing
 
 ## Bugs
 
-🛑🛑🛑🛑🛑🛑🛑🛑🛑🛑-START OF NOTES (to be deleted)
+### GitHub **Issues**
 
-- Python `'ModuleNotFoundError'` when trying to import module from imported package
+**Fixed Bugs**
 
-    ![screenshot](documentation/bugs/bug03.png)
+[![GitHub issue custom search](https://img.shields.io/github/issues-search?query=repo%3AAshLaw96%2Fweather-wise%20label%3Abug&label=bugs)](https://github.com/AshLaw96/weather-wise/issues?q=is%3Aissue+is%3Aclosed+label%3Abug)
 
-    - To fix this, I _____________________.
+All previously closed/fixed bugs can be tracked [here](https://github.com/AshLaw96/weather-wise/issues?q=is%3Aissue+is%3Aclosed).
 
-- Python `E501 line too long` (93 > 79 characters)
+| Bug | Status |
+| --- | --- |
+| [Python NameError: name `RED_FOREGROUND` is not defined](https://github.com/AshLaw96/weather-wise/issues/1) | Closed |
+| [Python SyntaxError: invalid syntax](https://github.com/AshLaw96/weather-wise/issues/2) | Closed |
+| [Showing rules when it shouldn't](https://github.com/AshLaw96/weather-wise/issues/3) | Closed |
+| [Python NameError: name `exit_checker` is not defined](https://github.com/AshLaw96/weather-wise/issues/4) | Closed  |
+| [Showing green line in `level_selector` error section](https://github.com/AshLaw96/weather-wise/issues/5) | Closed  |
+| [Python TypeError: `questions_amount()` takes 0 positional arguments but 1 was given](https://github.com/AshLaw96/weather-wise/issues/6) | Closed  |
+| [Text slight visibility issue](https://github.com/AshLaw96/weather-wise/issues/7) | Closed  |
+| [Text/icon too high](https://github.com/AshLaw96/weather-wise/issues/8) | Closed  |
+| [Icons slight overlap of text](https://github.com/AshLaw96/weather-wise/issues/9) | Closed  |
+| [Python FileNotFoundError: [Errno 2] No such file or directory: `creds.json`](https://github.com/AshLaw96/weather-wise/issues/10) | Closed  |
+| [Python ImportError: cannot import name `checker` from `helpers`](https://github.com/AshLaw96/weather-wise/issues/11) | Closed  |
+| [Python NameError: name `exit_checker` is not defined](https://github.com/AshLaw96/weather-wise/issues/12) | Closed  |
+| [Python ImportError: cannot import name `level_selector` from `helpers`](https://github.com/AshLaw96/weather-wise/issues/13) | Closed  |
+| [Python ImportError: cannot import name `remove` from partially initialised module `helpers` (most likely due to a circular import)](https://github.com/AshLaw96/weather-wise/issues/14) | Closed  |
+| [Python TypeError: unsupported format string passed to `NoneType.__format__`](https://github.com/AshLaw96/weather-wise/issues/15) | Closed  |
+| [Showing incorrect amount of choices](https://github.com/AshLaw96/weather-wise/issues/16) | Closed  |
 
-    ![screenshot](documentation/bugs/bug04.png)
-
-    - To fix this, I _____________________.
-
-🛑🛑🛑🛑🛑🛑🛑🛑🛑🛑-END OF NOTES (to be deleted)
-
-> [!NOTE]  
+> [!NOTE]
 > There are no remaining bugs that I am aware of.

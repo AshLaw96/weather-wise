@@ -268,6 +268,8 @@ The primary functions used on this application are:
   - Sets up Google Sheets API and returns the correct worksheet based on difficulty.
 - `update_leaderboard()`
   - Updates the Google Sheets leaderboard with the user's name, score, amount of questions answered and the time/date.
+- `loading_message()`
+  - Used to create a message that makes the dots after it appear one by one after so many seconds.
 - `main()`
     - Run all program functions.
 
@@ -281,7 +283,13 @@ I've used the following Python packages and/or external imported packages.
 - `os`: used for adding a `remove()` function
 - `colorama`: used for including color in the terminal
 - `random`: used to get a random choice from a list
-- `questions`: used to pull all the questions from my own made file 
+- `questions`: used to pull all the questions from my own made file
+- `helpers`: used to pull helper variables and functions
+- `game`: used for all the game functions the program uses
+- `checks`: used for error handling
+- `string`: used for adding `ascii_lowercase`
+- `datetime`: used for adding the current time and date
+- `sys`: used to exit the program
 
 ## Testing
 

@@ -109,7 +109,7 @@ def random_questions(question_list, num_questions, difficulty):
         print()
         print(f'{GREEN_FOREGROUND}{BRIGHT_STYLING}{THIN_LINE_STYLE}')
         print()
-        print(f"{GREEN_FOREGROUND}{CENTER('Quiz')}")
+        print(f"{GREEN_FOREGROUND}{BRIGHT_STYLING}{CENTER('Quiz')}")
         print(f'{GREEN_FOREGROUND}{BRIGHT_STYLING}{THIN_LINE_STYLE}')
         print()
         print(f'Q{num + 1}: ')
@@ -145,7 +145,7 @@ def random_questions(question_list, num_questions, difficulty):
     loading_message()
 
     # Adds users name and points to leaderboard
-    time.sleep(0.30)
+    time.sleep(2)
     remove()
     update_leaderboard(user_name, total, difficulty, num_questions)
     print(f'{CENTER("Your score has been saved to the leaderboard")}')
@@ -206,9 +206,9 @@ def user_answered_select(qst, choice):
         else:
             print()
             print(
-                f"{RED_BG}{WHITE_FOREGROUND}{BRIGHT_STYLING}"
-                f"⛔️ Error: {answer_tag} is not valid. Please answer one of"
-                f" {', '.join(tag_choice.keys())} ⛔️"
+                f"{WHITE_FOREGROUND}{RED_BG}{BRIGHT_STYLING}"
+                f"{CENTER(f'⛔️ Error: {answer_tag} is not valid. Please answer one of'
+                f" {', '.join(tag_choice.keys())}. ⛔️")}"
             )
 
     return tag_choice[answer_tag]

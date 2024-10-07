@@ -103,7 +103,7 @@ def loading_message():
     sys.stdout.flush()
 
     for dot in dots:
-        time.sleep(0.10)
+        time.sleep(0.40)
         # Makes dot stay on same line
         sys.stdout.write(f'{GREEN_FOREGROUND}{BRIGHT_STYLING}{dot}')
         sys.stdout.flush()
