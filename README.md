@@ -45,85 +45,65 @@ source: [amiresponsive](https://ui.dev/amiresponsive?url=https://weather-wise-pr
 
   - This will show the user what the app is called and a brief explanation of what it actually does.  
 
-![screenshot](documentation/features)
+![screenshot](documentation/features/head.png)
 
 - **Menu options**
 
   - The app will then show three options 1. Play quiz 2. How to play 3. Quit. The user will then be asked to either input 1, 2 or 3 depending on what they would like to do.
 
-![screenshot](documentation/features)
+![screenshot](documentation/features/menu.png)
 
 - **Incorrect input for menu**
 
   - If the user inputted an incorrect value the app will show that there value was not correct and the need to input either 1, 2 or 3.
 
-![screenshot](documentation/features)
+![screenshot](documentation/features/menu-error.png)
 
 - **Option 1**
 
-  - The app will then ask the user what difficulty level they would like. 1. Easy 2. Medium 3. Hard. The user will then be asked to input either 1, 2 or 3. 
+  - When the user chooses the 2nd option on the menu the program will then ask the user what difficulty level they would like. 1. Easy 2. Medium 3. Hard. The user will then be asked to input either 1, 2 or 3. 
 
-<details>
-<summary> Click here to view the difficulties </summary>
+![screenshot](documentation/features/level.png)
 
-Easy input
-
-![screenshot](documentation/features)
-
-Medium input
-
-![screenshot](documentation/features)
-
-Hard input
-
-![screenshot](documentation/features)
-
-</details>
 
 - **Incorrect option 1 choice**
 
   - If the user choose an option that wasn't there they will be informed that there value was incorrect and that they would need to type either 1, 2 or 3.
 
-![screenshot](documentation/features)
+![screenshot](documentation/features/level-error.png)
 
 - **Option 1 part 2**
 
-  - Once the user has chosen there difficulty they will then be asked how many questions they will like to be asked, 1. 10 2. 25 3. 50
+  - Once the user has chosen there difficulty they will then be asked how many questions they will like to be asked and they will again need to type 1,2 or 3.
 
-![screenshot](documentation/features)
+![screenshot](documentation/features/amount.png)
 
 - **Incorrect option 1 part 2**
 
   - If the user choose an option that wasn't there they will be informed that there value was incorrect and that they would need to type either 1, 2 or 3.
 
-![screenshot](documentation/features)
+![screenshot](documentation/features/amount-error.png)
 
 - **Option 2**
 
-  - The app will show the user instructions on how to play the game and once they have read the rules ask them if they have finished reading if they have it will take them back to the menu if not it will just ask the question again.
+  - If the user chooses the rules choice in the menu screen, the program will show the user instructions on how to play the game and once they have read the rules the program will take them back to the menu.
 
-![screenshot](documentation/features)
-
-- **Incorrect option 2 choice**
-
-  - If the user typed an incorrect value they will be informed that there value was incorrect and that they would need to type either Y/y or N/n.
-
-![screenshot](documentation/features)
+![screenshot](documentation/features/rules.png)
 
 - **Option 3**
 
-  - The app will ask the user if they are sure they want to quit, if they do it will show a message saying thankyou for playing, goodbye, if not it will return them to the menu.
+  - When the user chooses the quit option, the program will ask the user if they are sure they want to quit and if so to press Y/y but if not to press N/n which will return them to the main menu. If they do type Y/y it will show a message saying thankyou for playing, goodbye.
 
 <details>
 <summary> Click here to view the quit options </summary>
 
+Y/y or N/n
+
+![screenshot](documentation/features/quit.png)
+
 Y/y input
 
-![screenshot](documentation/features)
-
-N/n input
-
-![screenshot](documentation/features)
+![screenshot](documentation/features/quit-yes.png)
 
 </details>
 
@@ -131,65 +111,72 @@ N/n input
 
   - If the user typed an incorrect value they will be informed that there value was incorrect and that they would need to type either Y/y or N/n.
 
-![screenshot](documentation/features)
+![screenshot](documentation/features/quit-error.png)
 
 - **The quiz**
 
   - When the player has chosen there difficulty level and how many questions they would like to answer, the app will then access the questions library and choose data from the chosen level and pick random question from it and start asking the user until there chosen amount has been completed.
 
-![screenshot](documentation/features)
+![screenshot](documentation/features/quiz.png)
 
 - **Incorrect value for quiz**
 
   - If the user inputs an incorrect value they will be shown that there input is incorrect and they must type either A/a, B/b, C/c or D/d.
 
-![screenshot](documentation/features)
+![screenshot](documentation/features/quiz-error.png)
+
+- **Correct and incorrect values**
+
+  - When the user answers a question the program will inform the user if they got the answer right or wrong.
+
+<details>
+<summary> Click here to see both right and wrong answers </summary>
+
+Correct
+
+![screenshot](documentation/features/right.png)
+
+Incorrect
+
+![screenshot](documentation/features/wrong.png)
+
+</details>
 
 - **Score**
 
-  - When the user has finished the quiz there score will be toted up and then printed to the screen showing them what they have achieved.
+  - When the user has finished the quiz there score will be toted up and then printed to the screen showing them what they have achieved and will ask them to enter there name.
 
-![screenshot](documentation/features)
+![screenshot](documentation/features/score.png)
 
 - **Finished**
 
-  - Once the user has received there score they will then be asked if they would like to 1. play again or 2. quit, if they chose option 1 it will take the back to the menu if they chose option 2 it will then ask again if they are sure they would like to quit and if not it will take them to the menu but if they do it will show them the message thankyou for playing, goodbye.
+  - Once the user has received there score they will be informed that their score has been added to a leaderboard. They will then be asked if they would like to play again or quit, if they chose option 1 it will take the back to the menu if they chose option 2 it will then ask again if they are sure they would like to quit and if not it will take them to the menu but if they do it will show them the message thankyou for playing, goodbye.
 
 <details>
 <summary> Click here to view the finished game options </summary>
 
-option 1
+leaderboard
 
-![screenshot](documentation/features)
+![screenshot](documentation/features/leaderboard.png)
 
-option 2
+options
 
-![screenshot](documentation/features)
+![screenshot](documentation/features/play-again.png)
 
 </details>
 
 - **Incorrect value at finish**
 
-  - If the user inputs an incorrect value they will be shown that there input is incorrect and they must type either 1 or 2 if they chose option 2 and then input an incorrect value for this it will show another error message saying this is an incorrect value you must type either Y/y or N/n.
+  - If the user inputs an incorrect value they will be shown that there input is incorrect and they must type either Y/y or N/n.
 
-<details>
-<summary> Click here to view the finish error options </summary>
-
-Error 1
-
-![screenshot](documentation/features)
-
-Error 2
-
-![screenshot](documentation/features)
-
-</details>
+![screenshot](documentation/features/play-again-error.png)
 
 ### Future Features
 
 1. Allow users to play split-screen or multiplayer.
-2. Add a leaderboard to save users high score.
-3. Add links to other quizzes or cool facts about weather. 
+2. Add the leaderboard to the program so users can see the high score.
+3. Add links to other quizzes or cool facts about weather.
+4. Make leaderboard put the highest scores at the top of the leaderboard and only add top 10 scores for each difficulty and for each amount of questions answered. 
 
 ## Tools & Technologies Used
 
