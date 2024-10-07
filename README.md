@@ -176,7 +176,8 @@ options
 1. Allow users to play split-screen or multiplayer.
 2. Add the leaderboard to the program so users can see the high score.
 3. Add links to other quizzes or cool facts about weather.
-4. Make leaderboard put the highest scores at the top of the leaderboard and only add top 10 scores for each difficulty and for each amount of questions answered. 
+4. Make leaderboard put the highest scores at the top of the leaderboard and only add top 10 scores for each difficulty and for each amount of questions answered.
+5. Add sound effects to the program. 
 
 ## Tools & Technologies Used
 
@@ -201,6 +202,32 @@ and mapped out before coding began using a free version of
 Below is the flowchart of the main process of this Python program. It shows the entire cycle of the program.
 
 ![screenshot](documentation/flowchart.png)
+
+I used Mermaid to create an interactive flowchart as well.
+
+``` mermaid
+flowchart TD
+    Start([Start]) --> A1[Show menu of what the user needs to do and what the app does e.g. info of what program actually is 1. press 1 to show instructions 2. press 2 to play game 3. press 3 to quit.]
+    A1 --> B1[Asks user what difficulty level they want for example 1. easy 2. medium 3. hard]
+    B1 --> C1{1, 2 or 3}
+    C1 --> D1[Check what difficulty the user has inputted and then ask how many questions they want to answer e.g. 1. press 1 for 10 questions 2. press 2 for 20 questions 3. press 3 for 30 questions.]
+    D1 --> E1{1, 2 or 3}
+    E1 --> F1[Checks what amount the user would like then access data from the questions library and pulls random questions from this.]
+    F1 --> G1[Starts the quiz asking the user multiple choice questions e.g. what is a cloud? a. pillow b. the sky c. a group of tiny water droplets or ice crystals that float in the sky d. rain]
+    G1 --> H1{a, b, c or d}
+    H1 --> I1[When the user has answered their chosen amount of questions, they will then show their score and be asked to input their name.]
+    I1 --> J1[Their score will then be added to a leaderboard and they will then be asked if they'd like to play again or quit e.g. 1. press 1 to play again 2. press 2 to quit]
+    J1 --> K1{1 or 2}
+    K1 --> |1| A1
+    K1 --> |2| End([End])
+
+    A1 --> L1[Shows the user instructions on how to play the game.]
+    A1 --> M1[Shows a message making sure the user wants to quit the game e.g. 1. press 1 to keep playing 2. press 2 to quit.]
+    A1 --> N1[Incorrect input by user shows they inputted incorrect value and what they need to type.]
+    N1 --> A1
+```
+
+Source: [Mermaid](https://mermaid.live/edit#pako:eNptVcFy2zgM_RWMLtvOOBpTquPEh91Jk7RNu9tLOrMza-dAi5TNsURqSaqu6uTfFyAlW27WB1smgAe8RwA6JIURMlkkZWX2xZZbD9_uVhrw8-jx35tl-Hl6CxcXv8MNWz5uzR5qqVswJey33IPfSmidtKClFA68AWGAa3Gy8qbBM-lAppsUlC7NMbixZmN5DbzwLa-qDpQDluKxdPhAYI4SKu28bQuvjHaQDfaM7E3FO9jwWkI-nOd0_m-rfPoUqdywUP57trxxOxerDemFKktVtJXvoJLfZUXldrDn2kNpLMgfvG4qSRVJ7jrKXEuh2ppyoViix38f8W_ZgU2wKozMX6LlNlru2PJ2K4vdq6xH8bbcIcum9V6KoB5aNHC3gyA41x0yki4qcKrSk9RujwBB25F0VD-bjoJGspEtG9tG0pEtH9kGDe8ik_vXHO-j5UPP0UWSvDatHnXH3rSVgErtZE-tKCih4J5DaU0dPE8VVWptue2CFE1bVQ4sPqLbyaWPUscSP8RCPrLYtK6HVD9JR6U3p2JqFF_RzRZbo4px3iBjIICdyKGoTCv-AI76qApHBNZpQHG7DooUHTbWtA21s1ea7sQjurAGsTE_ikTohe2c5xXVg7g4aYSujzgiRW5K9yQ-RhKf2IFPYD2BglBEL_WnaHxgy79Jw7PuiX0gQ-coS8wcyRyvAQs8cpz0_YOE4lWEEYtRrjBWBtHXklQjOBMbs_fQOGqD4A-xnM9s-W0UfQImDCEiBscJ40LatcG5GTq8-8U5JFRlMP02dEs_43yDIpEYNNmv2v3c63xFUEBf8edY8RfsYoLKel2_xONn9oy74vwoe4Z7Ld4s8evp7UqfLZQ_4z50p4s4W1RGh-EdSiOnzUi9HuSvAYTjcnGObySOe2hX11o5GiCcdzfQOYL9nxA7KZuQkkBeS_FL_q9s-aDx4qwsfH_T6y6mdAO57rSb1NH3O69aebbpu_AOoDy-a448v7L-5bHSySSppa25EvjKOZB5lWBcLVfJAh8Ft7tVstIv6Mdbbx47XSQLFFROEpyzzTZZlDhH-K9tcHHIO8Xp7TG4NFwni0PyI1mwS5bOsun8cjqb5lPG8nySdMnigrGr9OqSzbPrbHb97jqf5y-T5KcxCMFSdjWfz9m7_Ho2y_LpnAXAf4KR8F_-Ay4fVeQ)
 
 ### Classes & Functions
 
@@ -405,7 +432,6 @@ No differences were found between the local version and the live deployed versio
 
 | Source | Location | Type | Notes |
 | --- | --- | --- | --- |
-| [Audio Micro](https://www.audiomicro.com/free-sound-effects) | game page | audio | free audio files to generate the game sounds |
 | [TinyPNG](https://tinypng.com) | entire site | image | tool for image compression |
 | [GetEmoji](https://getemoji.com/#symbols) | helpers.py | used to add emoji's to the program |
 
