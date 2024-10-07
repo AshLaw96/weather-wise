@@ -56,24 +56,12 @@ I have used the recommended [PEP8 CI Python Linter](https://pep8ci.herokuapp.com
 
 I've tested my deployed project on multiple browsers to check for compatibility issues.
 
-| Browser | Home | About | Contact | etc | Notes |
-| --- | --- | --- | --- | --- | --- |
-| Chrome | ![screenshot](documentation/browsers/browser-chrome-home.png) | ![screenshot](documentation/browsers/browser-chrome-about.png) | ![screenshot](documentation/browsers/browser-chrome-contact.png) | ![screenshot](documentation/browsers/browser-chrome-etc.png) | Works as expected |
-| Firefox | ![screenshot](documentation/browsers/browser-firefox-home.png) | ![screenshot](documentation/browsers/browser-firefox-about.png) | ![screenshot](documentation/browsers/browser-firefox-contact.png) | ![screenshot](documentation/browsers/browser-firefox-etc.png) | Works as expected |
-| Edge | ![screenshot](documentation/browsers/browser-edge-home.png) | ![screenshot](documentation/browsers/browser-edge-about.png) | ![screenshot](documentation/browsers/browser-chrome-edge.png) | ![screenshot](documentation/browsers/browser-edge-etc.png) | Works as expected |
-| Amazon silk | ![screenshot](documentation/browsers) | ![screenshot](documentation/browsers) | ![screenshot](documentation/browsers) | ![screenshot](documentation/browsers) | Works as expected |
-
-## Responsiveness
-
-I've tested my deployed project on multiple devices to check for responsiveness issues.
-
-| Device | Home | About | Contact | etc | Notes |
-| --- | --- | --- | --- | --- | --- |
-| Mobile | ![screenshot](documentation/responsiveness/responsive-mobile-home.png) | ![screenshot](documentation/responsiveness/responsive-mobile-about.png) | ![screenshot](documentation/responsiveness/responsive-mobile-contact.png) | ![screenshot](documentation/responsiveness/responsive-mobile-etc.png) | Works as expected |
-| Tablet | ![screenshot](documentation/responsiveness/responsive-tablet-home.png) | ![screenshot](documentation/responsiveness/responsive-tablet-about.png) | ![screenshot](documentation/responsiveness/responsive-tablet-contact.png) | ![screenshot](documentation/responsiveness/responsive-tablet-etc.png) | Works as expected |
-| Laptop | ![screenshot](documentation/responsiveness) | ![screenshot](documentation/responsiveness) | ![screenshot](documentation/responsiveness) | ![screenshot](documentation/responsiveness) | Noticeable scaling issues |
-| Desktop | ![screenshot](documentation/responsiveness/responsive-desktop-home.png) | ![screenshot](documentation/responsiveness/responsive-desktop-about.png) | ![screenshot](documentation/responsiveness/responsive-desktop-contact.png) | ![screenshot](documentation/responsiveness/responsive-desktop-etc.png) | Works as expected |
-| XL screen | ![screenshot](documentation/responsiveness/responsive-xl-home.png) | ![screenshot](documentation/responsiveness/responsive-xl-about.png) | ![screenshot](documentation/responsiveness/responsive-xl-contact.png) | ![screenshot](documentation/responsiveness/responsive-xl-etc.png) | Scaling starts to have minor issues |
+| Browser | Menu | Rules | Level | Amount | Quiz | Quit | Notes |
+| --- | --- | --- | --- | --- | --- | --- | --- |
+| Chrome | ![screenshot](documentation/browsers/menu-chrome.png) | ![screenshot](documentation/browsers/rules-chrome.png) | ![screenshot](documentation/browsers/level-chrome.png) | ![screenshot](documentation/browsers/amount-chrome.png) | ![screenshot](documentation/browsers/quiz-chrome.png) | ![screenshot](documentation/browsers/quit-chrome.png) | Works as expected |
+| Firefox | ![screenshot](documentation/browsers/menu-firefox.png) | ![screenshot](documentation/browsers/rules-firefox.png) | ![screenshot](documentation/browsers/level-firefox.png) | ![screenshot](documentation/browsers/amount-firefox.png) | ![screenshot](documentation/browsers/quiz-firefox.png) | ![screenshot](documentation/browsers/quit-firefox.png) | Icons slightly cut off |
+| Edge | ![screenshot](documentation/browsers) | ![screenshot](documentation/browsers) | ![screenshot](documentation/browsers) | ![screenshot](documentation/browsers) | ![screenshot](documentation/browsers) | ![screenshot](documentation/browsers) | Works as expected |
+| Amazon silk | ![screenshot](documentation/browsers/menu-silk.jpg) | ![screenshot](documentation/browsers/rules-silk.jpg) | ![screenshot](documentation/browsers/level-silk.jpg) | ![screenshot](documentation/browsers/amount-silk.jpg) | ![screenshot](documentation/browsers/quiz-silk.jpg) | ![screenshot](documentation/browsers/quit-silk.jpg) | Works as expected |
 
 ## Lighthouse Audit
 
