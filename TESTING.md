@@ -46,7 +46,11 @@ I have used the recommended [PEP8 CI Python Linter](https://pep8ci.herokuapp.com
 
 | Directory | File | CI URL | Screenshot | Notes |
 | --- | --- | --- | --- | --- |
-|  | run.py | [PEP8 CI](https://pep8ci.herokuapp.com/https://raw.githubusercontent.com/AshLaw96/weather-wise/main/run.py) | ![screenshot](documentation/validation/path-to-screenshot.png) | |
+|  | run.py | [PEP8 CI](https://pep8ci.herokuapp.com/https://raw.githubusercontent.com/AshLaw96/weather-wise/main/run.py) | ![screenshot](documentation/validate/run-validate.png) | no issues were found |
+|  | game.py | [PEP8 CI](https://pep8ci.herokuapp.com/https://raw.githubusercontent.com/AshLaw96/weather-wise/main/game.py) | ![screenshot](documentation/validate/game-validate.png) | no issues were found | 
+|  | helpers.py | [PEP8 CI](https://pep8ci.herokuapp.com/https://raw.githubusercontent.com/AshLaw96/weather-wise/main/helpers.py) | ![screenshot](documentation/validate/helpers-validate.png) | no issues were found |
+|  | checks.py | [PEP8 CI](https://pep8ci.herokuapp.com/https://raw.githubusercontent.com/AshLaw96/weather-wise/main/checks.py) | ![screenshot](documentation/validate/checks-validate.png) | no issues were found |
+|  | questions.py | [PEP8 CI](https://pep8ci.herokuapp.com/https://raw.githubusercontent.com/AshLaw96/weather-wise/main/questions.py) | ![screenshot](documentation/validate/questions-validate.png) | no issues were found |
 
 ## Browser Compatibility
 

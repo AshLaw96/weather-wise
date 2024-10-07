@@ -207,8 +207,9 @@ def user_answered_select(qst, choice):
             print()
             print(
                 f"{WHITE_FOREGROUND}{RED_BG}{BRIGHT_STYLING}"
-                f"{CENTER(f'⛔️ Error: {answer_tag} is not valid. Please answer one of'
-                f" {', '.join(tag_choice.keys())}. ⛔️")}"
+                f"{CENTER(f'⛔️ Error: {answer_tag} is not valid.'
+                          f"Please answer one of"
+                          f" {', '.join(tag_choice.keys())}. ⛔️")}"
             )
 
     return tag_choice[answer_tag]
