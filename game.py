@@ -124,22 +124,23 @@ def random_questions(question_list, num_questions, difficulty):
     score_percentage = (total / num_questions) * 100
     # Display message based on user's score
     if score_percentage <= 25:
-        score_message = f'{CENTER("Try harder! You can do it!")}'
+        score_message = "Try harder! You can do it!"
     elif score_percentage <= 50:
-        score_message = f'{CENTER("Nice try! Keep improving!")}'
+        score_message = "Nice try! Keep improving!"
     elif score_percentage <= 75:
-        score_message = f'{CENTER("Well done! You are getting there!")}'
+        score_message = "Well done! You are getting there!"
     else:
-        score_message = f'{CENTER("Outstanding! Excellent performance!")}'
+        score_message = "Outstanding! Excellent performance!"
 
     print()
     print(
         f"{GREEN_BG}{WHITE_FOREGROUND}{BRIGHT_STYLING}"
-        f"{CENTER(f'🎉 {score_message}{total}/{num_questions}  🎉')}"
+        f"{CENTER(f'🎉 {score_message} {total}/{num_questions}  🎉')}"
     )
     time.sleep(0.10)
 
-    user_name = input(f'{CENTER("Please enter your name: ")}')
+    print()
+    user_name = input("Please enter your name: ")
     remove()
 
     loading_message()
@@ -148,6 +149,7 @@ def random_questions(question_list, num_questions, difficulty):
     time.sleep(2)
     remove()
     update_leaderboard(user_name, total, difficulty, num_questions)
+    print()
     print(f'{CENTER("Your score has been saved to the leaderboard")}')
 
     # Option to play again or quit
@@ -200,7 +202,7 @@ def user_answered_select(qst, choice):
     # Handles user errors
     while True:
         print()
-        answer_tag = input(f"{CENTER('Answer?')}").lower()
+        answer_tag = input('Answer?').lower()
         if answer_tag in tag_choice:
             break
         else:
@@ -208,7 +210,7 @@ def user_answered_select(qst, choice):
             print(
                 f"{WHITE_FOREGROUND}{RED_BG}{BRIGHT_STYLING}"
                 f"{CENTER(f'⛔️ Error: {answer_tag} is not valid.'
-                          f"Please answer one of"
+                          f" Please answer one of"
                           f" {', '.join(tag_choice.keys())}.  ⛔️")}"
             )
 
