@@ -135,7 +135,7 @@ def random_questions(question_list, num_questions, difficulty):
     print()
     print(
         f"{GREEN_BG}{WHITE_FOREGROUND}{BRIGHT_STYLING}"
-        f"{CENTER(f'🎉 {score_message}{total}/{num_questions} 🎉')}"
+        f"{CENTER(f'🎉 {score_message}{total}/{num_questions}  🎉')}"
     )
     time.sleep(0.10)
 
@@ -176,12 +176,12 @@ def next_qst(qst, choice, right_choice):
 
     answer = user_answered_select(qst, sort_choice)
     if answer == right_choice:
-        print(f"{CENTER('✅ Correct! ✅')}")
+        print(f"{CENTER('✅ Correct!  ✅')}")
         time.sleep(0.05)
         print()
         return 1
     else:
-        print(f"{CENTER('❌ Incorrect! ❌')}")
+        print(f"{CENTER('❌ Incorrect!  ❌')}")
         time.sleep(0.05)
         print()
         return 0
@@ -209,7 +209,7 @@ def user_answered_select(qst, choice):
                 f"{WHITE_FOREGROUND}{RED_BG}{BRIGHT_STYLING}"
                 f"{CENTER(f'⛔️ Error: {answer_tag} is not valid.'
                           f"Please answer one of"
-                          f" {', '.join(tag_choice.keys())}. ⛔️")}"
+                          f" {', '.join(tag_choice.keys())}.  ⛔️")}"
             )
 
     return tag_choice[answer_tag]

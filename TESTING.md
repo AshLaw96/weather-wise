@@ -27,24 +27,24 @@ Documentation and Logs:
 
 | Issue notes | Issue image | Fix notes | Fix image |
 | --- | --- | --- | --- |
-|  | ![screenshot](documentation/bugs/circular-import-error.png) |  | ![screenshot](documentation/bugs/circular-import-fix.png) |
-|  | ![screenshot](documentation/bugs/exit-check-error.png) |  | ![screenshot](documentation/bugs/exit-checker-fix.png) |
-|  | ![screenshot](documentation/bugs/correct-icon-issue.png) |  | ![screenshot](documentation/bugs/icon-fix.png) |
-|  | ![screenshot](documentation/bugs/exit-checker-not-defined.png) |  | ![screenshot](documentation/bugs/exit-check-fix.png) |
-|  | ![screenshot](documentation/bugs/file-name-error.png) |  | ![screenshot](documentation/bugs/file-name-fix.png) |
-|  | ![screenshot](documentation/bugs/green-line-style-error.png) |  | ![screenshot](documentation/bugs/green-line-fix.png) |
-|  | ![screenshot](documentation/bugs/high-text-issue.png) |  | ![screenshot](documentation/bugs/high-text-fix.png) |
-|  | ![screenshot](documentation/bugs/icon-overlap.png) |  | ![screenshot](documentation/bugs/icon-overlap-fix.png) |
-|  | ![screenshot](documentation/bugs/import-checks-issue.png) |  | ![screenshot](documentation/bugs/import-check-fix.png) |
-|  | ![screenshot](documentation/bugs/import-error.png) |  | ![screenshot](documentation/bugs/import-fix.png) |
-|  | ![screenshot](documentation/bugs/incorrect-choices-amount.png) |  | ![screenshot](documentation/bugs/correct-choices-fix.png) |
-|  | ![screenshot](documentation/bugs/incorrect-icon-issue.png) |  | ![screenshot](documentation/bugs/incorrect-fix.png) |
-|  | ![screenshot](documentation/bugs/keeps-showing-rules.png) |  | ![screenshot](documentation/bugs/stops-showing-rules.png) |
-|  | ![screenshot](documentation/bugs/name-error.png) |  | ![screenshot](documentation/bugs/name-error-fix.png) |
-|  | ![screenshot](documentation/bugs/syntax-error.png) |  | ![screenshot](documentation/bugs/syntax-error-fix.png) |
-|  | ![screenshot](documentation/bugs/type-error.png) |  | ![screenshot](documentation/bugs/type-error-fix.png) |
-|  | ![screenshot](documentation/bugs/unsupported-format.png) |  | ![screenshot](documentation/bugs/unsupported-fix.png) |
-|  | ![screenshot](documentation/bugs/visibility-text-issue.png) |  | ![screenshot](documentation/bugs/visibility-fix.png) |
+| When trying to import my `remove` function a `ImportError` appeared informing me that a circular import might be the problem | ![screenshot](documentation/bugs/circular-import-error.png) | To fix this problem I moved some of the imports inside the actual functions that required them | ![screenshot](documentation/bugs/circular-import-fix.png) |
+| When trying to use my `exit_checker` function a `NameError` appeared informing me that the function wasn't defined | ![screenshot](documentation/bugs/exit-check-error.png) | To fix this I had to import my `exit` function so that the `exit_checker` function would work | ![screenshot](documentation/bugs/exit-checker-fix.png) |
+| Whilst checking the program on the live site I noticed that the green tick icon on the correct answer part was slightly overlapping the text | ![screenshot](documentation/bugs/correct-icon-issue.png) | To fix this issue I had to put a bigger gap between the icon and the text | ![screenshot](documentation/bugs/icon-fix.png) |
+| When trying to use the `exit` function a `ImportError` appeared telling me that the `exit_checker` function inside the `exit` function was not defined | ![screenshot](documentation/bugs/exit-checker-not-defined.png) | To fix this I had to import the `exit_checker` function from the checks.py file | ![screenshot](documentation/bugs/exit-check-fix.png) |
+| When running the program on Heroku I received a `FileNotFoundError` because the creds.json file could not be found | ![screenshot](documentation/bugs/file-name-error.png) | To fix this I needed to add the file into Heroku's Config vars so that Heroku could detect it | ![screenshot](documentation/bugs/file-name-fix.png) |
+| When on the error section of the level choice picker I noticed that there was a green line that shouldn't have been there | ![screenshot](documentation/bugs/green-line-style-error.png) | To fix this style error I altered the styling slightly which stopped the green line appearing | ![screenshot](documentation/bugs/green-line-fix.png) |
+| Whilst on the Heroku site I noticed that some of the text and icons were too close to the edge of the program area | ![screenshot](documentation/bugs/high-text-issue.png) | To fix this I put an empty print statement above the text and icons that required this to move them down one line | ![screenshot](documentation/bugs/high-text-fix.png) |
+| When on the Live site I noticed that the red stop icon sign was slightly overlapping the text making it difficult to read | ![screenshot](documentation/bugs/icon-overlap.png) | To fix this issue I had to put a bigger gap between the icon and the text | ![screenshot](documentation/bugs/icon-overlap-fix.png) |
+| When trying to import the `level_selector` function from the helpers.py file I received a `ImportError` | ![screenshot](documentation/bugs/import-checks-issue.png) | To fix this I had to import the function from the game.py file that it had been moved into | ![screenshot](documentation/bugs/import-check-fix.png) |
+| Whilst trying to import the `checkers` function from the helpers.py file I received a `ImportError` | ![screenshot](documentation/bugs/import-error.png) | To fix this I had to import the function from the checks.py file that it had been moved into | ![screenshot](documentation/bugs/import-fix.png) |
+| After altering the questions.py file so that it would pass the Pep8 validator without any errors I noticed that not all the choices appeared when the program was run after | ![screenshot](documentation/bugs/incorrect-choices-amount.png) | To fix this I had to refactor the question.py file | ![screenshot](documentation/bugs/correct-choices-fix.png) |
+| Whilst checking the program on the live site I noticed that the red cross icon on the incorrect answer part was slightly overlapping the text | ![screenshot](documentation/bugs/incorrect-icon-issue.png) | To fix this issue I had to put a bigger gap between the icon and the text | ![screenshot](documentation/bugs/incorrect-fix.png) |
+| When first running the program the rules section would load after a few seconds of showing the menu screen | ![screenshot](documentation/bugs/keeps-showing-rules.png) | To fix this issue I had to refactor how the `menu` function called the `rules` function so that it would only allow the rules section to show when I user choose the option | ![screenshot](documentation/bugs/stops-showing-rules.png) |
+| When trying to style some text I received a `NameError` that the `RED_FOREGROUND` was not defined | ![screenshot](documentation/bugs/name-error.png) | To fix this issue I had to add the variable `RED_FOREGROUND` to the file so that it could be used | ![screenshot](documentation/bugs/name-error-fix.png) |
+| Whilst trying to add tabs to a print statement I received a `SyntaxError` | ![screenshot](documentation/bugs/syntax-error.png) | To fix this I removed one of the `\t` characters | ![screenshot](documentation/bugs/syntax-error-fix.png) |
+| Whilst trying to run the program I received a `TypeError` because the `questions_amount` function took 0 positional arguments but 1 was given | ![screenshot](documentation/bugs/type-error.png) | To fix this I needed to add an argument into the function as well as were it was called | ![screenshot](documentation/bugs/type-error-fix.png) |
+| When trying to run the program I received a `TypeError` because there was a unsupported format string | ![screenshot](documentation/bugs/unsupported-format.png) | To fix this issue I added the styling inside the `loading_message` function that was being used instead | ![screenshot](documentation/bugs/unsupported-fix.png) |
+| Whilst running the program on Heroku I noticed that some of the text was slightly difficult to see | ![screenshot](documentation/bugs/visibility-text-issue.png) | To fix this I added styling that would brighten up the text that required it making it easier to read | ![screenshot](documentation/bugs/visibility-fix.png) |
 
 ## Code Validation
 

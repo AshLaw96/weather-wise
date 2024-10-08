@@ -19,7 +19,7 @@ def checker(user_selects, selections):
         print(
             f"{RED_BG}{WHITE_FOREGROUND}{BRIGHT_STYLING}"
             f"{CENTER(f'⛔️ Error: {user_selects} is not valid! Please select '
-                      f"{selections}. ⛔️")}"
+                      f"{selections}.  ⛔️")}"
         )
         time.sleep(0.05)
         print()
@@ -50,7 +50,7 @@ def exit_checker(exit_selects, exit_selections):
         print(
             f"{WHITE_FOREGROUND}{RED_BG}{BRIGHT_STYLING}"
             f"{CENTER(f'⛔️ Error: {exit_selects} is not valid! Please select'
-                      f" {exit_selections}. ⛔️")}"
+                      f" {exit_selections}.  ⛔️")}"
         )
         time.sleep(0.05)
         print()
@@ -81,7 +81,7 @@ def level_checker(level_selects, level_selections):
         print(
             f"{WHITE_FOREGROUND}{RED_BG}{BRIGHT_STYLING}"
             f"{CENTER(f'⛔️ Error: {level_selects} is not valid! Please select'
-                      f" {level_selections}. ⛔️")}"
+                      f" {level_selections}.  ⛔️")}"
         )
         time.sleep(0.05)
         print()
@@ -112,7 +112,7 @@ def amount_checker(amount_selects, amount_selections):
         print(
             f"{WHITE_FOREGROUND}{RED_BG}{BRIGHT_STYLING}"
             f"{CENTER(f'⛔️ Error: {amount_selects} is not valid! Please select'
-                      f" {amount_selections}. ⛔️")}"
+                      f" {amount_selections}.  ⛔️")}"
         )
         time.sleep(0.05)
         print()
@@ -143,7 +143,7 @@ def qst_checker(qst_selects, qst_selections):
         print(
             f"{WHITE_FOREGROUND}{RED_BG}{BRIGHT_STYLING}"
             f"{CENTER(f'⛔️ Error: {qst_selects} is not valid! Please select'
-                      f" {qst_selections}. ⛔️")}"
+                      f" {qst_selections}.  ⛔️")}"
         )
         time.sleep(0.05)
         print()
