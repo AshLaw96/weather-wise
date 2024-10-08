@@ -177,7 +177,8 @@ options
 2. Add the leaderboard to the program so users can see the high score.
 3. Add links to other quizzes or cool facts about weather.
 4. Make leaderboard put the highest scores at the top of the leaderboard and only add top 10 scores for each difficulty and for each amount of questions answered.
-5. Add sound effects to the program. 
+5. Add sound effects to the program.
+6. Add error validation for name (name must be > 2 but < 15 and only include letters).
 
 ## Tools & Technologies Used
 

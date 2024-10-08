@@ -141,21 +141,21 @@ Defensive programming was manually tested with the below user acceptance testing
 
 | User Story | Screenshot |
 | --- | --- |
-| As a new site user, I would like to be able to know what the program does, so that I can quickly decide if I want to continue. | ![screenshot](documentation/stories) |
-| As a new site user, I would like to know how to play the quiz, so that I can easily understand what I need to do and start playing. | ![screenshot](documentation/stories) |
-| As a new site user, I would like to choose how hard the quiz is, so that I can challenge myself with harder questions. | ![screenshot](documentation/stories) |
-| As a new site user, I would like to choose the amount of questions I get asked, so that I don't get bored. | ![screenshot](documentation/stories) |
-| As a new site user, I would like to keep playing the game as many times as I want, so that I can keep learning interesting facts about the weather. | ![screenshot](documentation/stories) |
+| As a new site user, I would like to be able to know what the program does, so that I can quickly decide if I want to continue. | ![screenshot](documentation/stories/what-it-does.png) |
+| As a new site user, I would like to know how to play the quiz, so that I can easily understand what I need to do and start playing. | ![screenshot](documentation/stories/how-to-play.png) |
+| As a new site user, I would like to choose how hard the quiz is, so that I can challenge myself with harder questions. | ![screenshot](documentation/stories/difficulty.png) |
+| As a new site user, I would like to choose the amount of questions I get asked, so that I don't get bored. | ![screenshot](documentation/stories/amount-choice.png) |
+| As a new site user, I would like to keep playing the game as many times as I want, so that I can keep learning interesting facts about the weather. | ![screenshot](documentation/stories/keep-playing.png) |
 | --- | --- |
-| As a returning site user, I would like to be able to try answering any question again if I didn't input one of the given options, so that I can my score isn't effected because of this. | ![screenshot](documentation/stories) |
-| As a returning site user, I would like to be able to see my high score, so that I can try and beat it and improve my knowledge. | ![screenshot](documentation/stories) |
-| As a returning site user, I would like to have different questions asked, so that I'm not repeating the same questions every time I play. | ![screenshot](documentation/stories) |
-| As a returning site user, I would like to see different icons or images, so that I can be visually pleased whilst learning cool facts at the same time. | ![screenshot](documentation/stories) |
-| As a returning site user, I would like to see other peoples high score, so that I can try and get on the top of the leaderboard. | ![screenshot](documentation/stories) |
+| As a returning site user, I would like to be able to try answering any question again if I didn't input one of the given options, so that I can my score isn't effected because of this. | ![screenshot](documentation/stories/try-again.png) |
+| As a returning site user, I would like to be able to see my high score, so that I can try and beat it and improve my knowledge. | ![screenshot](documentation/stories/high-score.png) (future add so users can see also) |
+| As a returning site user, I would like to have different questions asked, so that I'm not repeating the same questions every time I play. | ![screenshot](documentation/stories/random.png) |
+| As a returning site user, I would like to see different icons or images, so that I can be visually pleased whilst learning cool facts at the same time. | ![screenshot](documentation/stories/icon.png) |
+| As a returning site user, I would like to see other peoples high score, so that I can try and get on the top of the leaderboard. | ![screenshot](documentation/stories/other-high-scores.png) (future add so users can see also) |
 | --- | --- |
-| As a site administrator, I should be able to see how many people play each difficulty, so that I can add more of the specific level question if needed. | ![screenshot](documentation/stories) |
-| As a site administrator, I should be able to view the load speed of the site, so that I can improve where necessary. | ![screenshot](documentation/stories) |
-| As a site administrator, I should be able to see how many people use the program, so that I can try to improve the program and gain more users if needed. | ![screenshot](documentation/stories) |
+| As a site administrator, I should be able to see how many people play each difficulty, so that I can add more of the specific level question if needed. | ![screenshot](documentation/stories/analytics.png) |
+| As a site administrator, I should be able to view the load speed of the site, so that I can improve where necessary. | ![screenshot](documentation/stories/load-speed.png) |
+| As a site administrator, I should be able to see how many people use the program, so that I can try to improve the program and gain more users if needed. | ![screenshot](documentation/stories/how-many-users.png) |
 
 ## Bugs
 

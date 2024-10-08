@@ -98,7 +98,7 @@ def random_questions(question_list, num_questions, difficulty):
     remove()
     total = 0
 
-    # Selects the number of questions requested by the user
+    # Selects the requested number of random questions
     selected_questions = random.sample(question_list, num_questions)
     # Loop through the selected questions
     for num, qst_data in enumerate(selected_questions):
