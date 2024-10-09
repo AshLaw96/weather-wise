@@ -153,3 +153,37 @@ def qst_checker(qst_selects, qst_selections):
         return False
 
     return True
+ 
+
+# import time
+
+# class SelectionChecker:
+#     def __init__(self, selections):
+#         self.selections = selections
+
+#     def check(self, user_selects, error_message):
+#         from helpers import WHITE_FOREGROUND, RED_BG, BRIGHT_STYLING, CENTER, remove
+
+#         if user_selects not in self.selections:
+#             remove()
+#             print(f"{RED_BG}{WHITE_FOREGROUND}{BRIGHT_STYLING}")
+#             print(CENTER(f"⛔️ Error: {user_selects} is not valid! Please select {self.selections}.  ⛔️"))
+#             time.sleep(0.05)
+#             input(f'{CENTER("Click ENTER to continue")}\n')
+#             remove()
+#             return False
+#         return True
+
+# class CheckerFactory:
+#     @staticmethod
+#     def get_checker(type_of_check, selections):
+#         if type_of_check == 'exit':
+#             return SelectionChecker(selections)
+#         elif type_of_check == 'level':
+#             return SelectionChecker(selections)
+#         elif type_of_check == 'amount':
+#             return SelectionChecker(selections)
+#         elif type_of_check == 'question':
+#             return SelectionChecker(selections)
+#         else:
+#             raise ValueError(f"Unknown checker type: {type_of_check}")

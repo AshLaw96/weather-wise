@@ -256,3 +256,75 @@ def update_leaderboard(name, score, difficulty, num_questions):
 
     # Add the new row of data
     scores_sheet.append_row([name, score, num_questions, timestamp])
+
+
+# import random
+# import time
+# from string import ascii_lowercase
+# import gspread
+# from google.oauth2.service_account import Credentials
+
+# class QuizGame:
+#     def __init__(self, difficulty, num_questions):
+#         self.difficulty = difficulty
+#         self.num_questions = num_questions
+#         self.total_score = 0
+
+#     def select_random_questions(self, question_list):
+#         return random.sample(question_list, self.num_questions)
+
+#     def display_question(self, question_data, question_number):
+#         question = question_data['question']
+#         choices = question_data['choices']
+#         answer = question_data['answer']
+
+#         print(f'Q{question_number + 1}: {question}')
+#         for tag, choice in zip(ascii_lowercase, choices):
+#             print(f"{tag}) {choice}")
+        
+#         return self.get_user_answer(choices, answer)
+
+#     def get_user_answer(self, choices, correct_answer):
+#         # logic to get user's answer and compare with correct answer
+#         pass
+
+#     def calculate_score(self):
+#         return (self.total_score / self.num_questions) * 100
+
+#     def display_result(self):
+#         score_percentage = self.calculate_score()
+#         # Display different messages based on score
+#         pass
+
+#     def save_score(self, user_name):
+#         # Save score to leaderboard (could use another class for leaderboard)
+#         pass
+
+
+# class LeaderboardManager:
+#     def __init__(self):
+#         self.sheet = None
+
+#     def authenticate(self, creds_file):
+#         SCOPE = [
+#             "https://www.googleapis.com/auth/spreadsheets",
+#             "https://www.googleapis.com/auth/drive.file",
+#             "https://www.googleapis.com/auth/drive"
+#         ]
+#         creds = Credentials.from_service_account_file(creds_file)
+#         scoped_creds = creds.with_scopes(SCOPE)
+#         client = gspread.authorize(scoped_creds)
+#         self.sheet = client.open('Weather-Wise-Leaderboard')
+
+#     def get_worksheet(self, difficulty):
+#         if difficulty == 'easy':
+#             return self.sheet.worksheet('Easy')
+#         elif difficulty == 'medium':
+#             return self.sheet.worksheet('Medium')
+#         elif difficulty == 'hard':
+#             return self.sheet.worksheet('Hard')
+
+#     def update_leaderboard(self, name, score, difficulty, num_questions):
+#         scores_sheet = self.get_worksheet(difficulty)
+#         timestamp = datetime.datetime.now().strftime("%Y-%m-%d %H:%M:%S")
+#         scores_sheet.append_row([name, score, num_questions, timestamp])

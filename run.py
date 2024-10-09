@@ -232,3 +232,85 @@ def main():
 
 
 main()
+
+# from game import LeaderboardManager
+
+
+# class UIManager:
+#     def __init__(self):
+#         pass
+
+
+
+#     def menu(self):
+#         """
+#         Shows the main menu of the program
+#         """
+#         # from helpers import remove
+#         while True:
+#             remove()
+#             self.header('weather wise')
+#             print()
+#             print("Here's what you can do:\n")
+#             time.sleep(0.10)
+#             print()
+#             print('1. Show rules')
+#             time.sleep(0.05)
+#             print('2. Play game')
+#             time.sleep(0.05)
+#             print('3. Exit program')
+#             time.sleep(0.10)
+
+#             user_selects = input(
+#                 f'\nWhich option would you like to select? '
+#                 f'{BLUE_FOREGROUND}{BRIGHT_STYLING}[1-3]\n\n'
+#             ).strip()
+#             selections = ['1', '2', '3']
+
+#             checker = CheckerFactory.get_checker('menu', selections)
+#             if checker.check(user_selects, "Invalid menu selection"):
+#                 if user_selects == '1':
+#                     self.show_rules()
+#                 elif user_selects == '2':
+#                     self.start_game()
+#                 elif user_selects == '3':
+#                     self.exit_game()
+
+#     def header(self, title):
+#         from helpers import BLUE_FOREGROUND, BRIGHT_STYLING, THICK_LINE_STYLE, CENTER
+#         print(f'{BLUE_FOREGROUND}{BRIGHT_STYLING}{THICK_LINE_STYLE}')
+#         print(CENTER(f"⛅ {title} 🌧️").upper())
+#         print(f'{BLUE_FOREGROUND}{BRIGHT_STYLING}{THICK_LINE_STYLE}')
+#         time.sleep(0.10)
+#         print(
+#             CENTER(
+#                     'Welcome to an engaging quiz game that tests your knowledge '
+#                     'about various weather phenomena, including types of storms, '
+#                     'climate patterns, and weather forecasting!'
+#             )
+#         )
+#         print(f'{BLUE_FOREGROUND}{BRIGHT_STYLING}{THIN_LINE_STYLE}')
+#         time.sleep(0.30)
+
+#     def show_rules(self):
+#         # logic to show rules
+#         pass
+
+#     def start_game(self):
+#         # logic to start the game
+#         pass
+
+#     def exit_game(self):
+#         # logic to exit the game
+#         pass
+
+
+# def main():
+#     ui_manager = UIManager()
+#     leaderboard_manager = LeaderboardManager()
+#     leaderboard_manager.authenticate('creds.json')
+
+#     ui_manager.menu()
+
+# if __name__ == '__main__':
+#     main()
