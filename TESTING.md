@@ -17,7 +17,7 @@ User Experience Testing:
 
 Compatibility Testing:
 
-- Browser Compatibility: Tested on different browsers (Chrome, Firefox, Amazon silk, Edge, etc.) to ensure consistent performance.
+- Browser Compatibility: Tested on different browsers (Chrome, Firefox, Bing etc.) to ensure consistent performance.
 
 Regression Testing:
 
@@ -69,8 +69,42 @@ I've tested my deployed project on multiple browsers to check for compatibility 
 | --- | --- | --- | --- | --- | --- | --- | --- |
 | Chrome | ![screenshot](documentation/browsers/menu-chrome.png) | ![screenshot](documentation/browsers/rules-chrome.png) | ![screenshot](documentation/browsers/level-chrome.png) | ![screenshot](documentation/browsers/amount-chrome.png) | ![screenshot](documentation/browsers/quiz-chrome.png) | ![screenshot](documentation/browsers/quit-chrome.png) | Works as expected |
 | Firefox | ![screenshot](documentation/browsers/menu-firefox.png) | ![screenshot](documentation/browsers/rules-firefox.png) | ![screenshot](documentation/browsers/level-firefox.png) | ![screenshot](documentation/browsers/amount-firefox.png) | ![screenshot](documentation/browsers/quiz-firefox.png) | ![screenshot](documentation/browsers/quit-firefox.png) | Icons slightly cut off |
-| Edge | ![screenshot](documentation/browsers) | ![screenshot](documentation/browsers) | ![screenshot](documentation/browsers) | ![screenshot](documentation/browsers) | ![screenshot](documentation/browsers) | ![screenshot](documentation/browsers) | Works as expected |
 | Amazon silk | ![screenshot](documentation/browsers/menu-silk.jpg) | ![screenshot](documentation/browsers/rules-silk.jpg) | ![screenshot](documentation/browsers/level-silk.jpg) | ![screenshot](documentation/browsers/amount-silk.jpg) | ![screenshot](documentation/browsers/quiz-silk.jpg) | ![screenshot](documentation/browsers/quit-silk.jpg) | Works as expected |
+| DuckDuckGo | ![screenshot](documentation/browsers/menu-duck-go.png) | ![screenshot](documentation/browsers/rules-duck-go.png) | ![screenshot](documentation/browsers/level-duck-go.png) | ![screenshot](documentation/browsers/amount-duck-go.png) | ![screenshot](documentation/browsers/quiz-duck-go.png) | ![screenshot](documentation/browsers/quit-duck-go.png) | Works as expected |
+
+## Responsiveness
+
+As the app to run the live site on was created by Code Institute it is not a responsive program, so it does not scale down or up but stays at the one size.
+
+<details>
+<summary> Click me to see screen sizes </summary>
+
+Small
+
+![screenshot](documentation/screens/small.png)
+
+Large
+
+![screenshot](documentation/screens/large.png)
+
+</details>
+
+## Lighthouse Audit
+
+I tested the live site using the lighthouse audit tool but as the app was created by Code Institute, no changes were made because of this.
+
+<details>
+<summary> Click me to see the lighthouse audits </summary>
+
+Mobile
+
+![screenshot](documentation/lighthouse/mob-lighthouse.png)
+
+Desktop
+
+![screenshot](documentation/lighthouse/desk-lighthouse.png)
+
+</details>
 
 ## Defensive Programming
 

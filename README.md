@@ -8,7 +8,7 @@
 
 Weather Wise is a multiple choice weather quiz that users can play to help improve there knowledge about weather and is a fun game for all ages, so everyone can play.
 
-When a user first opens the quiz it will show a menu with a title and a brief overview of what it actually is. Below this it will then show a list of options with what the user would like to do next. Depending on there choice it will either start the game, show the instructions on how to play the game or quit the game. If the user inputs an incorrect value they will then be informed that whatever they have just inputted was incorrect and they need to write either 1, 2 or 3 depending on there choice. With the first option been chosen, it will then ask the user what level of difficulty the user would like for example easy, medium or hard. Again if the user inputs an incorrect value it will tell them that they have done so and need to write either 1, 2 or 3. Following there choice it will then ask how many questions they would like to answer for example 10, 25 or 50. Once more if the user didn't type a correct value it will tell them so and that they need to type either 1, 2 or 3. After this the app will then access data from the questions library and start asking randomly chosen multiple choice questions up until the user has answered there desired amount, for example what is rain? a. god peeing b. condensation from clouds c. water squirting from plains d. water that falls from clouds in the sky, that happens when tiny water droplets in the clouds join together and become too heavy to stay in the air. Once again if the user doesn't input a, b, c or d for any question they will be told to write a correct value from the options given. When the quiz has been finished there score will be toted up and then shown to the user, then the user will be asked if they would like to play again or quit the game. If the user doesn't input a correct value again they will be informed of this and asked to input a correct value. Providing they have chosen a correct value it will either take them to the menu or show message saying thank you for playing, goodbye. However at the menu screen if the user inputted the second option the app will then show the user how to play the quiz and once they have read this it will ask if they want to play again. Finally if the user chose the last option it will then double check they want to quit and if they do show the thank you for playing, goodbye. 
+When a user first opens the quiz it will show a menu with a title and a brief overview of what it actually is. Below this it will then show a list of options with what the user would like to do next. Depending on there choice it will either start the game, show the instructions on how to play the game or quit the game. If the user inputs an incorrect value they will then be informed that whatever they have just inputted was incorrect and they need to write either 1, 2 or 3 depending on there choice. With the second option been chosen, it will then ask the user what level of difficulty the user would like for example easy, medium or hard. Again if the user inputs an incorrect value it will tell them that they have done so and need to write either 1, 2 or 3. Following there choice it will then ask how many questions they would like to answer for example 10, 20 or 30. Once more if the user didn't type a correct value it will tell them so and that they need to type either 1, 2 or 3. After this the app will then access data from the questions library and start asking randomly chosen multiple choice questions up until the user has answered there desired amount, for example what is rain? a. god peeing b. condensation from clouds c. water squirting from plains d. water that falls from clouds in the sky, that happens when tiny water droplets in the clouds join together and become too heavy to stay in the air. Once again if the user doesn't input a, b, c or d for any question they will be told to write a correct value from the options given. When the quiz has been finished there score will be toted up and then shown to the user, then the user will be asked if they would like to play again or quit the game. If the user doesn't input a correct value again they will be informed of this and asked to input a correct value. Providing they have chosen a correct value it will either take them to the menu or show message saying thank you for playing, goodbye. However at the menu screen if the user inputted the second option the app will then show the user how to play the quiz and once they have read this it will return them back to the menu. Finally if the user chose the last option it will then double check they want to quit and if they do show the thank you for playing, goodbye. 
 
 Deployed site:
 https://ui.dev/amiresponsive?url=https://weather-wise-project-e6ccd7a6b753.herokuapp.com
@@ -47,7 +47,7 @@ source: [amiresponsive](https://ui.dev/amiresponsive?url=https://weather-wise-pr
 
 ![screenshot](documentation/features/head.png)
 
-- **Menu options**
+- **Menu section**
 
   - The app will then show three options 1. Play quiz 2. How to play 3. Quit. The user will then be asked to either input 1, 2 or 3 depending on what they would like to do.
 
@@ -59,38 +59,38 @@ source: [amiresponsive](https://ui.dev/amiresponsive?url=https://weather-wise-pr
 
 ![screenshot](documentation/features/menu-error.png)
 
-- **Option 1**
+- **Level option**
 
   - When the user chooses the 2nd option on the menu the program will then ask the user what difficulty level they would like. 1. Easy 2. Medium 3. Hard. The user will then be asked to input either 1, 2 or 3. 
 
 ![screenshot](documentation/features/level.png)
 
 
-- **Incorrect option 1 choice**
+- **Incorrect Level option**
 
   - If the user choose an option that wasn't there they will be informed that there value was incorrect and that they would need to type either 1, 2 or 3.
 
 ![screenshot](documentation/features/level-error.png)
 
-- **Option 1 part 2**
+- **Amount option**
 
   - Once the user has chosen there difficulty they will then be asked how many questions they will like to be asked and they will again need to type 1,2 or 3.
 
 ![screenshot](documentation/features/amount.png)
 
-- **Incorrect option 1 part 2**
+- **Incorrect amount option**
 
   - If the user choose an option that wasn't there they will be informed that there value was incorrect and that they would need to type either 1, 2 or 3.
 
 ![screenshot](documentation/features/amount-error.png)
 
-- **Option 2**
+- **Rules option**
 
   - If the user chooses the rules choice in the menu screen, the program will show the user instructions on how to play the game and once they have read the rules the program will take them back to the menu.
 
 ![screenshot](documentation/features/rules.png)
 
-- **Option 3**
+- **Quit option**
 
   - When the user chooses the quit option, the program will ask the user if they are sure they want to quit and if so to press Y/y but if not to press N/n which will return them to the main menu. If they do type Y/y it will show a message saying thankyou for playing, goodbye.
 
@@ -107,7 +107,7 @@ Y/y input
 
 </details>
 
-- **Incorrect option 3 choice**
+- **Incorrect quit option**
 
   - If the user typed an incorrect value they will be informed that there value was incorrect and that they would need to type either Y/y or N/n.
 
@@ -352,7 +352,7 @@ The **Procfile** can be created with the following command:
 The **runtime.txt** file needs to know which Python version you're using:
 1. type: `python3 --version` in the terminal.
 2. in the **runtime.txt** file, add your Python version:
-	- `python-3.9.19`
+	- `python-3.12.2`
 
 For Heroku deployment, follow these steps to connect your own GitHub repository to the newly created app:
 
