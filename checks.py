@@ -14,9 +14,12 @@ class SelectionChecker:
         """
         from helpers import StyleHelper, ProgramHelper
         if user_selects not in self.selections:
-            ProgramHelper.remove()  # Clear the terminal
-            print(f"{StyleHelper.RED_BG}{StyleHelper.WHITE_FOREGROUND}{StyleHelper.BRIGHT_STYLING}"
-            f"{StyleHelper.CENTER(f'⛔️ Error: {user_selects} is not valid! Please select {self.selections}. ⛔️')}{StyleHelper.BRIGHT_STYLING}")
+            ProgramHelper.remove()
+            print(f"{StyleHelper.RED_BG}{StyleHelper.WHITE_FOREGROUND}"
+                  f"{StyleHelper.BRIGHT_STYLING}"
+                  f"{StyleHelper.CENTER(f'⛔️ Error: {user_selects} is not'
+                     f' valid! Please select {self.selections}. ⛔️')}"
+                  f"{StyleHelper.BRIGHT_STYLING}")
 
             time.sleep(0.05)
             print()

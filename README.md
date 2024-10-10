@@ -306,7 +306,7 @@ The primary functions used on this application are:
   - Adds code validation for the amount section if a user inputs incorrect values.
 - `random_questions()`
   - Selects the chosen amount and difficulty of questions the user asked for and randomly picks from the specified category and adds the styling.
--  `qst_checker()`
+- `qst_checker()`
   - Adds code validation for the question section if a user inputs incorrect values.
 - `next_qst()`
   - Brings up the next question and checks if the user is correct or not.
@@ -402,6 +402,50 @@ Or:
 
 The frontend terminal should now be connected and deployed to Heroku!
 
+### Google Sheets Deployment
+
+This application uses [Google Sheets](https://docs.google.com/spreadsheets) to handle a "makeshift" database on the live site.
+
+⚠️ INSTRUCTIONS ⚠️
+
+The sample Sheet below follows along with the CI Love Sandwiches lessons, so make sure to refactor to your own project requirements.
+
+⚠️ --- END ---⚠️
+
+To run your own version of this application, you will need to create your own Google Sheet with three sheets named `sales`, `surplus`, and `stock` in the following format:
+
+| cheese ham | tom moz | chicken salad | egg salad | hummus veg | ham egg |
+| --- | --- | --- | --- | --- | --- |
+| sample data | sample data | sample data | sample data | sample data | sample data |
+| sample data | sample data | sample data | sample data | sample data | sample data |
+| sample data | sample data | sample data | sample data | sample data | sample data |
+
+A credentials file in `.JSON` format from the Google Cloud Platform is also mandatory:
+
+[Google Cloud Platform](https://console.cloud.google.com)
+
+1. From the dashboard click on "Select a project", and then the **NEW PROJECT** button.
+2. Give the project a name, and then click **CREATE**.
+3. Click **SELECT PROJECT** to get to the project page.
+4. From the side-menu, select "APIs & Services", then select "Library".
+5. Search for the "Google Drive API", select it, and then click on **ENABLE**.
+6. Click on the **CREATE CREDENTIALS** button.
+7. From the "Which API are you using?" dropdown menu, choose **Google Drive API**.
+8. For the "What data will you be accessing?" question, select **Application Data**.
+9. Click **Next**.
+10. Enter a "Service Account" name, then click **Create**.
+11. In the "Role" dropdown box, choose "Basic" > "Editor", then press **Continue**.
+12. "Grant users access to this service account" can be left blank. Click **DONE**.
+13. On the next page, click on the "Service Account" that has been created.
+14. On the next page, click on the "Keys" tab.
+15. Click on the "Add Key" dropdown, and select "Create New Key".
+16. Select `JSON`, and then click **Create**. This will trigger the `.json` file with your API credentials in it to download to your machine locally.
+17. For local deployment, this needs to be renamed to `creds.json`.
+18. Repeat steps 4 & 5 above to add the "Google Sheets API".
+19. Copy the `client_email` that is in the `creds.json` file.
+20. Share your Google Sheet to the `client_email`, ensuring "Editing" is enabled.
+21. Add the `creds.json` file to your `.gitignore` file, so as not to push your credentials to GitHub publicly.
+
 ### Local Deployment
 
 This project can be cloned or forked in order to make a local copy on your own system.
@@ -463,6 +507,7 @@ No differences were found between the local version and the live deployed versio
 | [W3Schools](https://www.w3schools.com/python/python_datetime.asp) | helpers.py | understand how to use `now().strftime()` method from the `datetime` library |
 | [geeksforgeeks](https://www.geeksforgeeks.org/python-staticmethod-function/) | checks.py | used to understand how to use `@staticmethod` in a `class` so that `__init__` is not required |
 | [W3Schools](https://www.w3schools.com/python/ref_keyword_pass.asp) | run.py | used to understand how to use the `pass` keyword so that the program does not bring up a error |
+| [Tim Nelson](https://github.com/TravelTimN/oregon-trail-python) | entire site | used for ideas on how to structure the program |
 
 ### Media
 

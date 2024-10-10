@@ -58,21 +58,22 @@ class ProgramHelper:
         """
         Remove content from the terminal for easier reading.
         """
-        import os
-        os.system('cls' if os.name == 'nt' else 'clear')
-
+        print('\033c')
 
     def exit():
         """
         Closes the program if the user wants to
         """
         time.sleep(0.10)
-        print(f'{StyleHelper.BLACK_FOREGROUND}{StyleHelper.BRIGHT_STYLING}{StyleHelper.THIN_LINE_STYLE}')
+        print(f'{StyleHelper.BLACK_FOREGROUND}{StyleHelper.BRIGHT_STYLING}'
+              f'{StyleHelper.THIN_LINE_STYLE}')
+        print()
         print(f'\n{StyleHelper.CENTER("Are you sure you want to leave?")}\n')
         time.sleep(0.05)
 
         exit_selects = input(
-            f"{StyleHelper.CENTER('Type Y if you want to leave or type N to stay.\n\n')}"
+            f"{StyleHelper.CENTER(
+                'Type Y if you want to leave or type N to stay.\n\n')}"
         ).strip().lower()
 
         exit_selections = ['y', 'n']
@@ -84,26 +85,34 @@ class ProgramHelper:
             if exit_selects == 'y':
                 time.sleep(0.10)
                 print()
-                print(f"{StyleHelper.CENTER('Thank you for playing, goodbye. 👋')}")
-                print(f'{StyleHelper.BLACK_FOREGROUND}{StyleHelper.BRIGHT_STYLING}{StyleHelper.THIN_LINE_STYLE}')
+                print(f"{StyleHelper.CENTER(
+                    'Thank you for playing, goodbye. 👋')}")
+                print(f'{StyleHelper.BLACK_FOREGROUND}'
+                      f'{StyleHelper.BRIGHT_STYLING}'
+                      f'{StyleHelper.THIN_LINE_STYLE}')
                 time.sleep(1)
                 sys.exit()
             # Returns to menu
             elif exit_selects == 'n':
                 time.sleep(0.10)
                 print()
-                print(f'{StyleHelper.BLACK_FOREGROUND}{StyleHelper.BRIGHT_STYLING}{StyleHelper.THIN_LINE_STYLE}')
+                print(f'{StyleHelper.BLACK_FOREGROUND}'
+                      f'{StyleHelper.BRIGHT_STYLING}'
+                      f'{StyleHelper.THIN_LINE_STYLE}')
                 print()
 
-                input(f'{StyleHelper.CENTER("Click ENTER to return to menu.")}\n')
-
+                input(f'{StyleHelper.CENTER(
+                    "Click ENTER to return to menu.")}\n')
 
     def loading_message():
         """
         Displays a 'Loading, please wait...' message with dots
         appearing one by one.
         """
-        message = f'{StyleHelper.GREEN_FOREGROUND}{StyleHelper.BRIGHT_STYLING}Loading, please wait'
+        message = (
+            f'{StyleHelper.GREEN_FOREGROUND}'
+            f'{StyleHelper.BRIGHT_STYLING}Loading, please wait'
+        )
         dots = '...'
 
         # prints the text first
@@ -114,7 +123,8 @@ class ProgramHelper:
         for dot in dots:
             time.sleep(0.40)
             # Makes dot stay on same line
-            sys.stdout.write(f'{StyleHelper.GREEN_FOREGROUND}{StyleHelper.BRIGHT_STYLING}{dot}')
+            sys.stdout.write(f'{StyleHelper.GREEN_FOREGROUND}'
+                             f'{StyleHelper.BRIGHT_STYLING}{dot}')
             sys.stdout.flush()
 
         print()

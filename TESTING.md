@@ -76,9 +76,6 @@ I've tested my deployed project on multiple browsers to check for compatibility 
 
 As the app to run the live site on was created by Code Institute it is not a responsive program, so it does not scale down or up but stays at the one size.
 
-<details>
-<summary> Click me to see screen sizes </summary>
-
 Small
 
 ![screenshot](documentation/screens/small.png)
@@ -87,14 +84,9 @@ Large
 
 ![screenshot](documentation/screens/large.png)
 
-</details>
-
 ## Lighthouse Audit
 
 I tested the live site using the lighthouse audit tool but as the app was created by Code Institute, no changes were made because of this.
-
-<details>
-<summary> Click me to see the lighthouse audits </summary>
 
 Mobile
 
@@ -103,8 +95,6 @@ Mobile
 Desktop
 
 ![screenshot](documentation/lighthouse/desk-lighthouse.png)
-
-</details>
 
 ## Defensive Programming
 

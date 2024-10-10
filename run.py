@@ -4,9 +4,10 @@ from checks import CheckerFactory
 from helpers import StyleHelper, ProgramHelper
 from game import QuizGame
 
+
 class UIManager:
     """
-    handles the starting functions so the program can run.
+    Handles the starting functions so the program can run.
     """
     def __init__(self):
         pass
@@ -32,7 +33,8 @@ class UIManager:
 
             user_selects = input(
                 f'\nWhich option would you like to select? '
-                f'{StyleHelper.BLUE_FOREGROUND}{StyleHelper.BRIGHT_STYLING}[1-3]\n\n'
+                f'{StyleHelper.BLUE_FOREGROUND}'
+                f'{StyleHelper.BRIGHT_STYLING}[1-3]\n\n'
             ).strip()
 
             selections = ['1', '2', '3']
@@ -41,14 +43,11 @@ class UIManager:
             checker = CheckerFactory.get_checker('menu', selections)
             if checker.check(user_selects, "Invalid menu selection"):
                 ProgramHelper.remove()
-                # Shows rules of game
                 if user_selects == '1':
                     self.rules('rules')
-                # Starts the process of the game
                 elif user_selects == '2':
                     quiz = QuizGame()
                     quiz.select_difficulty()
-                # Starts the process of exiting the game
                 elif user_selects == '3':
                     self.exit_game()
 
@@ -56,12 +55,18 @@ class UIManager:
         """
         Makes the header section and styles it.
         """
-        print(f'{StyleHelper.BLUE_FOREGROUND}{StyleHelper.BRIGHT_STYLING}{StyleHelper.THICK_LINE_STYLE}')
+        print(
+            f'{StyleHelper.BLUE_FOREGROUND}{StyleHelper.BRIGHT_STYLING}'
+            f'{StyleHelper.THICK_LINE_STYLE}'
+        )
         print(
             f'{StyleHelper.BLUE_FOREGROUND}{StyleHelper.BRIGHT_STYLING}'
             f'{StyleHelper.CENTER("⛅ " + title + " 🌧️").upper()}'
         )
-        print(f'{StyleHelper.BLUE_FOREGROUND}{StyleHelper.BRIGHT_STYLING}{StyleHelper.THICK_LINE_STYLE}')
+        print(
+            f'{StyleHelper.BLUE_FOREGROUND}{StyleHelper.BRIGHT_STYLING}'
+            f'{StyleHelper.THICK_LINE_STYLE}'
+        )
         time.sleep(0.10)
         print(
             StyleHelper.CENTER(
@@ -70,20 +75,36 @@ class UIManager:
                 'climate patterns, and weather forecasting!'
             )
         )
-        print(f'{StyleHelper.BLUE_FOREGROUND}{StyleHelper.BRIGHT_STYLING}{StyleHelper.THIN_LINE_STYLE}')
+        print(
+            f'{StyleHelper.BLUE_FOREGROUND}{StyleHelper.BRIGHT_STYLING}'
+            f'{StyleHelper.THIN_LINE_STYLE}'
+        )
         time.sleep(0.30)
 
     def rules(self, title):
         """
         Prints instructions on how to play the game.
         """
-        print(f'{StyleHelper.MAGENTA_FOREGROUND}{StyleHelper.BRIGHT_STYLING}{StyleHelper.THIN_LINE_STYLE}')
+        print(
+            f'{StyleHelper.MAGENTA_FOREGROUND}{StyleHelper.BRIGHT_STYLING}'
+            f'{StyleHelper.THIN_LINE_STYLE}'
+        )
         print()
-        print(f'{StyleHelper.MAGENTA_FOREGROUND}{StyleHelper.BRIGHT_STYLING}{StyleHelper.CENTER(title+" 📃").upper()}')
-        print(f'{StyleHelper.MAGENTA_FOREGROUND}{StyleHelper.BRIGHT_STYLING}{StyleHelper.THIN_LINE_STYLE}')
+        print(
+            f'{StyleHelper.MAGENTA_FOREGROUND}{StyleHelper.BRIGHT_STYLING}'
+            f'{StyleHelper.CENTER(title + " 📃").upper()}'
+        )
+        print(
+            f'{StyleHelper.MAGENTA_FOREGROUND}{StyleHelper.BRIGHT_STYLING}'
+            f'{StyleHelper.THIN_LINE_STYLE}'
+        )
         time.sleep(0.20)
         print()
-        print(StyleHelper.CENTER('When typing 2 into the terminal it will then ask, '))
+        print(
+            StyleHelper.CENTER(
+                'When typing 2 into the terminal it will then ask, '
+            )
+        )
         time.sleep(0.05)
         print(StyleHelper.CENTER('what difficulty level would you like '))
         time.sleep(0.05)
@@ -97,18 +118,27 @@ class UIManager:
         input(f'{StyleHelper.CENTER("Click ENTER to continue")}\n')
 
         ProgramHelper.remove()
-        print(f'{StyleHelper.MAGENTA_FOREGROUND}{StyleHelper.BRIGHT_STYLING}{StyleHelper.THIN_LINE_STYLE}')
+        print(
+            f'{StyleHelper.MAGENTA_FOREGROUND}{StyleHelper.BRIGHT_STYLING}'
+            f'{StyleHelper.THIN_LINE_STYLE}'
+        )
         print()
-        print(f'{StyleHelper.MAGENTA_FOREGROUND}{StyleHelper.BRIGHT_STYLING}{StyleHelper.CENTER(title+" 📃").upper()}')
-        print(f'{StyleHelper.MAGENTA_FOREGROUND}{StyleHelper.BRIGHT_STYLING}{StyleHelper.THIN_LINE_STYLE}')
+        print(
+            f'{StyleHelper.MAGENTA_FOREGROUND}{StyleHelper.BRIGHT_STYLING}'
+            f'{StyleHelper.CENTER(title + " 📃").upper()}'
+        )
+        print(
+            f'{StyleHelper.MAGENTA_FOREGROUND}{StyleHelper.BRIGHT_STYLING}'
+            f'{StyleHelper.THIN_LINE_STYLE}'
+        )
         print()
-        print(StyleHelper.CENTER('Once you have chosen your difficulty, '))
-        time.sleep(0.05)
         print(
             StyleHelper.CENTER(
-                'you will then be asked the amount of questions you would like.'
+                'Once you have chosen your difficulty, you will then be asked '
             )
         )
+        time.sleep(0.05)
+        print(StyleHelper.CENTER('the amount of questions you would like.'))
         time.sleep(0.05)
         print(StyleHelper.CENTER(' You can type 1 for 10 questions, '))
         time.sleep(0.05)
@@ -120,31 +150,62 @@ class UIManager:
         input(f'{StyleHelper.CENTER("Click ENTER to continue")}\n')
 
         ProgramHelper.remove()
-        print(f'{StyleHelper.MAGENTA_FOREGROUND}{StyleHelper.BRIGHT_STYLING}{StyleHelper.THIN_LINE_STYLE}')
+        print(
+            f'{StyleHelper.MAGENTA_FOREGROUND}{StyleHelper.BRIGHT_STYLING}'
+            f'{StyleHelper.THIN_LINE_STYLE}'
+        )
         print()
-        print(f'{StyleHelper.MAGENTA_FOREGROUND}{StyleHelper.BRIGHT_STYLING}{StyleHelper.CENTER(title+" 📃").upper()}')
-        print(f'{StyleHelper.MAGENTA_FOREGROUND}{StyleHelper.BRIGHT_STYLING}{StyleHelper.THIN_LINE_STYLE}')
+        print(
+            f'{StyleHelper.MAGENTA_FOREGROUND}{StyleHelper.BRIGHT_STYLING}'
+            f'{StyleHelper.CENTER(title + " 📃").upper()}'
+        )
+        print(
+            f'{StyleHelper.MAGENTA_FOREGROUND}{StyleHelper.BRIGHT_STYLING}'
+            f'{StyleHelper.THIN_LINE_STYLE}'
+        )
         print()
-        print(StyleHelper.CENTER('When you have chosen the amount of questions, '))
+        print(
+            StyleHelper.CENTER(
+                'When you have chosen the amount of questions, '
+            )
+        )
         time.sleep(0.05)
         print(StyleHelper.CENTER('you will then start the quiz. '))
         time.sleep(0.05)
         print(StyleHelper.CENTER('For the quiz you will have to answer '))
         time.sleep(0.05)
-        print(StyleHelper.CENTER('a, b, c or d, either in lowercase or uppercase.'))
+        print(StyleHelper.CENTER(
+            'a, b, c or d, either in lowercase or uppercase.'))
         time.sleep(0.05)
         print()
         input(f'{StyleHelper.CENTER("Click ENTER to continue")}\n')
 
         ProgramHelper.remove()
-        print(f'{StyleHelper.MAGENTA_FOREGROUND}{StyleHelper.BRIGHT_STYLING}{StyleHelper.THIN_LINE_STYLE}')
+        print(
+            f'{StyleHelper.MAGENTA_FOREGROUND}{StyleHelper.BRIGHT_STYLING}'
+            f'{StyleHelper.THIN_LINE_STYLE}'
+        )
         print()
-        print(f'{StyleHelper.MAGENTA_FOREGROUND}{StyleHelper.BRIGHT_STYLING}{StyleHelper.CENTER(title+" 📃").upper()}')
-        print(f'{StyleHelper.MAGENTA_FOREGROUND}{StyleHelper.BRIGHT_STYLING}{StyleHelper.THIN_LINE_STYLE}')
+        print(
+            f'{StyleHelper.MAGENTA_FOREGROUND}{StyleHelper.BRIGHT_STYLING}'
+            f'{StyleHelper.CENTER(title + " 📃").upper()}'
+        )
+        print(
+            f'{StyleHelper.MAGENTA_FOREGROUND}{StyleHelper.BRIGHT_STYLING}'
+            f'{StyleHelper.THIN_LINE_STYLE}'
+        )
         print()
-        print(StyleHelper.CENTER('Once you have answered all your questions, '))
+        print(
+            StyleHelper.CENTER(
+                'Once you have answered all your'
+                ' questions, '
+            )
+        )
         time.sleep(0.05)
-        print(StyleHelper.CENTER('your score will be added and shown to you. '))
+        print(StyleHelper.CENTER(
+                  'your score will be added and shown to you. '
+            )
+        )
         time.sleep(0.05)
         print(
             StyleHelper.CENTER(
@@ -154,38 +215,60 @@ class UIManager:
         time.sleep(0.05)
         print(
             StyleHelper.CENTER(
-                'Your score, name, difficulty level, amount of questions and '
+                'Your score, name, difficulty level, amount of questions, '
             )
         )
         time.sleep(0.05)
-        print(StyleHelper.CENTER('the time/date you achieved will be added to a leaderboard.'))
+        print(StyleHelper.CENTER(
+                  'and when you achieved the result '
+            )
+        )
+        time.sleep(0.05)
+        print(StyleHelper.CENTER(
+                  'will be added to a leaderboard.'
+            )
+        )
         time.sleep(0.05)
         print()
         input(f'{StyleHelper.CENTER("Click ENTER to continue.")}\n')
 
         ProgramHelper.remove()
-        print(f'{StyleHelper.MAGENTA_FOREGROUND}{StyleHelper.BRIGHT_STYLING}{StyleHelper.THIN_LINE_STYLE}')
+        print(
+            f'{StyleHelper.MAGENTA_FOREGROUND}{StyleHelper.BRIGHT_STYLING}'
+            f'{StyleHelper.THIN_LINE_STYLE}'
+        )
         print()
-        print(f'{StyleHelper.MAGENTA_FOREGROUND}{StyleHelper.BRIGHT_STYLING}{StyleHelper.CENTER(title+" 📃").upper()}')
-        print(f'{StyleHelper.MAGENTA_FOREGROUND}{StyleHelper.BRIGHT_STYLING}{StyleHelper.THIN_LINE_STYLE}')
+        print(
+            f'{StyleHelper.MAGENTA_FOREGROUND}{StyleHelper.BRIGHT_STYLING}'
+            f'{StyleHelper.CENTER(title + " 📃").upper()}'
+        )
+        print(
+            f'{StyleHelper.MAGENTA_FOREGROUND}{StyleHelper.BRIGHT_STYLING}'
+            f'{StyleHelper.THIN_LINE_STYLE}'
+        )
         print()
         print(
             StyleHelper.CENTER(
-                'You will then be asked if you would like to play again or quit.'
+                'You will then be asked if you would'
+                ' like to play again or quit.'
             )
         )
         time.sleep(0.05)
         print(
             StyleHelper.CENTER(
-                ' You will have to type y to play again in uppercase or lowercase'
+                ' You will have to type y to play again'
+                ' in uppercase or lowercase'
             )
         )
         time.sleep(0.05)
-        print(StyleHelper.CENTER(' or type n to quit in lowercase or uppercase. '))
+        print(
+            StyleHelper.CENTER(' or type n to quit in lowercase or uppercase.')
+        )
         time.sleep(0.05)
         print(
             StyleHelper.CENTER(
-                'If you type y you will be taken back to the difficulty section, '
+                'If you type y you will be taken back'
+                ' to the difficulty section, '
             )
         )
         time.sleep(0.05)
@@ -198,46 +281,20 @@ class UIManager:
         print()
         input(f'{StyleHelper.CENTER("Click ENTER to continue.")}\n')
 
-        ProgramHelper.remove()
-        print(f'{StyleHelper.MAGENTA_FOREGROUND}{StyleHelper.BRIGHT_STYLING}{StyleHelper.THIN_LINE_STYLE}')
-        print()
-        print(f'{StyleHelper.MAGENTA_FOREGROUND}{StyleHelper.BRIGHT_STYLING}{StyleHelper.CENTER(title+" 📃").upper()}')
-        print(f'{StyleHelper.MAGENTA_FOREGROUND}{StyleHelper.BRIGHT_STYLING}{StyleHelper.THIN_LINE_STYLE}')
-        print()
-        print(
-            StyleHelper.CENTER(
-                'If you choose 3 in the main menu you will then be asked '
-                'if you are sure you want to quit.'
-            )
-        )
-        time.sleep(0.05)
-        print(
-            StyleHelper.CENTER(
-                'You can either type y in uppercase or lowercase to quit the game '
-            )
-        )
-        time.sleep(0.05)
-        print(
-            StyleHelper.CENTER(
-                'or type n in uppercase or lowercase for no, which will take you '
-                'back to the main menu.'
-            )
-        )
-        time.sleep(0.05)
-        print()
-        input(f'{StyleHelper.CENTER("Click ENTER to return to menu.")}\n')
-
     def exit_game(self):
         """
         Exits the game after confirmation.
         """
         time.sleep(0.10)
-        print(f'{StyleHelper.BLACK_FOREGROUND}{StyleHelper.BRIGHT_STYLING}{StyleHelper.THIN_LINE_STYLE}')
+        print(
+            f'{StyleHelper.BLACK_FOREGROUND}{StyleHelper.BRIGHT_STYLING}'
+            f'{StyleHelper.THIN_LINE_STYLE}'
+        )
         print(f'\n{StyleHelper.CENTER("Are you sure you want to leave?")}\n')
         time.sleep(0.05)
 
         exit_selects = input(
-            f"{StyleHelper.CENTER('Type Y if you want to leave or type N to stay.\n\n')}"
+            f"{StyleHelper.CENTER('Type Y to leave or N to stay.\n\n')}"
         ).strip().lower()
 
         exit_selections = ['y', 'n']
@@ -249,16 +306,26 @@ class UIManager:
             if exit_selects == 'y':
                 time.sleep(0.10)
                 print()
-                print(f"{StyleHelper.CENTER('Thank you for playing, goodbye. 👋')}")
-                print(f'{StyleHelper.BLACK_FOREGROUND}{StyleHelper.BRIGHT_STYLING}{StyleHelper.THIN_LINE_STYLE}')
+                print(f"{StyleHelper.CENTER(
+                    'Thank you for playing, goodbye. 👋')}")
+                print(
+                    f'{StyleHelper.BLACK_FOREGROUND}'
+                    f'{StyleHelper.BRIGHT_STYLING}'
+                    f'{StyleHelper.THIN_LINE_STYLE}'
+                )
                 time.sleep(1)
                 sys.exit()
             elif exit_selects == 'n':
                 time.sleep(0.10)
                 print()
-                print(f'{StyleHelper.BLACK_FOREGROUND}{StyleHelper.BRIGHT_STYLING}{StyleHelper.THIN_LINE_STYLE}')
+                print(
+                    f'{StyleHelper.BLACK_FOREGROUND}'
+                    f'{StyleHelper.BRIGHT_STYLING}'
+                    f'{StyleHelper.THIN_LINE_STYLE}'
+                )
                 print()
-                input(f'{StyleHelper.CENTER("Click ENTER to return to menu.")}\n')
+                input(f'{StyleHelper.CENTER(
+                      "Click ENTER to return to menu.")}\n')
 
 
 def main():

@@ -25,7 +25,8 @@ class QuizGame:
         """
         while True:
             ProgramHelper.remove()
-            print(f'{StyleHelper.GREEN_FOREGROUND}{StyleHelper.BRIGHT_STYLING}{StyleHelper.THIN_LINE_STYLE}')
+            print(f'{StyleHelper.GREEN_FOREGROUND}{StyleHelper.BRIGHT_STYLING}'
+                  f'{StyleHelper.THIN_LINE_STYLE}')
             print()
             print("What level of difficulty would you like?")
             print()
@@ -37,11 +38,16 @@ class QuizGame:
             print('3. Hard')
             time.sleep(0.10)
 
-            level_selects = input(f'\nWhich option would you like to select? {StyleHelper.GREEN_FOREGROUND}{StyleHelper.BRIGHT_STYLING}[1-3]\n\n').strip()
+            level_selects = input(f'\nWhich option would you like '
+                                  f'to select? {StyleHelper.GREEN_FOREGROUND}'
+                                  f'{StyleHelper.BRIGHT_STYLING}'
+                                  f'[1-3]\n\n').strip()
             level_selections = ['1', '2', '3']
 
             # Use the checker to validate input
-            level_checker = CheckerFactory.get_checker('level', level_selections)
+            level_checker = CheckerFactory.get_checker(
+                'level', level_selections
+            )
             if level_checker.check(level_selects, "Invalid menu selection"):
                 #  Sets difficulty based on users choice
                 if level_selects == '1':
@@ -63,7 +69,8 @@ class QuizGame:
         """
         while True:
             ProgramHelper.remove()
-            print(f'{StyleHelper.GREEN_FOREGROUND}{StyleHelper.BRIGHT_STYLING}{StyleHelper.THIN_LINE_STYLE}')
+            print(f'{StyleHelper.GREEN_FOREGROUND}{StyleHelper.BRIGHT_STYLING}'
+                  f'{StyleHelper.THIN_LINE_STYLE}')
             print()
             print("How many questions would you like to answer?:\n")
             time.sleep(0.10)
@@ -74,10 +81,15 @@ class QuizGame:
             print('3. 30')
             time.sleep(0.10)
 
-            amount_selects = input(f'\nWhich option would you like to select? {StyleHelper.GREEN_FOREGROUND}{StyleHelper.BRIGHT_STYLING}[1-3]\n\n').strip()
+            amount_selects = input(f'\nWhich option would you like '
+                                   f'to select? {StyleHelper.GREEN_FOREGROUND}'
+                                   f'{StyleHelper.BRIGHT_STYLING}'
+                                   f'[1-3]\n\n').strip()
             amount_selections = ['1', '2', '3']
 
-            amount_checker = CheckerFactory.get_checker('amount', amount_selections)
+            amount_checker = CheckerFactory.get_checker(
+                'amount', amount_selections
+            )
             if amount_checker.check(amount_selects, "Invalid menu selection"):
                 question_count = {'1': 10, '2': 20, '3': 30}
                 self.num_questions = question_count[amount_selects]
@@ -102,10 +114,12 @@ class QuizGame:
             choices = qst_data['choices']
             answer = qst_data['answer']
 
-            print(f'{StyleHelper.GREEN_FOREGROUND}{StyleHelper.BRIGHT_STYLING}{StyleHelper.THIN_LINE_STYLE}')
+            print(f'{StyleHelper.GREEN_FOREGROUND}{StyleHelper.BRIGHT_STYLING}'
+                  f'{StyleHelper.THIN_LINE_STYLE}')
             print()
             print(f"{StyleHelper.CENTER('Quiz')}")
-            print(f'{StyleHelper.GREEN_FOREGROUND}{StyleHelper.BRIGHT_STYLING}{StyleHelper.THIN_LINE_STYLE}')
+            print(f'{StyleHelper.GREEN_FOREGROUND}{StyleHelper.BRIGHT_STYLING}'
+                  f'{StyleHelper.THIN_LINE_STYLE}')
             print()
             print(f'Q{num + 1}: ')
             self.total_score += self.ask_question(question, choices, answer)
@@ -148,7 +162,14 @@ class QuizGame:
             if answer_tag in tag_choice:
                 return tag_choice[answer_tag]
             else:
-                print(f"{StyleHelper.WHITE_FOREGROUND}{StyleHelper.RED_BG}{StyleHelper.BRIGHT_STYLING}{StyleHelper.CENTER(f'⛔️  Error: {answer_tag} is not valid. Please answer one of {', '.join(tag_choice.keys())}. ⛔️')}")
+                print(
+                    f"{StyleHelper.WHITE_FOREGROUND}{StyleHelper.RED_BG}"
+                    f"{StyleHelper.BRIGHT_STYLING}"
+                    f"{StyleHelper.CENTER(f'⛔️ Error: {answer_tag} is not'
+                                          f' valid. Please answer one of'
+                                          f' {', '.join(tag_choice.keys())}'
+                                          f'. ⛔️')}"
+                )
 
     def show_score(self):
         """
@@ -165,7 +186,15 @@ class QuizGame:
         else:
             score_message = "Outstanding! Excellent performance!"
 
-        print(f"{StyleHelper.GREEN_BG}{StyleHelper.WHITE_FOREGROUND}{StyleHelper.BRIGHT_STYLING}{StyleHelper.CENTER(f'🎉 {score_message} {self.total_score}/{self.num_questions} 🎉')}")
+        print(
+            f"{StyleHelper.GREEN_BG}{StyleHelper.WHITE_FOREGROUND}"
+            f"{StyleHelper.BRIGHT_STYLING}"
+            f"{StyleHelper.CENTER(f'🎉 '
+                                  f"{score_message} "
+                                  f"{self.total_score}/"
+                                  f'{self.num_questions} 🎉')}"
+        )
+
         time.sleep(0.10)
 
         user_name = input("Please enter your name: ")
@@ -175,13 +204,21 @@ class QuizGame:
 
         ProgramHelper.remove()
         leaderboard = LeaderboardManager()
-        leaderboard.update_leaderboard(user_name, self.total_score, self.difficulty, self.num_questions)
+        leaderboard.update_leaderboard(
+            user_name,
+            self.total_score, 
+            self.difficulty, 
+            self.num_questions
+        )
         print()
-        print(f'{StyleHelper.CENTER("Your score has been saved to the leaderboard")}')
+        print(f'{StyleHelper.CENTER(
+            "Your score has been saved to the leaderboard")}'
+        )
         # Option to play again or quit
         print()
         leave_selects = input(
-            f"{StyleHelper.CENTER('Type Y if you want to play again or type N to quit.\n\n')}"
+            f"{StyleHelper.CENTER(
+                'Type Y if you want to play again or type N to quit.\n\n')}"
         ).strip().lower()
 
         leave_selections = ['y', 'n']
