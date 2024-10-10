@@ -4,6 +4,7 @@ from string import ascii_lowercase
 import gspread
 from google.oauth2.service_account import Credentials
 import datetime
+from prettytable import PrettyTable
 # Imported from own created files
 from questions import EASY_QUESTIONS, MED_QUESTIONS, HARD_QUESTIONS
 from helpers import StyleHelper, ProgramHelper
@@ -206,14 +207,16 @@ class QuizGame:
         leaderboard = LeaderboardManager()
         leaderboard.update_leaderboard(
             user_name,
-            self.total_score, 
-            self.difficulty, 
+            self.total_score,
+            self.difficulty,
             self.num_questions
         )
         print()
         print(f'{StyleHelper.CENTER(
             "Your score has been saved to the leaderboard")}'
         )
+        leaderboard.show_leaderboard(self.difficulty)
+
         # Option to play again or quit
         print()
         leave_selects = input(
@@ -235,6 +238,9 @@ class QuizGame:
 
 
 class LeaderboardManager:
+    """
+    Handles the leaderboard functions
+    """
     def __init__(self):
         self.sheet = None
 
@@ -272,3 +278,30 @@ class LeaderboardManager:
 
         timestamp = datetime.datetime.now().strftime("%Y-%m-%d %H:%M:%S")
         worksheet.append_row([name, score, num_questions, timestamp])
+
+    def show_leaderboard(self, difficulty):
+        """
+        Fetches the leaderboard from Google Sheets
+         and displays it using PrettyTable.
+        """
+        self.authenticate()
+        worksheet = self.get_worksheet(difficulty)
+
+        # Get all rows from the sheet
+        leaderboard_data = worksheet.get_all_values()
+
+        if not leaderboard_data:
+            print("No leaderboard data available.")
+            return
+
+        # Create a PrettyTable object and set the column names
+        table = PrettyTable()
+        table.field_names = ["Name", "Score", "Questions-amount", "Timestamp"]
+
+        # Add each row to the table Skipping header row
+        for row in leaderboard_data[1:]:
+            table.add_row(row)
+
+        # Print the leaderboard table
+        print(f"Leaderboard for {difficulty.capitalize()} difficulty:")
+        print(table)

@@ -174,7 +174,6 @@ options
 ### Future Features
 
 1. Allow users to play split-screen or multiplayer.
-2. Add the leaderboard to the program so users can see the high score.
 3. Add links to other quizzes or cool facts about weather.
 4. Make leaderboard put the highest scores at the top of the leaderboard and only add top 10 scores for each difficulty and for each amount of questions answered.
 5. Add sound effects to the program.
@@ -286,36 +285,34 @@ The primary functions used on this application are:
   - Shows the first screen the user sees allowing them to choose what they want to do first.
 - `header()`
   - Shows the title and all of its styles and content.
-- `checker()`
-  - Adds code validation for the menu section if a user inputs incorrect values.
+- `check()`
+  - Adds code validation if a user inputs incorrect values.
+- `get_checker()`
+  - Gets the correct checker based on the type of check required.
 - `remove()`
   - Clears the content allowing user to see what's running next.
 - `rules()`
   - Shows how to play the game and adds all of it's styling for this section.
-- `exit()`
+- `exit_game()`
   - Allows the user to end the game and all the styling for this section.
-- `exit_checker()`
-  - Adds code validation for the exit section if a user inputs incorrect values.
-- `level_selector()`
+- `select_difficulty()`
   - Let's the user choose what level of difficulty they would like the questions to be and adds styling for this section.
-- `level_checker()`
-  - Adds code validation for the level section if a user inputs incorrect values.
-- `questions_amount()`
+- `select_question_amount()`
   - Let's the user choose how many questions they would like to answer and adds styling for this section.
-- `amount_checker()`
-  - Adds code validation for the amount section if a user inputs incorrect values.
-- `random_questions()`
+- `play()`
   - Selects the chosen amount and difficulty of questions the user asked for and randomly picks from the specified category and adds the styling.
-- `qst_checker()`
-  - Adds code validation for the question section if a user inputs incorrect values.
-- `next_qst()`
-  - Brings up the next question and checks if the user is correct or not.
-- `user_answered_select()`
+- `get_user_answer()`
   - Shows the questions and choices and makes sure the user inputted correctly and if not informs them.
-- `auth_g_sheets()`
-  - Sets up Google Sheets API and returns the correct worksheet based on difficulty.
+- `show_score()`
+  - Shows the users score and saves it to the leaderboard.
+- `authenticate()`
+  - Sets up Google Sheets API and returns the worksheet.
+- `get_worksheet()`
+  - Returns the correct worksheet based on the difficulty.
 - `update_leaderboard()`
   - Updates the Google Sheets leaderboard with the user's name, score, amount of questions answered and the time/date.
+- `show_leaderboard()`
+  - Shows the leaderboard to the users.
 - `loading_message()`
   - Used to create a message that makes the dots after it appear one by one after so many seconds.
 - `main()`
@@ -406,19 +403,13 @@ The frontend terminal should now be connected and deployed to Heroku!
 
 This application uses [Google Sheets](https://docs.google.com/spreadsheets) to handle a "makeshift" database on the live site.
 
-⚠️ INSTRUCTIONS ⚠️
+To run your own version of this application, you will need to create your own Google Sheet with three sheets named `easy`, `medium`, and `hard` in the following format:
 
-The sample Sheet below follows along with the CI Love Sandwiches lessons, so make sure to refactor to your own project requirements.
-
-⚠️ --- END ---⚠️
-
-To run your own version of this application, you will need to create your own Google Sheet with three sheets named `sales`, `surplus`, and `stock` in the following format:
-
-| cheese ham | tom moz | chicken salad | egg salad | hummus veg | ham egg |
-| --- | --- | --- | --- | --- | --- |
-| sample data | sample data | sample data | sample data | sample data | sample data |
-| sample data | sample data | sample data | sample data | sample data | sample data |
-| sample data | sample data | sample data | sample data | sample data | sample data |
+| Name | Score | Number of questions | Timestamp |
+| --- | --- | --- | --- |
+| Max | 3 | 10 | 2024-10-07 13:15:19 |
+| Molly | 14 | 20 | 2024-10-01 10:9:29 |
+| Melvin | 10 | 10 | 2024-10-07 16:5:9 |
 
 A credentials file in `.JSON` format from the Google Cloud Platform is also mandatory:
 
