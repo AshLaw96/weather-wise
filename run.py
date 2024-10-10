@@ -1,316 +1,274 @@
 import time
-# Imported from my own created files
-from game import level_selector
-from checks import checker
-from helpers import (
-    remove, BLUE_FOREGROUND, BRIGHT_STYLING, THICK_LINE_STYLE, CENTER,
-    MAGENTA_FOREGROUND, THIN_LINE_STYLE, exit
-)
+import sys
+from checks import CheckerFactory
+from helpers import StyleHelper, ProgramHelper
+from game import QuizGame
 
-
-def menu():
+class UIManager:
     """
-    Shows the main menu of the program.
+    handles the starting functions so the program can run.
     """
-    while True:
-        remove()
-        header('weather wise')
+    def __init__(self):
+        pass
 
-        print()
-        print("Here's what you can do:\n")
+    def menu(self):
+        """
+        Shows the main menu of the program.
+        """
+        while True:
+            ProgramHelper.remove()
+            self.header('weather wise')
+
+            print()
+            print("Here's what you can do:\n")
+            time.sleep(0.10)
+
+            print('1. Show rules')
+            time.sleep(0.05)
+            print('2. Play game')
+            time.sleep(0.05)
+            print('3. Exit program')
+            time.sleep(0.10)
+
+            user_selects = input(
+                f'\nWhich option would you like to select? '
+                f'{StyleHelper.BLUE_FOREGROUND}{StyleHelper.BRIGHT_STYLING}[1-3]\n\n'
+            ).strip()
+
+            selections = ['1', '2', '3']
+
+            # Get the correct checker
+            checker = CheckerFactory.get_checker('menu', selections)
+            if checker.check(user_selects, "Invalid menu selection"):
+                ProgramHelper.remove()
+                # Shows rules of game
+                if user_selects == '1':
+                    self.rules('rules')
+                # Starts the process of the game
+                elif user_selects == '2':
+                    quiz = QuizGame()
+                    quiz.select_difficulty()
+                # Starts the process of exiting the game
+                elif user_selects == '3':
+                    self.exit_game()
+
+    def header(self, title):
+        """
+        Makes the header section and styles it.
+        """
+        print(f'{StyleHelper.BLUE_FOREGROUND}{StyleHelper.BRIGHT_STYLING}{StyleHelper.THICK_LINE_STYLE}')
+        print(
+            f'{StyleHelper.BLUE_FOREGROUND}{StyleHelper.BRIGHT_STYLING}'
+            f'{StyleHelper.CENTER("⛅ " + title + " 🌧️").upper()}'
+        )
+        print(f'{StyleHelper.BLUE_FOREGROUND}{StyleHelper.BRIGHT_STYLING}{StyleHelper.THICK_LINE_STYLE}')
         time.sleep(0.10)
+        print(
+            StyleHelper.CENTER(
+                'Welcome to an engaging quiz game that tests your knowledge '
+                'about various weather phenomena, including types of storms, '
+                'climate patterns, and weather forecasting!'
+            )
+        )
+        print(f'{StyleHelper.BLUE_FOREGROUND}{StyleHelper.BRIGHT_STYLING}{StyleHelper.THIN_LINE_STYLE}')
+        time.sleep(0.30)
+
+    def rules(self, title):
+        """
+        Prints instructions on how to play the game.
+        """
+        print(f'{StyleHelper.MAGENTA_FOREGROUND}{StyleHelper.BRIGHT_STYLING}{StyleHelper.THIN_LINE_STYLE}')
         print()
-        print('1. show rules')
+        print(f'{StyleHelper.MAGENTA_FOREGROUND}{StyleHelper.BRIGHT_STYLING}{StyleHelper.CENTER(title+" 📃").upper()}')
+        print(f'{StyleHelper.MAGENTA_FOREGROUND}{StyleHelper.BRIGHT_STYLING}{StyleHelper.THIN_LINE_STYLE}')
+        time.sleep(0.20)
+        print()
+        print(StyleHelper.CENTER('When typing 2 into the terminal it will then ask, '))
         time.sleep(0.05)
-        print('2. play game')
+        print(StyleHelper.CENTER('what difficulty level would you like '))
         time.sleep(0.05)
-        print('3. exit program')
+        print(StyleHelper.CENTER('type 1 for easy, '))
+        time.sleep(0.05)
+        print(StyleHelper.CENTER('type 2 for medium '))
+        time.sleep(0.05)
+        print(StyleHelper.CENTER('or type 3 for hard.'))
+        time.sleep(0.05)
+        print()
+        input(f'{StyleHelper.CENTER("Click ENTER to continue")}\n')
+
+        ProgramHelper.remove()
+        print(f'{StyleHelper.MAGENTA_FOREGROUND}{StyleHelper.BRIGHT_STYLING}{StyleHelper.THIN_LINE_STYLE}')
+        print()
+        print(f'{StyleHelper.MAGENTA_FOREGROUND}{StyleHelper.BRIGHT_STYLING}{StyleHelper.CENTER(title+" 📃").upper()}')
+        print(f'{StyleHelper.MAGENTA_FOREGROUND}{StyleHelper.BRIGHT_STYLING}{StyleHelper.THIN_LINE_STYLE}')
+        print()
+        print(StyleHelper.CENTER('Once you have chosen your difficulty, '))
+        time.sleep(0.05)
+        print(
+            StyleHelper.CENTER(
+                'you will then be asked the amount of questions you would like.'
+            )
+        )
+        time.sleep(0.05)
+        print(StyleHelper.CENTER(' You can type 1 for 10 questions, '))
+        time.sleep(0.05)
+        print(StyleHelper.CENTER('type 2 for 20 questions '))
+        time.sleep(0.05)
+        print(StyleHelper.CENTER('or type 3 for 30 questions.'))
+        time.sleep(0.05)
+        print()
+        input(f'{StyleHelper.CENTER("Click ENTER to continue")}\n')
+
+        ProgramHelper.remove()
+        print(f'{StyleHelper.MAGENTA_FOREGROUND}{StyleHelper.BRIGHT_STYLING}{StyleHelper.THIN_LINE_STYLE}')
+        print()
+        print(f'{StyleHelper.MAGENTA_FOREGROUND}{StyleHelper.BRIGHT_STYLING}{StyleHelper.CENTER(title+" 📃").upper()}')
+        print(f'{StyleHelper.MAGENTA_FOREGROUND}{StyleHelper.BRIGHT_STYLING}{StyleHelper.THIN_LINE_STYLE}')
+        print()
+        print(StyleHelper.CENTER('When you have chosen the amount of questions, '))
+        time.sleep(0.05)
+        print(StyleHelper.CENTER('you will then start the quiz. '))
+        time.sleep(0.05)
+        print(StyleHelper.CENTER('For the quiz you will have to answer '))
+        time.sleep(0.05)
+        print(StyleHelper.CENTER('a, b, c or d, either in lowercase or uppercase.'))
+        time.sleep(0.05)
+        print()
+        input(f'{StyleHelper.CENTER("Click ENTER to continue")}\n')
+
+        ProgramHelper.remove()
+        print(f'{StyleHelper.MAGENTA_FOREGROUND}{StyleHelper.BRIGHT_STYLING}{StyleHelper.THIN_LINE_STYLE}')
+        print()
+        print(f'{StyleHelper.MAGENTA_FOREGROUND}{StyleHelper.BRIGHT_STYLING}{StyleHelper.CENTER(title+" 📃").upper()}')
+        print(f'{StyleHelper.MAGENTA_FOREGROUND}{StyleHelper.BRIGHT_STYLING}{StyleHelper.THIN_LINE_STYLE}')
+        print()
+        print(StyleHelper.CENTER('Once you have answered all your questions, '))
+        time.sleep(0.05)
+        print(StyleHelper.CENTER('your score will be added and shown to you. '))
+        time.sleep(0.05)
+        print(
+            StyleHelper.CENTER(
+                'You will then be asked to input your name and once inputted, '
+            )
+        )
+        time.sleep(0.05)
+        print(
+            StyleHelper.CENTER(
+                'Your score, name, difficulty level, amount of questions and '
+            )
+        )
+        time.sleep(0.05)
+        print(StyleHelper.CENTER('the time/date you achieved will be added to a leaderboard.'))
+        time.sleep(0.05)
+        print()
+        input(f'{StyleHelper.CENTER("Click ENTER to continue.")}\n')
+
+        ProgramHelper.remove()
+        print(f'{StyleHelper.MAGENTA_FOREGROUND}{StyleHelper.BRIGHT_STYLING}{StyleHelper.THIN_LINE_STYLE}')
+        print()
+        print(f'{StyleHelper.MAGENTA_FOREGROUND}{StyleHelper.BRIGHT_STYLING}{StyleHelper.CENTER(title+" 📃").upper()}')
+        print(f'{StyleHelper.MAGENTA_FOREGROUND}{StyleHelper.BRIGHT_STYLING}{StyleHelper.THIN_LINE_STYLE}')
+        print()
+        print(
+            StyleHelper.CENTER(
+                'You will then be asked if you would like to play again or quit.'
+            )
+        )
+        time.sleep(0.05)
+        print(
+            StyleHelper.CENTER(
+                ' You will have to type y to play again in uppercase or lowercase'
+            )
+        )
+        time.sleep(0.05)
+        print(StyleHelper.CENTER(' or type n to quit in lowercase or uppercase. '))
+        time.sleep(0.05)
+        print(
+            StyleHelper.CENTER(
+                'If you type y you will be taken back to the difficulty section, '
+            )
+        )
+        time.sleep(0.05)
+        print(
+            StyleHelper.CENTER(
+                'but if you type n you will go through the quitting process.'
+            )
+        )
+        time.sleep(0.05)
+        print()
+        input(f'{StyleHelper.CENTER("Click ENTER to continue.")}\n')
+
+        ProgramHelper.remove()
+        print(f'{StyleHelper.MAGENTA_FOREGROUND}{StyleHelper.BRIGHT_STYLING}{StyleHelper.THIN_LINE_STYLE}')
+        print()
+        print(f'{StyleHelper.MAGENTA_FOREGROUND}{StyleHelper.BRIGHT_STYLING}{StyleHelper.CENTER(title+" 📃").upper()}')
+        print(f'{StyleHelper.MAGENTA_FOREGROUND}{StyleHelper.BRIGHT_STYLING}{StyleHelper.THIN_LINE_STYLE}')
+        print()
+        print(
+            StyleHelper.CENTER(
+                'If you choose 3 in the main menu you will then be asked '
+                'if you are sure you want to quit.'
+            )
+        )
+        time.sleep(0.05)
+        print(
+            StyleHelper.CENTER(
+                'You can either type y in uppercase or lowercase to quit the game '
+            )
+        )
+        time.sleep(0.05)
+        print(
+            StyleHelper.CENTER(
+                'or type n in uppercase or lowercase for no, which will take you '
+                'back to the main menu.'
+            )
+        )
+        time.sleep(0.05)
+        print()
+        input(f'{StyleHelper.CENTER("Click ENTER to return to menu.")}\n')
+
+    def exit_game(self):
+        """
+        Exits the game after confirmation.
+        """
         time.sleep(0.10)
+        print(f'{StyleHelper.BLACK_FOREGROUND}{StyleHelper.BRIGHT_STYLING}{StyleHelper.THIN_LINE_STYLE}')
+        print(f'\n{StyleHelper.CENTER("Are you sure you want to leave?")}\n')
+        time.sleep(0.05)
 
-        user_selects = input(
-            f'\nWhich option would you like to select? '
-            f'{BLUE_FOREGROUND}{BRIGHT_STYLING}[1-3]\n\n'
-        ).strip()
+        exit_selects = input(
+            f"{StyleHelper.CENTER('Type Y if you want to leave or type N to stay.\n\n')}"
+        ).strip().lower()
 
-        selections = ['1', '2', '3']
+        exit_selections = ['y', 'n']
 
-        if checker(user_selects, selections):
-            remove()
-            # Shows rules of game
-            if user_selects == '1':
-                rules('rules')
-            # Starts the process of the game
-            elif user_selects == '2':
-                level_selector()
-            # Starts the process of exiting the game
-            elif user_selects == '3':
-                exit()
+        checker = CheckerFactory.get_checker('exit', exit_selections)
+        if checker.check(exit_selects, "Invalid exit selection"):
+            ProgramHelper.remove()
 
-
-def header(title):
-    """
-    Makes the header section and styles it.
-    """
-    print(f'{BLUE_FOREGROUND}{BRIGHT_STYLING}{THICK_LINE_STYLE}')
-    print(
-        f'{BLUE_FOREGROUND}{BRIGHT_STYLING}'
-        f'{CENTER("⛅ " + title + " 🌧️").upper()}'
-    )
-    print(f'{BLUE_FOREGROUND}{BRIGHT_STYLING}{THICK_LINE_STYLE}')
-    time.sleep(0.10)
-    print(
-        CENTER(
-            'Welcome to an engaging quiz game that tests your knowledge '
-            'about various weather phenomena, including types of storms, '
-            'climate patterns, and weather forecasting!'
-        )
-    )
-    print(f'{BLUE_FOREGROUND}{BRIGHT_STYLING}{THIN_LINE_STYLE}')
-    time.sleep(0.30)
-
-
-def rules(title):
-    """
-    Prints instructions on how to play the game.
-    """
-    print(f'{MAGENTA_FOREGROUND}{BRIGHT_STYLING}{THIN_LINE_STYLE}')
-    print()
-    print(f'{MAGENTA_FOREGROUND}{BRIGHT_STYLING}{CENTER(title+" 📃").upper()}')
-    print(f'{MAGENTA_FOREGROUND}{BRIGHT_STYLING}{THIN_LINE_STYLE}')
-    time.sleep(0.20)
-    print()
-    print(CENTER('When typing 2 into the terminal it will then ask, '))
-    time.sleep(0.05)
-    print(CENTER('what difficulty level would you like '))
-    time.sleep(0.05)
-    print(CENTER('type 1 for easy, '))
-    time.sleep(0.05)
-    print(CENTER('type 2 for medium '))
-    time.sleep(0.05)
-    print(CENTER('or type 3 for hard.'))
-    time.sleep(0.05)
-    print()
-    input(f'{CENTER("Click ENTER to continue")}\n')
-
-    remove()
-    print(f'{MAGENTA_FOREGROUND}{BRIGHT_STYLING}{THIN_LINE_STYLE}')
-    print()
-    print(f'{MAGENTA_FOREGROUND}{BRIGHT_STYLING}{CENTER(title+" 📃").upper()}')
-    print(f'{MAGENTA_FOREGROUND}{BRIGHT_STYLING}{THIN_LINE_STYLE}')
-    print()
-    print(CENTER('Once you have chosen your difficulty, '))
-    time.sleep(0.05)
-    print(
-        CENTER(
-            'you will then be asked the amount of questions you would like.'
-        )
-    )
-    time.sleep(0.05)
-    print(CENTER(' You can type 1 for 10 questions, '))
-    time.sleep(0.05)
-    print(CENTER('type 2 for 20 questions '))
-    time.sleep(0.05)
-    print(CENTER('or type 3 for 30 questions.'))
-    time.sleep(0.05)
-    print()
-    input(f'{CENTER("Click ENTER to continue")}\n')
-
-    remove()
-    print(f'{MAGENTA_FOREGROUND}{BRIGHT_STYLING}{THIN_LINE_STYLE}')
-    print()
-    print(f'{MAGENTA_FOREGROUND}{BRIGHT_STYLING}{CENTER(title+" 📃").upper()}')
-    print(f'{MAGENTA_FOREGROUND}{BRIGHT_STYLING}{THIN_LINE_STYLE}')
-    print()
-    print(CENTER('When you have chosen the amount of questions, '))
-    time.sleep(0.05)
-    print(CENTER('you will then start the quiz. '))
-    time.sleep(0.05)
-    print(CENTER('For the quiz you will have to answer '))
-    time.sleep(0.05)
-    print(CENTER('a, b, c or d, either in lowercase or uppercase.'))
-    time.sleep(0.05)
-    print()
-    input(f'{CENTER("Click ENTER to continue")}\n')
-
-    remove()
-    print(f'{MAGENTA_FOREGROUND}{BRIGHT_STYLING}{THIN_LINE_STYLE}')
-    print()
-    print(f'{MAGENTA_FOREGROUND}{BRIGHT_STYLING}{CENTER(title+" 📃").upper()}')
-    print(f'{MAGENTA_FOREGROUND}{BRIGHT_STYLING}{THIN_LINE_STYLE}')
-    print()
-    print(CENTER('Once you have answered all your questions, '))
-    time.sleep(0.05)
-    print(CENTER('your score will be added and shown to you. '))
-    time.sleep(0.05)
-    print(
-        CENTER(
-            'You will then be asked to input your name and once inputted, '
-        )
-    )
-    time.sleep(0.05)
-    print(
-        CENTER(
-            'Your score, name, difficulty level, amount of questions and '
-        )
-    )
-    time.sleep(0.05)
-    print(CENTER('the time/date you achieved will be added to a leaderboard.'))
-    time.sleep(0.05)
-    print()
-    input(f'{CENTER("Click ENTER to continue.")}\n')
-
-    remove()
-    print(f'{MAGENTA_FOREGROUND}{BRIGHT_STYLING}{THIN_LINE_STYLE}')
-    print()
-    print(f'{MAGENTA_FOREGROUND}{BRIGHT_STYLING}{CENTER(title+" 📃").upper()}')
-    print(f'{MAGENTA_FOREGROUND}{BRIGHT_STYLING}{THIN_LINE_STYLE}')
-    print()
-    print(
-        CENTER(
-            'You will then be asked if you would like to play again or quit.'
-        )
-    )
-    time.sleep(0.05)
-    print(
-        CENTER(
-            ' You will have to type y to play again in uppercase or lowercase'
-        )
-    )
-    time.sleep(0.05)
-    print(CENTER(' or type n to quit in lowercase or uppercase. '))
-    time.sleep(0.05)
-    print(
-        CENTER(
-            'If you type y you will be taken back to the difficulty section, '
-        )
-    )
-    time.sleep(0.05)
-    print(
-        CENTER(
-            'but if you type n you will go through the quitting process.'
-        )
-    )
-    time.sleep(0.05)
-    print()
-    input(f'{CENTER("Click ENTER to continue.")}\n')
-
-    remove()
-    print(f'{MAGENTA_FOREGROUND}{BRIGHT_STYLING}{THIN_LINE_STYLE}')
-    print()
-    print(f'{MAGENTA_FOREGROUND}{BRIGHT_STYLING}{CENTER(title+" 📃").upper()}')
-    print(f'{MAGENTA_FOREGROUND}{BRIGHT_STYLING}{THIN_LINE_STYLE}')
-    print()
-    print(
-        CENTER(
-            'If you choose 3 in the main menu you will then be asked '
-            'if you are sure you want to quit.'
-        )
-    )
-    time.sleep(0.05)
-    print(
-        CENTER(
-            'You can either type y in uppercase or lowercase to quit the game '
-        )
-    )
-    time.sleep(0.05)
-    print(
-        CENTER(
-            'or type n in uppercase or lowercase for no, which will take you '
-            'back to the main menu.'
-        )
-    )
-    time.sleep(0.05)
-    print()
-    input(f'{CENTER("Click ENTER to return to menu.")}\n')
+            if exit_selects == 'y':
+                time.sleep(0.10)
+                print()
+                print(f"{StyleHelper.CENTER('Thank you for playing, goodbye. 👋')}")
+                print(f'{StyleHelper.BLACK_FOREGROUND}{StyleHelper.BRIGHT_STYLING}{StyleHelper.THIN_LINE_STYLE}')
+                time.sleep(1)
+                sys.exit()
+            elif exit_selects == 'n':
+                time.sleep(0.10)
+                print()
+                print(f'{StyleHelper.BLACK_FOREGROUND}{StyleHelper.BRIGHT_STYLING}{StyleHelper.THIN_LINE_STYLE}')
+                print()
+                input(f'{StyleHelper.CENTER("Click ENTER to return to menu.")}\n')
 
 
 def main():
     """
-    Runs all program.
+    Runs the entire program.
     """
-    menu()
+    ui_manager = UIManager()
+    # Start the program from the menu
+    ui_manager.menu()
 
 
-main()
-
-# from game import LeaderboardManager
-
-
-# class UIManager:
-#     def __init__(self):
-#         pass
-
-
-
-#     def menu(self):
-#         """
-#         Shows the main menu of the program
-#         """
-#         # from helpers import remove
-#         while True:
-#             remove()
-#             self.header('weather wise')
-#             print()
-#             print("Here's what you can do:\n")
-#             time.sleep(0.10)
-#             print()
-#             print('1. Show rules')
-#             time.sleep(0.05)
-#             print('2. Play game')
-#             time.sleep(0.05)
-#             print('3. Exit program')
-#             time.sleep(0.10)
-
-#             user_selects = input(
-#                 f'\nWhich option would you like to select? '
-#                 f'{BLUE_FOREGROUND}{BRIGHT_STYLING}[1-3]\n\n'
-#             ).strip()
-#             selections = ['1', '2', '3']
-
-#             checker = CheckerFactory.get_checker('menu', selections)
-#             if checker.check(user_selects, "Invalid menu selection"):
-#                 if user_selects == '1':
-#                     self.show_rules()
-#                 elif user_selects == '2':
-#                     self.start_game()
-#                 elif user_selects == '3':
-#                     self.exit_game()
-
-#     def header(self, title):
-#         from helpers import BLUE_FOREGROUND, BRIGHT_STYLING, THICK_LINE_STYLE, CENTER
-#         print(f'{BLUE_FOREGROUND}{BRIGHT_STYLING}{THICK_LINE_STYLE}')
-#         print(CENTER(f"⛅ {title} 🌧️").upper())
-#         print(f'{BLUE_FOREGROUND}{BRIGHT_STYLING}{THICK_LINE_STYLE}')
-#         time.sleep(0.10)
-#         print(
-#             CENTER(
-#                     'Welcome to an engaging quiz game that tests your knowledge '
-#                     'about various weather phenomena, including types of storms, '
-#                     'climate patterns, and weather forecasting!'
-#             )
-#         )
-#         print(f'{BLUE_FOREGROUND}{BRIGHT_STYLING}{THIN_LINE_STYLE}')
-#         time.sleep(0.30)
-
-#     def show_rules(self):
-#         # logic to show rules
-#         pass
-
-#     def start_game(self):
-#         # logic to start the game
-#         pass
-
-#     def exit_game(self):
-#         # logic to exit the game
-#         pass
-
-
-# def main():
-#     ui_manager = UIManager()
-#     leaderboard_manager = LeaderboardManager()
-#     leaderboard_manager.authenticate('creds.json')
-
-#     ui_manager.menu()
-
-# if __name__ == '__main__':
-#     main()
+if __name__ == '__main__':
+    main()

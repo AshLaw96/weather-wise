@@ -234,18 +234,51 @@ Source: [Mermaid](https://mermaid.live/edit#pako:eNptVcFy2zgM_RWMLtvOOBpTquPEh91
 
 The program uses classes as a blueprint for the project's objects (OOP). This allows for the object to be reusable.
 
-🛑🛑🛑🛑🛑🛑🛑🛑🛑🛑-START OF NOTES (to be deleted)
+```python
+class SelectionChecker:
+    """  Check user input and display errors if input is invalid. """
+    def __init__(self, selections):
+        self.selections = selections
+```
 
 ```python
-class Person:
-    """ Insert docstring comments here """
-    def __init__(self, name, age, health, inventory):
-        self.name = name
-        self.age = age
-        self.health = health
-        self.inventory = inventory
+class CheckerFactory:
+    """   Provides different types of selection checkers based on input. """
+    @staticmethod
 ```
-🛑🛑🛑🛑🛑🛑🛑🛑🛑🛑-END OF NOTES (to be deleted)
+
+```python
+class UIManager:
+    """  Handles the starting functions so the program can run. """
+    def __init__(self):
+        pass
+```
+
+```python
+class QuizGame:
+    """  Handles all the game functions. """
+    def __init__(self):
+        self.difficulty = None
+        self.num_questions = None
+        self.total_score = 0
+```
+
+```python
+class LeaderboardManager:
+    """  Authenticates to the Google Sheets API and returns the sheet object. """
+    def __init__(self):
+        self.sheet = None
+```
+
+```python
+class StyleHelper:
+    """  Handles all the styling operations and definitions. """
+```
+
+```python
+class ProgramHelper:
+    """  Handles all the helper functions. """
+```
 
 The primary functions used on this application are:
 
@@ -428,6 +461,8 @@ No differences were found between the local version and the live deployed versio
 | [Python Docs](https://docs.python.org/3/whatsnew/3.8.html) | helpers.py | used to understand how to use the walrus operator `:=` |
 | [Python Docs](https://docs.python.org/3/library/datetime.html) | helpers.py | used to understand how to use the `timestamp` method from the `datetime` library |
 | [W3Schools](https://www.w3schools.com/python/python_datetime.asp) | helpers.py | understand how to use `now().strftime()` method from the `datetime` library |
+| [geeksforgeeks](https://www.geeksforgeeks.org/python-staticmethod-function/) | checks.py | used to understand how to use `@staticmethod` in a `class` so that `__init__` is not required |
+| [W3Schools](https://www.w3schools.com/python/ref_keyword_pass.asp) | run.py | used to understand how to use the `pass` keyword so that the program does not bring up a error |
 
 ### Media
 

@@ -1,189 +1,49 @@
 import time
 
 
-def checker(user_selects, selections):
+class SelectionChecker:
     """
-    Tests whether the user inputted a correct selection, if not shows an error.
+    Check user input and display errors if input is invalid.
     """
-    # Imports from own created files
-    from helpers import (
-        WHITE_FOREGROUND, RED_BG, BRIGHT_STYLING, CENTER, remove
-    )
+    def __init__(self, selections):
+        self.selections = selections
 
-    try:
-        if user_selects not in selections:
-            raise ValueError
-    except ValueError:
-        remove()
-        print()
-        print(
-            f"{RED_BG}{WHITE_FOREGROUND}{BRIGHT_STYLING}"
-            f"{CENTER(f'⛔️ Error: {user_selects} is not valid! Please select '
-                      f"{selections}.  ⛔️")}"
-        )
-        time.sleep(0.05)
-        print()
+    def check(self, user_selects, error_message):
+        """
+        Check if the user's selection is valid. If not, show an error message.
+        """
+        from helpers import StyleHelper, ProgramHelper
+        if user_selects not in self.selections:
+            ProgramHelper.remove()  # Clear the terminal
+            print(f"{StyleHelper.RED_BG}{StyleHelper.WHITE_FOREGROUND}{StyleHelper.BRIGHT_STYLING}"
+            f"{StyleHelper.CENTER(f'⛔️ Error: {user_selects} is not valid! Please select {self.selections}. ⛔️')}{StyleHelper.BRIGHT_STYLING}")
 
-        input(f'{CENTER("Click ENTER to continue")}\n')
-        remove()
-        return False
-
-    return True
+            time.sleep(0.05)
+            print()
+            input(f'{StyleHelper.CENTER("Click ENTER to continue")}\n')
+            ProgramHelper.remove()
+            return False
+        return True
 
 
-def exit_checker(exit_selects, exit_selections):
+class CheckerFactory:
     """
-    Tests whether the user inputted a correct selection, if not shows an error.
+    Provides different types of selection checkers based on input.
     """
-    # Imports from own created files
-    from helpers import (
-        WHITE_FOREGROUND, RED_BG, BRIGHT_STYLING, CENTER, remove
-    )
-    from game import exit
-
-    try:
-        if exit_selects not in exit_selections:
-            raise ValueError
-    except ValueError:
-        remove()
-        print()
-        print(
-            f"{WHITE_FOREGROUND}{RED_BG}{BRIGHT_STYLING}"
-            f"{CENTER(f'⛔️ Error: {exit_selects} is not valid! Please select'
-                      f" {exit_selections}.  ⛔️")}"
-        )
-        time.sleep(0.05)
-        print()
-
-        input(f'{CENTER("Click ENTER to continue.")}\n')
-        remove()
-        return False
-
-    return True
-
-
-def level_checker(level_selects, level_selections):
-    """
-    Tests whether the user inputted a correct selection, if not shows an error.
-    """
-    # Imports from own created files
-    from helpers import (
-        WHITE_FOREGROUND, RED_BG, BRIGHT_STYLING, CENTER, remove
-    )
-    from game import level_selector
-
-    try:
-        if level_selects not in level_selections:
-            raise ValueError
-    except ValueError:
-        remove()
-        print()
-        print(
-            f"{WHITE_FOREGROUND}{RED_BG}{BRIGHT_STYLING}"
-            f"{CENTER(f'⛔️ Error: {level_selects} is not valid! Please select'
-                      f" {level_selections}.  ⛔️")}"
-        )
-        time.sleep(0.05)
-        print()
-
-        input(f'{CENTER("Click ENTER to continue.")}\n')
-        remove()
-        return False
-
-    return True
-
-
-def amount_checker(amount_selects, amount_selections):
-    """
-    Tests whether the user inputted a correct selection, if not shows an error.
-    """
-    # Imports from own created files
-    from helpers import (
-        WHITE_FOREGROUND, RED_BG, BRIGHT_STYLING, CENTER, remove
-    )
-    from game import questions_amount
-
-    try:
-        if amount_selects not in amount_selections:
-            raise ValueError
-    except ValueError:
-        remove()
-        print()
-        print(
-            f"{WHITE_FOREGROUND}{RED_BG}{BRIGHT_STYLING}"
-            f"{CENTER(f'⛔️ Error: {amount_selects} is not valid! Please select'
-                      f" {amount_selections}.  ⛔️")}"
-        )
-        time.sleep(0.05)
-        print()
-
-        input(f'{CENTER("Click ENTER to continue.")}\n')
-        remove()
-        return False
-
-    return True
-
-
-def qst_checker(qst_selects, qst_selections):
-    """
-    Tests whether the user inputted a correct selection, if not shows an error.
-    """
-    # Imports from own created files
-    from helpers import (
-        WHITE_FOREGROUND, RED_BG, BRIGHT_STYLING, CENTER, remove
-    )
-    from game import random_questions
-
-    try:
-        if qst_selects not in qst_selections:
-            raise ValueError
-    except ValueError:
-        remove()
-        print()
-        print(
-            f"{WHITE_FOREGROUND}{RED_BG}{BRIGHT_STYLING}"
-            f"{CENTER(f'⛔️ Error: {qst_selects} is not valid! Please select'
-                      f" {qst_selections}.  ⛔️")}"
-        )
-        time.sleep(0.05)
-        print()
-
-        input(f'{CENTER("Click ENTER to continue.")}\n')
-        remove()
-        return False
-
-    return True
- 
-
-# import time
-
-# class SelectionChecker:
-#     def __init__(self, selections):
-#         self.selections = selections
-
-#     def check(self, user_selects, error_message):
-#         from helpers import WHITE_FOREGROUND, RED_BG, BRIGHT_STYLING, CENTER, remove
-
-#         if user_selects not in self.selections:
-#             remove()
-#             print(f"{RED_BG}{WHITE_FOREGROUND}{BRIGHT_STYLING}")
-#             print(CENTER(f"⛔️ Error: {user_selects} is not valid! Please select {self.selections}.  ⛔️"))
-#             time.sleep(0.05)
-#             input(f'{CENTER("Click ENTER to continue")}\n')
-#             remove()
-#             return False
-#         return True
-
-# class CheckerFactory:
-#     @staticmethod
-#     def get_checker(type_of_check, selections):
-#         if type_of_check == 'exit':
-#             return SelectionChecker(selections)
-#         elif type_of_check == 'level':
-#             return SelectionChecker(selections)
-#         elif type_of_check == 'amount':
-#             return SelectionChecker(selections)
-#         elif type_of_check == 'question':
-#             return SelectionChecker(selections)
-#         else:
-#             raise ValueError(f"Unknown checker type: {type_of_check}")
+    @staticmethod
+    def get_checker(type_of_check, selections):
+        """
+        Return the appropriate checker based on the type of check requested.
+        """
+        if type_of_check == 'exit':
+            return SelectionChecker(selections)
+        elif type_of_check == 'level':
+            return SelectionChecker(selections)
+        elif type_of_check == 'amount':
+            return SelectionChecker(selections)
+        elif type_of_check == 'question':
+            return SelectionChecker(selections)
+        elif type_of_check == 'menu':
+            return SelectionChecker(selections)
+        else:
+            raise ValueError(f"Unknown checker type: {type_of_check}")

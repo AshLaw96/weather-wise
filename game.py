@@ -4,327 +4,234 @@ from string import ascii_lowercase
 import gspread
 from google.oauth2.service_account import Credentials
 import datetime
-# Imported from my own created files
+# Imported from own created files
 from questions import EASY_QUESTIONS, MED_QUESTIONS, HARD_QUESTIONS
-from helpers import (
-    remove, exit, THIN_LINE_STYLE, GREEN_BG, GREEN_FOREGROUND, CENTER,
-    WHITE_FOREGROUND, BRIGHT_STYLING, loading_message, RED_BG
-)
-from checks import qst_checker, amount_checker, level_checker
+from helpers import StyleHelper, ProgramHelper
+from checks import CheckerFactory
 
 
-def level_selector():
+class QuizGame:
     """
-    Lets user choose what difficulty of questions that will be asked.
+    Handles all the game functions.
     """
-    while True:
-        remove()
-        print(f'{GREEN_FOREGROUND}{BRIGHT_STYLING}{THIN_LINE_STYLE}')
-        print()
-        print("What level of difficulty would you like?")
-        print()
-        time.sleep(0.10)
-        print('1. Easy')
-        time.sleep(0.05)
-        print('2. Medium')
-        time.sleep(0.05)
-        print('3. Hard')
-        time.sleep(0.10)
+    def __init__(self):
+        self.difficulty = None
+        self.num_questions = None
+        self.total_score = 0
 
-        level_selects = input(
-            f'\nWhich option would you like to select? '
-            f'{GREEN_FOREGROUND}{BRIGHT_STYLING}[1-3]\n\n'
-        ).strip()
-
-        level_selections = ['1', '2', '3']
-
-        if level_checker(level_selects, level_selections):
-
-            remove()
-            # Choses the easy questions
-            if level_selects == '1':
-                questions_amount(EASY_QUESTIONS, 'easy')
-            # Choses the medium questions
-            elif level_selects == '2':
-                questions_amount(MED_QUESTIONS, 'medium')
-            # Choses the hard questions
-            elif level_selects == '3':
-                questions_amount(HARD_QUESTIONS, 'hard')
-            break
-
-
-def questions_amount(level, difficulty):
-    """
-    Lets user choose the amount of questions they will like.
-    """
-    while True:
-        remove()
-        print(f'{GREEN_FOREGROUND}{BRIGHT_STYLING}{THIN_LINE_STYLE}')
-
-        print()
-        print("How many questions would you like to answer?:\n")
-        time.sleep(0.10)
-        print()
-        print('1. 10')
-        time.sleep(0.05)
-        print('2. 20')
-        time.sleep(0.05)
-        print('3. 30')
-        time.sleep(0.10)
-
-        amount_selects = input(
-            f'\nWhich option would you like to select? '
-            f'{GREEN_FOREGROUND}{BRIGHT_STYLING}[1-3]\n\n'
-        ).strip()
-
-        amount_selections = ['1', '2', '3']
-
-        if amount_checker(amount_selects, amount_selections):
-            remove()
-            # Maps the users choice to the amount of questions
-            question_count = {'1': 10, '2': 20, '3': 30}
-            # Calls the function with the selected number of questions
-            random_questions(level, question_count[amount_selects], difficulty)
-            break
-
-
-def random_questions(question_list, num_questions, difficulty):
-    """
-    Selects and asks the specified number of random questions
-    from the given question list.
-    """
-    loading_message()
-    time.sleep(2)
-    remove()
-    total = 0
-
-    # Selects the requested number of random questions
-    selected_questions = random.sample(question_list, num_questions)
-    # Loop through the selected questions
-    for num, qst_data in enumerate(selected_questions):
-        question = qst_data['question']
-        choices = qst_data['choices']
-        answers = qst_data['answer']
-
-        print()
-        print(f'{GREEN_FOREGROUND}{BRIGHT_STYLING}{THIN_LINE_STYLE}')
-        print()
-        print(f"{GREEN_FOREGROUND}{BRIGHT_STYLING}{CENTER('Quiz')}")
-        print(f'{GREEN_FOREGROUND}{BRIGHT_STYLING}{THIN_LINE_STYLE}')
-        print()
-        print(f'Q{num + 1}: ')
-
-        total += next_qst(question, choices, answers)
-        time.sleep(0.5)
-        print()
-
-        input(f'{CENTER("Click Enter to continue")}\n')
-        remove()
-
-    score_percentage = (total / num_questions) * 100
-    # Display message based on user's score
-    if score_percentage <= 25:
-        score_message = "Try harder! You can do it!"
-    elif score_percentage <= 50:
-        score_message = "Nice try! Keep improving!"
-    elif score_percentage <= 75:
-        score_message = "Well done! You are getting there!"
-    else:
-        score_message = "Outstanding! Excellent performance!"
-
-    print()
-    print(
-        f"{GREEN_BG}{WHITE_FOREGROUND}{BRIGHT_STYLING}"
-        f"{CENTER(f'🎉 {score_message} {total}/{num_questions} 🎉')}"
-    )
-    time.sleep(0.10)
-
-    print()
-    user_name = input("Please enter your name: ")
-    remove()
-
-    loading_message()
-
-    # Adds users name and points to leaderboard
-    time.sleep(2)
-    remove()
-    update_leaderboard(user_name, total, difficulty, num_questions)
-    print()
-    print(f'{CENTER("Your score has been saved to the leaderboard")}')
-
-    # Option to play again or quit
-    print()
-    qst_selects = input(
-        f"{CENTER('Type Y if you want to play again or type N to quit.\n\n')}"
-    ).strip().lower()
-
-    qst_selections = ['y', 'n']
-
-    if qst_checker(qst_selects, qst_selections):
-        remove()
-        # Goes back to difficulty section
-        if qst_selects == 'y':
-            level_selector()
-        # Starts the process of exiting the game
-        elif qst_selects == 'n':
-            exit()
-
-
-def next_qst(qst, choice, right_choice):
-    """
-    Brings up the next question and checks if the user is correct or incorrect.
-    """
-    sort_choice = random.sample(choice, len(choice))
-
-    answer = user_answered_select(qst, sort_choice)
-    if answer == right_choice:
-        print(f"{CENTER('✅  Correct! ✅')}")
-        time.sleep(0.05)
-        print()
-        return 1
-    else:
-        print(f"{CENTER('❌  Incorrect! ❌')}")
-        time.sleep(0.05)
-        print()
-        return 0
-
-
-def user_answered_select(qst, choice):
-    """
-    Shows the question and choices, and gets the user's input.
-    """
-    print(f"{qst}")
-    print()
-    tag_choice = dict(zip(ascii_lowercase, choice))
-
-    for tag, choice_data in tag_choice.items():
-        print(f"{tag}) {choice_data}")
-    # Handles user errors
-    while True:
-        print()
-        answer_tag = input('Answer?\t').lower()
-        if answer_tag in tag_choice:
-            break
-        else:
+    def select_difficulty(self):
+        """
+        Lets user choose the difficulty level.
+        """
+        while True:
+            ProgramHelper.remove()
+            print(f'{StyleHelper.GREEN_FOREGROUND}{StyleHelper.BRIGHT_STYLING}{StyleHelper.THIN_LINE_STYLE}')
             print()
-            print(
-                f"{WHITE_FOREGROUND}{RED_BG}{BRIGHT_STYLING}"
-                f"{CENTER(f'⛔️  Error: {answer_tag} is not valid.'
-                          f" Please answer one of"
-                          f" {', '.join(tag_choice.keys())}. ⛔️")}"
-            )
+            print("What level of difficulty would you like?")
+            print()
+            time.sleep(0.10)
+            print('1. Easy')
+            time.sleep(0.05)
+            print('2. Medium')
+            time.sleep(0.05)
+            print('3. Hard')
+            time.sleep(0.10)
 
-    return tag_choice[answer_tag]
+            level_selects = input(f'\nWhich option would you like to select? {StyleHelper.GREEN_FOREGROUND}{StyleHelper.BRIGHT_STYLING}[1-3]\n\n').strip()
+            level_selections = ['1', '2', '3']
+
+            # Use the checker to validate input
+            level_checker = CheckerFactory.get_checker('level', level_selections)
+            if level_checker.check(level_selects, "Invalid menu selection"):
+                #  Sets difficulty based on users choice
+                if level_selects == '1':
+                    self.difficulty = 'easy'
+                    self.questions = EASY_QUESTIONS
+                elif level_selects == '2':
+                    self.difficulty = 'medium'
+                    self.questions = MED_QUESTIONS
+                elif level_selects == '3':
+                    self.difficulty = 'hard'
+                    self.questions = HARD_QUESTIONS
+
+                self.select_question_amount()
+                break
+
+    def select_question_amount(self):
+        """
+        Lets the user select how many questions they want.
+        """
+        while True:
+            ProgramHelper.remove()
+            print(f'{StyleHelper.GREEN_FOREGROUND}{StyleHelper.BRIGHT_STYLING}{StyleHelper.THIN_LINE_STYLE}')
+            print()
+            print("How many questions would you like to answer?:\n")
+            time.sleep(0.10)
+            print('1. 10')
+            time.sleep(0.05)
+            print('2. 20')
+            time.sleep(0.05)
+            print('3. 30')
+            time.sleep(0.10)
+
+            amount_selects = input(f'\nWhich option would you like to select? {StyleHelper.GREEN_FOREGROUND}{StyleHelper.BRIGHT_STYLING}[1-3]\n\n').strip()
+            amount_selections = ['1', '2', '3']
+
+            amount_checker = CheckerFactory.get_checker('amount', amount_selections)
+            if amount_checker.check(amount_selects, "Invalid menu selection"):
+                question_count = {'1': 10, '2': 20, '3': 30}
+                self.num_questions = question_count[amount_selects]
+
+                self.play()
+                break
+
+    def play(self):
+        """
+        Main game logic to ask random questions and calculate the score.
+        """
+        ProgramHelper.remove()
+        ProgramHelper.loading_message()
+        time.sleep(2)
+        ProgramHelper.remove()
+
+        selected_questions = random.sample(self.questions, self.num_questions)
+        self.total_score = 0
+
+        for num, qst_data in enumerate(selected_questions):
+            question = qst_data['question']
+            choices = qst_data['choices']
+            answer = qst_data['answer']
+
+            print(f'{StyleHelper.GREEN_FOREGROUND}{StyleHelper.BRIGHT_STYLING}{StyleHelper.THIN_LINE_STYLE}')
+            print()
+            print(f"{StyleHelper.CENTER('Quiz')}")
+            print(f'{StyleHelper.GREEN_FOREGROUND}{StyleHelper.BRIGHT_STYLING}{StyleHelper.THIN_LINE_STYLE}')
+            print()
+            print(f'Q{num + 1}: ')
+            self.total_score += self.ask_question(question, choices, answer)
+            time.sleep(0.5)
+            input(f'{StyleHelper.CENTER("Click Enter to continue")}\n')
+            ProgramHelper.remove()
+
+        self.show_score()
+
+    def ask_question(self, question, choices, correct_answer):
+        """
+        Display the question and check the user's answer.
+        """
+        sorted_choices = random.sample(choices, len(choices))
+        user_answer = self.get_user_answer(question, sorted_choices)
+
+        if user_answer == correct_answer:
+            print(f"{StyleHelper.CENTER('✅  Correct! ✅')}")
+            print()
+            return 1
+        else:
+            print(f"{StyleHelper.CENTER('❌  Incorrect! ❌')}")
+            print()
+            return 0
+
+    def get_user_answer(self, question, choices):
+        """
+        Display choices and get the user's answer.
+        """
+        print(f"{question}")
+        print()
+        tag_choice = dict(zip(ascii_lowercase, choices))
+
+        for tag, choice_data in tag_choice.items():
+            print(f"{tag}) {choice_data}")
+
+        while True:
+            print()
+            answer_tag = input('Answer?\t').lower()
+            if answer_tag in tag_choice:
+                return tag_choice[answer_tag]
+            else:
+                print(f"{StyleHelper.WHITE_FOREGROUND}{StyleHelper.RED_BG}{StyleHelper.BRIGHT_STYLING}{StyleHelper.CENTER(f'⛔️  Error: {answer_tag} is not valid. Please answer one of {', '.join(tag_choice.keys())}. ⛔️')}")
+
+    def show_score(self):
+        """
+        Display the score and save it to the leaderboard.
+        """
+        score_percentage = (self.total_score / self.num_questions) * 100
+
+        if score_percentage <= 25:
+            score_message = "Try harder! You can do it!"
+        elif score_percentage <= 50:
+            score_message = "Nice try! Keep improving!"
+        elif score_percentage <= 75:
+            score_message = "Well done! You are getting there!"
+        else:
+            score_message = "Outstanding! Excellent performance!"
+
+        print(f"{StyleHelper.GREEN_BG}{StyleHelper.WHITE_FOREGROUND}{StyleHelper.BRIGHT_STYLING}{StyleHelper.CENTER(f'🎉 {score_message} {self.total_score}/{self.num_questions} 🎉')}")
+        time.sleep(0.10)
+
+        user_name = input("Please enter your name: ")
+        ProgramHelper.remove()
+        ProgramHelper.loading_message()
+        time.sleep(2)
+
+        ProgramHelper.remove()
+        leaderboard = LeaderboardManager()
+        leaderboard.update_leaderboard(user_name, self.total_score, self.difficulty, self.num_questions)
+        print()
+        print(f'{StyleHelper.CENTER("Your score has been saved to the leaderboard")}')
+        # Option to play again or quit
+        print()
+        leave_selects = input(
+            f"{StyleHelper.CENTER('Type Y if you want to play again or type N to quit.\n\n')}"
+        ).strip().lower()
+
+        leave_selections = ['y', 'n']
+
+        leave_checker = CheckerFactory.get_checker('exit', leave_selections)
+        if leave_checker.check(leave_selects, "Invalid menu selection"):
+            ProgramHelper.remove()
+            # Goes back to difficulty section
+            if leave_selects == 'y':
+                self.select_difficulty()
+            # Starts the process of exiting the game
+            elif leave_selects == 'n':
+                ProgramHelper.exit()
 
 
-def auth_g_sheets(difficulty):
-    """
-    Sets up the Google Sheets API and returns the correct worksheet
-    based on the difficulty level
-    """
-    SCOPE = [
-        "https://www.googleapis.com/auth/spreadsheets",
-        "https://www.googleapis.com/auth/drive.file",
-        "https://www.googleapis.com/auth/drive"
-    ]
+class LeaderboardManager:
+    def __init__(self):
+        self.sheet = None
 
-    # Authenticates using the creds.json file
-    CREDS = Credentials.from_service_account_file('creds.json')
-    SCOPED_CREDS = CREDS.with_scopes(SCOPE)
-    GSPREAD_CLIENT = gspread.authorize(SCOPED_CREDS)
-    # Opens the Google Sheets document
-    SHEET = GSPREAD_CLIENT.open('Weather-Wise-Leaderboard')
+    def authenticate(self):
+        """
+        Authenticates to the Google Sheets API and returns the sheet object.
+        """
+        SCOPE = [
+            "https://www.googleapis.com/auth/spreadsheets",
+            "https://www.googleapis.com/auth/drive.file",
+            "https://www.googleapis.com/auth/drive"
+        ]
+        CREDS = Credentials.from_service_account_file('creds.json')
+        SCOPED_CREDS = CREDS.with_scopes(SCOPE)
+        CLIENT = gspread.authorize(SCOPED_CREDS)
+        self.sheet = CLIENT.open('Weather-Wise-Leaderboard')
 
-    # Selects the worksheet based on difficulty level
-    if difficulty == 'easy':
-        return SHEET.worksheet('Easy')
-    elif difficulty == 'medium':
-        return SHEET.worksheet('Medium')
-    elif difficulty == 'hard':
-        return SHEET.worksheet('Hard')
+    def get_worksheet(self, difficulty):
+        """
+        Returns the correct worksheet based on difficulty.
+        """
+        if difficulty == 'easy':
+            return self.sheet.worksheet('Easy')
+        elif difficulty == 'medium':
+            return self.sheet.worksheet('Medium')
+        elif difficulty == 'hard':
+            return self.sheet.worksheet('Hard')
 
+    def update_leaderboard(self, name, score, difficulty, num_questions):
+        """
+        Updates the leaderboard with the user's name and score.
+        """
+        self.authenticate()
+        worksheet = self.get_worksheet(difficulty)
 
-def update_leaderboard(name, score, difficulty, num_questions):
-    """
-    Updates the leaderboard in Google Sheets with the user's name and score.
-    """
-    scores_sheet = auth_g_sheets(difficulty)
-
-    # Access the current time
-    # {%Y: 2024, %m: 01-12, %d: 01-31, %H: 00-23, %M: 00-59, %S: 00-59}
-    timestamp = datetime.datetime.now().strftime("%Y-%m-%d %H:%M:%S")
-
-    # Add the new row of data
-    scores_sheet.append_row([name, score, num_questions, timestamp])
-
-
-# import random
-# import time
-# from string import ascii_lowercase
-# import gspread
-# from google.oauth2.service_account import Credentials
-
-# class QuizGame:
-#     def __init__(self, difficulty, num_questions):
-#         self.difficulty = difficulty
-#         self.num_questions = num_questions
-#         self.total_score = 0
-
-#     def select_random_questions(self, question_list):
-#         return random.sample(question_list, self.num_questions)
-
-#     def display_question(self, question_data, question_number):
-#         question = question_data['question']
-#         choices = question_data['choices']
-#         answer = question_data['answer']
-
-#         print(f'Q{question_number + 1}: {question}')
-#         for tag, choice in zip(ascii_lowercase, choices):
-#             print(f"{tag}) {choice}")
-        
-#         return self.get_user_answer(choices, answer)
-
-#     def get_user_answer(self, choices, correct_answer):
-#         # logic to get user's answer and compare with correct answer
-#         pass
-
-#     def calculate_score(self):
-#         return (self.total_score / self.num_questions) * 100
-
-#     def display_result(self):
-#         score_percentage = self.calculate_score()
-#         # Display different messages based on score
-#         pass
-
-#     def save_score(self, user_name):
-#         # Save score to leaderboard (could use another class for leaderboard)
-#         pass
-
-
-# class LeaderboardManager:
-#     def __init__(self):
-#         self.sheet = None
-
-#     def authenticate(self, creds_file):
-#         SCOPE = [
-#             "https://www.googleapis.com/auth/spreadsheets",
-#             "https://www.googleapis.com/auth/drive.file",
-#             "https://www.googleapis.com/auth/drive"
-#         ]
-#         creds = Credentials.from_service_account_file(creds_file)
-#         scoped_creds = creds.with_scopes(SCOPE)
-#         client = gspread.authorize(scoped_creds)
-#         self.sheet = client.open('Weather-Wise-Leaderboard')
-
-#     def get_worksheet(self, difficulty):
-#         if difficulty == 'easy':
-#             return self.sheet.worksheet('Easy')
-#         elif difficulty == 'medium':
-#             return self.sheet.worksheet('Medium')
-#         elif difficulty == 'hard':
-#             return self.sheet.worksheet('Hard')
-
-#     def update_leaderboard(self, name, score, difficulty, num_questions):
-#         scores_sheet = self.get_worksheet(difficulty)
-#         timestamp = datetime.datetime.now().strftime("%Y-%m-%d %H:%M:%S")
-#         scores_sheet.append_row([name, score, num_questions, timestamp])
+        timestamp = datetime.datetime.now().strftime("%Y-%m-%d %H:%M:%S")
+        worksheet.append_row([name, score, num_questions, timestamp])
