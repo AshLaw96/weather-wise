@@ -177,6 +177,12 @@ options
 2. Add links to other quizzes or cool facts about weather.
 3. Add sound effects to the program.
 4. Add error validation for name (name must be > 2 but < 15 and only include letters).
+5. Add multi-language support so more users can play.
+6. Add a pause feature during the quiz.
+7. Add a timed quiz mode.
+8. Allow the user to have a second attempt at guessing the answer.
+9. Add a timer so users can track how long it takes for them to complete the quiz.
+10. Add a quit feature during the quiz.
 
 ## Tools & Technologies Used
 
@@ -500,6 +506,7 @@ No differences were found between the local version and the live deployed versio
 | [W3Schools](https://www.w3schools.com/python/ref_keyword_pass.asp) | run.py | used to understand how to use the `pass` keyword so that the program does not bring up a error |
 | [Tim Nelson](https://github.com/TravelTimN/oregon-trail-python) | entire site | used for ideas on how to structure the program |
 | [W3Schools](https://www.w3schools.com/python/python_lambda.asp) | game.py | used for understanding how to use the `lambda` function |
+| [Stack Overflow](https://stackoverflow.com/questions/2084508/clear-the-terminal-in-python/50921841#50921841) | helpers.py | used to improve the `remove` function by using `\033c` escape code, so no left over lines show up |
 
 ### Media
 

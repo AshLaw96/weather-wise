@@ -306,6 +306,12 @@ class UIManager:
             if exit_selects == 'y':
                 time.sleep(0.10)
                 print()
+
+                for i in range(3, 0, -1):
+                    print(f"Exiting in {i} seconds...")
+                    time.sleep(1)
+                    
+                ProgramHelper.remove()
                 print(f"{StyleHelper.CENTER(
                     'Thank you for playing, goodbye. 👋')}")
                 print(
