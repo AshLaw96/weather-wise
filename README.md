@@ -499,13 +499,15 @@ No differences were found between the local version and the live deployed versio
 | [geeksforgeeks](https://www.geeksforgeeks.org/python-staticmethod-function/) | checks.py | used to understand how to use `@staticmethod` in a `class` so that `__init__` is not required |
 | [W3Schools](https://www.w3schools.com/python/ref_keyword_pass.asp) | run.py | used to understand how to use the `pass` keyword so that the program does not bring up a error |
 | [Tim Nelson](https://github.com/TravelTimN/oregon-trail-python) | entire site | used for ideas on how to structure the program |
+| [W3Schools](https://www.w3schools.com/python/python_lambda.asp) | game.py | used for understanding how to use the `lambda` function |
 
 ### Media
 
 | Source | Location | Type | Notes |
 | --- | --- | --- | --- |
 | [TinyPNG](https://tinypng.com) | entire site | image | tool for image compression |
-| [GetEmoji](https://getemoji.com/#symbols) | helpers.py | used to add emoji's to the program |
+| [GetEmoji](https://getemoji.com/#symbols) | helpers.py | image | used to add emoji's to the program |
+| [prettytable](https://pypi.org/project/prettytable/) | game.py | leaderboard table | used to create the leaderboard image shown to the user |
 
 ### Acknowledgements
 

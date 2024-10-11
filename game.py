@@ -282,7 +282,7 @@ class LeaderboardManager:
     def show_leaderboard(self, difficulty):
         """
         Fetches the leaderboard from Google Sheets
-         and displays it using PrettyTable.
+        and displays the top 10 scores using PrettyTable.
         """
         self.authenticate()
         worksheet = self.get_worksheet(difficulty)
@@ -294,14 +294,37 @@ class LeaderboardManager:
             print("No leaderboard data available.")
             return
 
+        # Skip the header row
+        leaderboard_data = leaderboard_data[1:]
+
+        # Convert the leaderboard data to a format where can be sorted by score
+        try:
+            leaderboard_data = [
+                [
+                    row[0], int(row[1]), row[2], row[3]
+                ] for row in leaderboard_data
+            ]
+        except ValueError:
+            print("Error converting scores to integers.")
+            return
+
+        # Sort the data by score (second column) in descending order
+        leaderboard_data.sort(key=lambda x: x[1], reverse=True)
+
+        # Limit to the top 10 scores
+        top_10 = leaderboard_data[:10]
+
         # Create a PrettyTable object and set the column names
         table = PrettyTable()
         table.field_names = ["Name", "Score", "Questions-amount", "Timestamp"]
 
-        # Add each row to the table Skipping header row
-        for row in leaderboard_data[1:]:
+        # Add each row to the table
+        for row in top_10:
             table.add_row(row)
 
         # Print the leaderboard table
-        print(f"Leaderboard for {difficulty.capitalize()} difficulty:")
+        print()
+        print(
+            f"Leaderboard for {difficulty.capitalize()} difficulty (Top 10):"
+        )
         print(table)

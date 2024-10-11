@@ -46,6 +46,8 @@ Documentation and Logs:
 | When trying to run the program I received a `TypeError` because there was a unsupported format string | ![screenshot](documentation/bugs/unsupported-format.png) | To fix this issue I added the styling inside the `loading_message` function that was being used instead | ![screenshot](documentation/bugs/unsupported-fix.png) |
 | Whilst running the program on Heroku I noticed that some of the text was slightly difficult to see | ![screenshot](documentation/bugs/visibility-text-issue.png) | To fix this I added styling that would brighten up the text that required it making it easier to read | ![screenshot](documentation/bugs/visibility-fix.png) |
 | When running the program on the live site, I noticed that there was no whitespace between the full-stop and please word on the error validation message of the quiz section | ![screenshot](documentation/bugs/space-error.png) | To fix this issue I had to put a space between the double quotation marks and the please word | ![screenshot](documentation/bugs/space-fix.png) |
+| When trying to access the `select_difficulty` function a `AttributeError` appeared | ![screenshot](documentation/bugs/attribute-error.png) | To fix this issue I had to import the `QuizGame` class into the run.py file and then access the `select_difficulty` function through there | ![screenshot](documentation/bugs/attribute-fix.png) |
+| When trying to access the content from the creds.json file a `NameError` appeared | ![screenshot](documentation/bugs/creds-file-error.png) | To fix this issue I just had to add quotation marks around the file so that the program code access it | ![screenshot](documentation/bugs/creds-file-fix.png) |
 
 ## Code Validation
 
@@ -211,6 +213,8 @@ All previously closed/fixed bugs can be tracked [here](https://github.com/AshLaw
 | [Showing incorrect amount of choices](https://github.com/AshLaw96/weather-wise/issues/16) | Closed  |
 | [Icon slight overlap of text](https://github.com/AshLaw96/weather-wise/issues/17) | Closed |
 | [No whitespace between full-stop and please word](https://github.com/AshLaw96/weather-wise/issues/18) | Closed |
+| [Attribute error](https://github.com/AshLaw96/weather-wise/issues/19) | Closed |
+| [Creds name error](https://github.com/AshLaw96/weather-wise/issues/20) | Closed |
 
 > [!NOTE]
 > There are no remaining bugs that I am aware of.
