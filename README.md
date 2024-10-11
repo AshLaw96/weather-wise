@@ -8,7 +8,7 @@
 
 Weather Wise is a multiple choice weather quiz that users can play to help improve there knowledge about weather and is a fun game for all ages, so everyone can play.
 
-When a user first opens the quiz it will show a menu with a title and a brief overview of what it actually is. Below this it will then show a list of options with what the user would like to do next. Depending on there choice it will either start the game, show the instructions on how to play the game or quit the game. If the user inputs an incorrect value they will then be informed that whatever they have just inputted was incorrect and they need to write either 1, 2 or 3 depending on there choice. With the second option been chosen, it will then ask the user what level of difficulty the user would like for example easy, medium or hard. Again if the user inputs an incorrect value it will tell them that they have done so and need to write either 1, 2 or 3. Following there choice it will then ask how many questions they would like to answer for example 10, 20 or 30. Once more if the user didn't type a correct value it will tell them so and that they need to type either 1, 2 or 3. After this the app will then access data from the questions library and start asking randomly chosen multiple choice questions up until the user has answered there desired amount, for example what is rain? a. god peeing b. condensation from clouds c. water squirting from plains d. water that falls from clouds in the sky, that happens when tiny water droplets in the clouds join together and become too heavy to stay in the air. Once again if the user doesn't input a, b, c or d for any question they will be told to write a correct value from the options given. When the quiz has been finished there score will be toted up and then shown to the user, then the user will be asked if they would like to play again or quit the game. If the user doesn't input a correct value again they will be informed of this and asked to input a correct value. Providing they have chosen a correct value it will either take them to the menu or show message saying thank you for playing, goodbye. However at the menu screen if the user inputted the second option the app will then show the user how to play the quiz and once they have read this it will return them back to the menu. Finally if the user chose the last option it will then double check they want to quit and if they do show the thank you for playing, goodbye. 
+When a user first opens the quiz it will show a menu with a title and a brief overview of what the program actually is. Below this will be a list of options with what the user can do next. Depending on there choice it will either start the game, show the instructions on how to play the game or quit the game. If the user inputs an incorrect value they will then be informed that whatever they have just inputted was incorrect and they need to write either 1, 2 or 3 depending on what they would like to do. If the user inputs 2 into the program, it will then take them to the difficulty choosing section, where it will ask the user what level of difficulty the user would like for example easy, medium or hard. Again if the user inputs an incorrect value it will tell them that they have done so and need to write either 1, 2 or 3. Following there choice it will then ask how many questions they would like to answer for example 10, 20 or 30. Once more if the user didn't type a correct value it will tell them so and that they need to type either 1, 2 or 3. After this the program will then access data from the questions library and start asking randomly chosen multiple choice questions up until the user has answered there desired amount, for example what is rain? a. god peeing b. condensation from clouds c. water squirting from plains d. water that falls from clouds in the sky, that happens when tiny water droplets in the clouds join together and become too heavy to stay in the air. Once again if the user doesn't input a, b, c or d for any question they will be told to write a correct value from the options given. When the quiz has been finished there score will be toted up and then shown to the user. The user will then be asked to enter there name and that there score will then be added to the leaderboard and the top 10 scorers will then be shown in the leaderboard. The user will then be asked if they would like to play again or quit the game. If the user doesn't input a correct value again they will be informed of this and asked to input a correct value. Providing they have chosen a correct value it will either take them to the difficulty choice section or show message saying thank you for playing, goodbye. However at the menu screen if the user inputted the second option the app will then show the user how to play the quiz and once they have read this it will return them back to the menu. Finally if the user chooses the last option it will then double check they want to quit and if they do show the thank you for playing, goodbye message. 
 
 Deployed site:
 https://ui.dev/amiresponsive?url=https://weather-wise-project-e6ccd7a6b753.herokuapp.com
@@ -174,10 +174,9 @@ options
 ### Future Features
 
 1. Allow users to play split-screen or multiplayer.
-3. Add links to other quizzes or cool facts about weather.
-4. Make leaderboard put the highest scores at the top of the leaderboard and only add top 10 scores for each difficulty and for each amount of questions answered.
-5. Add sound effects to the program.
-6. Add error validation for name (name must be > 2 but < 15 and only include letters).
+2. Add links to other quizzes or cool facts about weather.
+3. Add sound effects to the program.
+4. Add error validation for name (name must be > 2 but < 15 and only include letters).
 
 ## Tools & Technologies Used
 
@@ -335,6 +334,7 @@ I've used the following Python packages and/or external imported packages.
 - `string`: used for adding `ascii_lowercase`
 - `datetime`: used for adding the current time and date
 - `sys`: used to exit the program
+- `prettytable`: used to create the leaderboard table shown to the user
 
 ## Testing
 

@@ -3,21 +3,17 @@
 > [!NOTE]  
 > Return back to the [README.md](README.md) file.
 
-Feature-by-Feature Testing:
-
-- Navigation: Ensuring smooth transitions every time the program ran inputted character/s and that they showed the correct items afterwards.
-- Portfolio Display: Verifying that projects are properly showcased with accurate descriptions and icons.
-
 User Experience Testing:
 
-- Usability Testing: I had users interact with the site and provide feedback. Document any issues encountered and the resolutions implemented.
-1.
-2.
-3.
+- Usability Testing: I had users interact with the program and provide feedback. Document any issues encountered and the resolutions implemented.
+
+1.My first user was a young boy aged 7 who had no interest in the weather or quizzes. He found the game interesting as he had to use a keyboard to navigate rather than a mouse which is different to how he has played other games/taken quizzes. He said he liked this feature. He also liked that he could choose the amount of questions as he started small and added more upon completing each set of questions and his enjoyment of the quiz grew. 
+2.The second participant was a woman in her late-20s who is a teacher and had interest in the weather as this was part of the curriculum she taught, but had a neutral feeling towards quizzes. She said it was a great way to test children on their knowledge of the weather. She loved the fact that there is a leader board that you could see high scores on which made it a competitive game for her students which in turn made it more enjoyable.
+3.My final participant was a 60-year-old man who listens to the weather regularly, and takes quizzes and puzzles regularly. He explained how it was a great idea that he could pick his difficulty level and how many questions. He takes quizzes to pass time, so thought it was a great idea that he could find the perfect amount of time to fill his needs. He also enjoyed trying to beat his own high score and thought it was a great feature.
 
 Compatibility Testing:
 
-- Browser Compatibility: Tested on different browsers (Chrome, Firefox, Bing etc.) to ensure consistent performance.
+- Browser Compatibility: I tested on different browsers (Chrome, Firefox, DuckDuckGo etc.) to ensure consistent performance.
 
 Regression Testing:
 
