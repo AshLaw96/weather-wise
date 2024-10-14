@@ -6,9 +6,9 @@
 
 ---
 
-Weather Wise is a multiple choice weather quiz that users can play to help improve there knowledge about weather and is a fun game for all ages, so everyone can play.
+Weather Wise is a multiple choice weather quiz that users can play to help improve their knowledge about weather. It is a fun game for all ages, so everyone can play.
 
-When a user first opens the quiz it will show a menu with a title and a brief overview of what the program actually is. Below this will be a list of options with what the user can do next. Depending on there choice it will either start the game, show the instructions on how to play the game or quit the game. If the user inputs an incorrect value they will then be informed that whatever they have just inputted was incorrect and they need to write either 1, 2 or 3 depending on what they would like to do. If the user inputs 2 into the program, it will then take them to the difficulty choosing section, where it will ask the user what level of difficulty the user would like for example easy, medium or hard. Again if the user inputs an incorrect value it will tell them that they have done so and need to write either 1, 2 or 3. Following there choice it will then ask how many questions they would like to answer for example 10, 20 or 30. Once more if the user didn't type a correct value it will tell them so and that they need to type either 1, 2 or 3. After this the program will then access data from the questions library and start asking randomly chosen multiple choice questions up until the user has answered there desired amount, for example what is rain? a. god peeing b. condensation from clouds c. water squirting from plains d. water that falls from clouds in the sky, that happens when tiny water droplets in the clouds join together and become too heavy to stay in the air. Once again if the user doesn't input a, b, c or d for any question they will be told to write a correct value from the options given. When the quiz has been finished there score will be toted up and then shown to the user. The user will then be asked to enter there name and that there score will then be added to the leaderboard and the top 10 scorers will then be shown in the leaderboard. The user will then be asked if they would like to play again or quit the game. If the user doesn't input a correct value again they will be informed of this and asked to input a correct value. Providing they have chosen a correct value it will either take them to the difficulty choice section or show message saying thank you for playing, goodbye. However at the menu screen if the user inputted the second option the app will then show the user how to play the quiz and once they have read this it will return them back to the menu. Finally if the user chooses the last option it will then double check they want to quit and if they do show the thank you for playing, goodbye message. 
+When a user first opens the quiz it will show a menu with a title and a brief overview of what the program actually is. Below this will be a list of options with what the user can do next. Depending on their choice it will either start the game, show the instructions on how to play or quit the game. If the user inputs an incorrect value they will then be informed that whatever they have just inputted was incorrect and they need to write either 1, 2 or 3 depending on what they would like to do. If the user inputs 2 into the program, it will then take them to the difficulty choosing section, where it will ask the user what level of difficulty the user would like for example easy, medium or hard. Again, if the user inputs an incorrect value it will tell them that they have done so and need to write either 1, 2 or 3. Following their choice it will then ask how many questions they would like to answer for example 10, 20 or 30. Once more if the user didn't type a correct value it will tell them so and that they need to type either 1, 2 or 3. After this the program will then access data from the questions library and start asking randomly chosen multiple choice questions up until the user has answered their desired amount. For example what is rain? a. God peeing b. condensation from clouds c. water squirting from plains d. water that falls from clouds in the sky. Once again, if the user doesn't input a, b, c or d for any question they will be told to write a correct value from the options given. When the quiz has been finished their score will be added up and then shown to the user. The user will then be asked to enter their name and that their score will then be added to the leaderboard and the top 10 scorers will then be shown in the leaderboard. The user will then be asked if they would like to play again or quit the game. If the user doesn't input a correct value again, they will be informed of this and asked to input a correct value. Providing they have chosen a correct value it will either take them to the difficulty choice section or show a message saying 'thank you for playing, goodbye'. However, at the menu screen if the user inputted the second option the app will then show the user how to play the quiz and once they have read this it will return them back to the menu. Finally, if the user chooses the last option it will then double check they want to quit and if they do it will show the thank you for playing, goodbye message. 
 
 Deployed site:
 https://ui.dev/amiresponsive?url=https://weather-wise-project-e6ccd7a6b753.herokuapp.com
@@ -27,15 +27,15 @@ source: [amiresponsive](https://ui.dev/amiresponsive?url=https://weather-wise-pr
 - As a new site user, I would like to know how to play the quiz, so that I can easily understand what I need to do and start playing.
 - As a new site user, I would like to choose how hard the quiz is, so that I can challenge myself with harder questions.
 - As a new site user, I would like to choose the amount of questions I get asked, so that I don't get bored.
-- As a new site user, I would like to keep playing the game as many times as I want, so that I can keep learning interesting facts about the weather.
+- As a new site user, I would like to keep playing the game as many times as I want, so that I can keep testing my knowledge about the weather.
 
 ### Returning Site Users
 
 - As a returning site user, I would like to be able to try answering any question again if I didn't input one of the given options, so that my score isn't effected because of this.
 - As a returning site user, I would like to be able to see my high score, so that I can try and beat it and improve my knowledge.
 - As a returning site user, I would like to have different questions asked, so that I'm not repeating the same questions every time I play.
-- As a returning site user, I would like to see different icons or images, so that I can be visually pleased whilst learning cool facts at the same time.
-- As a returning site user, I would like to see other peoples high score, so that I can try and get on the top of the leaderboard.
+- As a returning site user, I would like to see different icons or images, so that I can be visually pleased whilst testing my knowledge of t he weather through the game.
+- As a returning site user, I would like to see other people's high score, so that I can try and get on the top of the leaderboard.
 
 ## Features
 
@@ -55,7 +55,7 @@ source: [amiresponsive](https://ui.dev/amiresponsive?url=https://weather-wise-pr
 
 - **Incorrect input for menu**
 
-  - If the user inputted an incorrect value the app will show that there value was not correct and the need to input either 1, 2 or 3.
+  - If the user inputted an incorrect value the app will show that their value was not correct and they need to input either 1, 2 or 3.
 
 ![screenshot](documentation/features/menu-error.png)
 
@@ -74,13 +74,13 @@ source: [amiresponsive](https://ui.dev/amiresponsive?url=https://weather-wise-pr
 
 - **Amount option**
 
-  - Once the user has chosen there difficulty they will then be asked how many questions they will like to be asked and they will again need to type 1,2 or 3.
+  - Once the user has chosen their difficulty they will then be asked how many questions they will like to be asked and they will again need to type 1,2 or 3.
 
 ![screenshot](documentation/features/amount.png)
 
 - **Incorrect amount option**
 
-  - If the user choose an option that wasn't there they will be informed that there value was incorrect and that they would need to type either 1, 2 or 3.
+  - If the user chose an option that wasn't there, they will be informed that their value was incorrect and that they would need to type either 1, 2 or 3.
 
 ![screenshot](documentation/features/amount-error.png)
 
@@ -109,19 +109,19 @@ Y/y input
 
 - **Incorrect quit option**
 
-  - If the user typed an incorrect value they will be informed that there value was incorrect and that they would need to type either Y/y or N/n.
+  - If the user typed an incorrect value they will be informed that their value was incorrect and that they would need to type either Y/y or N/n.
 
 ![screenshot](documentation/features/quit-error.png)
 
 - **The quiz**
 
-  - When the player has chosen there difficulty level and how many questions they would like to answer, the app will then access the questions library and choose data from the chosen level and pick random question from it and start asking the user until there chosen amount has been completed.
+  - When the player has chosen their difficulty level and how many questions they would like to answer, the app will then access the questions library and choose data from the chosen level and pick random question from it and start asking the user until their chosen amount has been completed.
 
 ![screenshot](documentation/features/quiz.png)
 
 - **Incorrect value for quiz**
 
-  - If the user inputs an incorrect value they will be shown that there input is incorrect and they must type either A/a, B/b, C/c or D/d.
+  - If the user inputs an incorrect value they will be shown that their input is incorrect and they must type either A/a, B/b, C/c or D/d.
 
 ![screenshot](documentation/features/quiz-error.png)
 
@@ -144,13 +144,13 @@ Incorrect
 
 - **Score**
 
-  - When the user has finished the quiz there score will be toted up and then printed to the screen showing them what they have achieved and will ask them to enter there name.
+  - When the user has finished the quiz their score will be added up and then printed to the screen showing them what they have achieved and will ask them to enter their name.
 
 ![screenshot](documentation/features/score.png)
 
 - **Finished**
 
-  - Once the user has received there score they will be informed that their score has been added to a leaderboard. They will then be asked if they would like to play again or quit, if they chose option 1 it will take the back to the menu if they chose option 2 it will then ask again if they are sure they would like to quit and if not it will take them to the menu but if they do it will show them the message thankyou for playing, goodbye.
+  - Once the user has received their score they will be informed that their score has been added to a leaderboard. They will then be asked if they would like to play again or quit, if they choose option 1 it will take them back to the menu. If they choose option 2 it will then ask again if they are sure they would like to quit and if not it will take them to the menu but if they do it will show them the message thankyou for playing, goodbye.
 
 <details>
 <summary> Click here to view the finished game options </summary>
@@ -167,7 +167,7 @@ options
 
 - **Incorrect value at finish**
 
-  - If the user inputs an incorrect value they will be shown that there input is incorrect and they must type either Y/y or N/n.
+  - If the user inputs an incorrect value they will be shown that their input is incorrect and they must type either Y/y or N/n.
 
 ![screenshot](documentation/features/play-again-error.png)
 
@@ -289,7 +289,7 @@ The primary functions used on this application are:
 - `menu()`
   - Shows the first screen the user sees allowing them to choose what they want to do first.
 - `header()`
-  - Shows the title and all of its styles and content.
+  - Shows the title and all of it's styles and content.
 - `check()`
   - Adds code validation if a user inputs incorrect values.
 - `get_checker()`
@@ -301,9 +301,9 @@ The primary functions used on this application are:
 - `exit_game()`
   - Allows the user to end the game and all the styling for this section.
 - `select_difficulty()`
-  - Let's the user choose what level of difficulty they would like the questions to be and adds styling for this section.
+  - Lets the user choose what level of difficulty they would like the questions to be and adds styling for this section.
 - `select_question_amount()`
-  - Let's the user choose how many questions they would like to answer and adds styling for this section.
+  - Lets the user choose how many questions they would like to answer and adds styling for this section.
 - `play()`
   - Selects the chosen amount and difficulty of questions the user asked for and randomly picks from the specified category and adds the styling.
 - `get_user_answer()`
@@ -319,7 +319,7 @@ The primary functions used on this application are:
 - `show_leaderboard()`
   - Shows the leaderboard to the users.
 - `loading_message()`
-  - Used to create a message that makes the dots after it appear one by one after so many seconds.
+  - Used to create a message that makes the dots after it appears one by one after so many seconds.
 - `main()`
     - Run all program functions.
 
