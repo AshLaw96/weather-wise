@@ -310,7 +310,7 @@ class UIManager:
                 for i in range(3, 0, -1):
                     print(f"Exiting in {i} seconds...")
                     time.sleep(1)
-                    
+
                 ProgramHelper.remove()
                 print(f"{StyleHelper.CENTER(
                     'Thank you for playing, goodbye. 👋')}")
