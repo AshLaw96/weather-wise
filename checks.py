@@ -1,52 +1,47 @@
-import time
+from rich.console import Console
+from rich.panel import Panel
+from rich.prompt import Prompt
+
+console = Console()
 
 
 class SelectionChecker:
-    """
-    Check user input and display errors if input is invalid.
-    """
-    def __init__(self, selections):
+    """Checks user input and displays styled error messages if invalid."""
+
+    def __init__(self, selections: list[str]):
         self.selections = selections
 
-    def check(self, user_selects, error_message):
-        """
-        Check if the user's selection is valid. If not, show an error message.
-        """
-        from helpers import StyleHelper, ProgramHelper
+    def check(self, user_selects: str, error_message: str = "Invalid selection") -> bool:
+        """Validates if user selection is in the allowed list."""
         if user_selects not in self.selections:
-            ProgramHelper.remove()
-            print(f"{StyleHelper.RED_BG}{StyleHelper.WHITE_FOREGROUND}"
-                  f"{StyleHelper.BRIGHT_STYLING}"
-                  f"{StyleHelper.CENTER(f'⛔️ Error: {user_selects} is not'
-                     f' valid! Please select {self.selections}. ⛔️')}"
-                  f"{StyleHelper.BRIGHT_STYLING}")
+            from helpers import ProgramHelper
 
-            time.sleep(0.05)
-            print()
-            input(f'{StyleHelper.CENTER("Click ENTER to continue")}\n')
+            ProgramHelper.remove()
+
+            allowed_str = ", ".join([f"'{s}'" for s in self.selections])
+            console.print(
+                Panel(
+                    f"[bold red]⛔ Error: '{user_selects}' is not valid![/bold red]\n"
+                    f"[dim white]Please select one of the following: [bold yellow]{allowed_str}[/bold yellow][/dim white]",
+                    title="[bold red]Input Error[/bold red]",
+                    border_style="red",
+                    expand=False,
+                )
+            )
+
+            console.print()
+            Prompt.ask("[dim]Press [bold white]ENTER[/bold white] to continue[/dim]", default="")
             ProgramHelper.remove()
             return False
         return True
 
 
 class CheckerFactory:
-    """
-    Provides different types of selection checkers based on input.
-    """
+    """Factory to instantiate validation checkers based on check category."""
+
     @staticmethod
-    def get_checker(type_of_check, selections):
-        """
-        Return the appropriate checker based on the type of check requested.
-        """
-        if type_of_check == 'exit':
+    def get_checker(type_of_check: str, selections: list[str]) -> SelectionChecker:
+        valid_types = {"exit", "level", "amount", "question", "menu"}
+        if type_of_check in valid_types:
             return SelectionChecker(selections)
-        elif type_of_check == 'level':
-            return SelectionChecker(selections)
-        elif type_of_check == 'amount':
-            return SelectionChecker(selections)
-        elif type_of_check == 'question':
-            return SelectionChecker(selections)
-        elif type_of_check == 'menu':
-            return SelectionChecker(selections)
-        else:
-            raise ValueError(f"Unknown checker type: {type_of_check}")
+        raise ValueError(f"Unknown checker type: {type_of_check}")
