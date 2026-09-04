@@ -158,17 +158,20 @@ class QuizGame:
         )
         console.print()
 
-        valid_keys = list(tag_choice.keys())
+        lower_keys = list(tag_choice.keys())
+        upper_keys = [k.upper() for k in lower_keys]
+        valid_keys = lower_keys + upper_keys
+
         user_tag = Prompt.ask(
             "[bold yellow]Your Answer[/bold yellow]",
             choices=valid_keys,
             show_choices=False
-        ).lower()
+        ).strip().lower()
 
         selected_answer = tag_choice[user_tag]
         console.print()
 
-        if selected_answer == correct_answer:
+        if selected_answer.strip().lower() == correct_answer.strip().lower():
             console.print(
                 Panel(
                     Align.center(f"[bold green]✅ Correct! Excellent job.[/bold green]\n[dim]{correct_answer}[/dim]"),

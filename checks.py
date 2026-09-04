@@ -9,11 +9,13 @@ class SelectionChecker:
     """Checks user input and displays styled error messages if invalid."""
 
     def __init__(self, selections: list[str]):
-        self.selections = selections
+        self.lower_selections = [str(s).strip().lower() for s in selections]
 
     def check(self, user_selects: str, error_message: str = "Invalid selection") -> bool:
         """Validates if user selection is in the allowed list."""
-        if user_selects not in self.selections:
+        clean_input = str(user_selects).strip().lower()
+
+        if clean_input not in self.lower_selections:
             from helpers import ProgramHelper
 
             ProgramHelper.remove()
