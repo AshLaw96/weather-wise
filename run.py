@@ -8,7 +8,7 @@ from rich.align import Align
 
 from checks import CheckerFactory
 from game import QuizGame
-from helpers import StyleHelper, ProgramHelper
+from helpers import ProgramHelper
 
 console = Console()
 
@@ -157,8 +157,18 @@ class UIManager:
 
 def main():
     ui_manager = UIManager()
-    # Start the program from the menu
-    ui_manager.menu()
+    try:
+        # Start the program from the menu
+        ui_manager.menu()
+    except KeyboardInterrupt:
+        console.print()
+        console.print(
+            Panel(
+                Align.center("[bold cyan]Thanks for playing Weather Wise! Goodbye 👋[/bold cyan]"),
+                border_style="bright_black",
+            )
+        )
+        sys.exit()
 
 
 if __name__ == '__main__':

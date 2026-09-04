@@ -9,6 +9,7 @@ class SelectionChecker:
     """Checks user input and displays styled error messages if invalid."""
 
     def __init__(self, selections: list[str]):
+        self.selections = selections
         self.lower_selections = [str(s).strip().lower() for s in selections]
 
     def check(self, user_selects: str, error_message: str = "Invalid selection") -> bool:

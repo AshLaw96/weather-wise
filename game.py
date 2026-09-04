@@ -227,6 +227,8 @@ class QuizGame:
         console.print()
 
         user_name = Prompt.ask("[bold cyan]Enter your name for the leaderboard[/bold cyan]").strip()
+        # Strip control/newline characters and cap length so a stray paste can't corrupt a sheet row
+        user_name = "".join(ch for ch in user_name if ch.isprintable())[:20].strip()
         if not user_name:
             user_name = "Anonymous"
 
@@ -245,10 +247,7 @@ class QuizGame:
 
         if again.lower() == "y":
             self.select_difficulty()
-        else:
-            from run import UIManager
-
-            UIManager().exit_game()
+        # else: fall through and let control unwind back to the main menu
 
 
 class LeaderboardManager:
