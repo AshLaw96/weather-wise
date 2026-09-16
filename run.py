@@ -1,10 +1,10 @@
 import sys
 import time
+from rich.align import Align
 from rich.console import Console
 from rich.panel import Panel
 from rich.prompt import Prompt
 from rich.text import Text
-from rich.align import Align
 
 from checks import CheckerFactory
 from game import QuizGame
@@ -15,7 +15,8 @@ console = Console()
 
 class UIManager:
     """
-    Handles terminal interface rendering and main navigation.
+    Manages terminal header rendering and top-level
+    main navigation.
     """
     def render_header(self, title: str) -> None:
         """Renders a styled header panel using Rich."""
@@ -27,15 +28,15 @@ class UIManager:
             style="dim white"
         )
 
-        panel = Panel(
-            Align.center(header_text),
-            border_style="bold blue",
-            padding=(1, 2),
+        console.print(
+            Panel(
+                Align.center(header_text),
+                border_style="bold blue",
+                padding=(1, 2),
+            )
         )
-        console.print(panel)
 
     def menu(self) -> None:
-        """Displays the interactive manin menu."""
         while True:
             ProgramHelper.remove()
             self.render_header('Weather Wise')
@@ -61,23 +62,22 @@ class UIManager:
 
             user_selects = Prompt.ask(
                 "[bold bright_blue]Select an option[/bold bright_blue]",
-                choices=["1", "2", "3"],
                 default="2",
             )
-
             checker = CheckerFactory.get_checker('menu', ["1", "2", "3"])
-            if checker.check(user_selects, "Invalid menu selection"):
+
+            if checker.check(user_selects):
                 ProgramHelper.remove()
                 if user_selects == '1':
                     self.rules('Rules & Instructions')
                 elif user_selects == '2':
                     quiz = QuizGame()
-                    quiz.select_difficulty()
+                    quiz.start()
                 elif user_selects == '3':
-                    self.exit_game()
+                    if self.exit_game():
+                        break
 
     def rules(self, title: str) -> None:
-        """Displays paginated game instructions inside styled panels."""
         pages = [
             (
                 "Difficulty Selection",
@@ -123,42 +123,42 @@ class UIManager:
             )
 
     def exit_game(self) -> None:
-        """Handles exit confirmation and graceful shutdown animation."""
         console.print()
         confirm = Prompt.ask(
             "[bold yellow]Are you sure you want to exit?[/bold yellow]",
-            choices=["y", "n"],
             default="n",
-        ) 
-
+        )
         checker = CheckerFactory.get_checker('exit', ["y", "n"])
-        if checker.check(confirm, "Invalid exit selection"):
-            ProgramHelper.remove()
-            if confirm.lower() == "y":
-                console.print()
-                for i in range(3, 0, -1):
-                    console.print(f"[dim]Exiting in {i} seconds...[/dim]")
-                    time.sleep(0.6)
 
-                ProgramHelper.remove()
-                console.print(
-                    Panel(
-                        Align.center(
-                            "[bold cyan]Thank you for playing Weather Wise! Goodbye 👋[/bold cyan]"
-                        ),
-                        border_style="bright_black",
-                    )
+        if not checker.check(confirm):
+            return False
+        
+        ProgramHelper.remove()
+        if confirm.lower() == "y":
+            console.print()
+            for i in range(3, 0, -1):
+                console.print(f"[dim]Exiting in {i} seconds...[/dim]")
+                time.sleep(0.6)
+
+            ProgramHelper.remove()
+            console.print(
+                Panel(
+                    Align.center(
+                        "[bold cyan]Thank you for playing Weather Wise! Goodbye 👋[/bold cyan]"
+                    ),
+                    border_style="bright_black",
                 )
-                time.sleep(1)
-                sys.exit()
-            else:
-                Prompt.ask("[dim]Press [bold white]ENTER[/bold white] to return to main menu[/dim]", default="")
+            )
+            time.sleep(1)
+            sys.exit()
+
+        Prompt.ask("[dim]Press [bold white]ENTER[/bold white] to return to main menu[/dim]", default="")
+        return False
 
 
 def main():
     ui_manager = UIManager()
     try:
-        # Start the program from the menu
         ui_manager.menu()
     except KeyboardInterrupt:
         console.print()
